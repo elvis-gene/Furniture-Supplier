@@ -59,7 +59,7 @@ public class Employee {
         return salary;
     }
 
-    public int getPassCode(){
+    public String getPassCode(){
         return passCode;
     }
 
@@ -75,7 +75,6 @@ public class Employee {
                 ", address='" + address + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phone=" + phone +
-                ", passCode=" + passCode +
                 ", job=" + job +
                 '}';
     }
