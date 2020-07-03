@@ -4,6 +4,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println("Capstone Project!");
+        System.out.println("Furniture Supplier!");
     }
 }

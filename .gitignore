@@ -31,5 +31,10 @@ build/
 ### VS Code ###
 .vscode/
 
+### Eclipse ###
+.settings/
+bin/**
+tmp/**
+
 # Notes I take about the project when coding
 Notes.txt
