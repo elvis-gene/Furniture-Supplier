@@ -5,7 +5,9 @@ public class Product {
     private int productCode;
     private String name;
     private double price;
-    private double size;
+    private float length;
+    private float width;
+    private float weight;
     private String description;
     private ProductCategory category;
 
@@ -13,7 +15,9 @@ public class Product {
         this.productCode = builder.productCode;
         this.name = builder.name;
         this.price = builder.price;
-        this.size = builder.size;
+        this.length = builder.length;
+        this.width = builder.width;
+        this.weight = builder.weight;
         this.description = builder.description;
         this.category = builder.category;
 
@@ -31,8 +35,16 @@ public class Product {
         return price;
     }
 
-    public double getSize() {
-        return size;
+    public float getLength() {
+        return length;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getWeight() {
+        return weight;
     }
 
     public String getDescription() {
@@ -49,7 +61,9 @@ public class Product {
                 "productCode=" + productCode +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", size=" + size +
+                ", length=" + length +
+                ", width=" + width +
+                ", weight=" + weight +
                 ", description='" + description + '\'' +
                 ", category=" + category +
                 '}';
@@ -59,7 +73,9 @@ public class Product {
         private int productCode;
         private String name;
         private double price;
-        private double size;
+        private float length;
+        private float width;
+        private float weight;
         private String description;
         private ProductCategory category;
 
@@ -79,9 +95,16 @@ public class Product {
             return this;
         }
 
-        public Builder setSize(double size) {
-            this.size = size;
-            return this;
+        public void setLength(float length) {
+            this.length = length;
+        }
+
+        public void setWidth(float width) {
+            this.width = width;
+        }
+
+        public void setWeight(float weight) {
+            this.weight = weight;
         }
 
         public Builder setDescription(String description) {
@@ -98,7 +121,9 @@ public class Product {
             this.productCode = product.productCode;
             this.name = product.name;
             this.price = product.price;
-            this.size = product.size;
+            this.length = product.length;
+            this.width = product.width;
+            this.weight = product.weight;
             this.description = product.description;
             this.category = product.category;
             return this;
