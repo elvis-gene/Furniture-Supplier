@@ -15,7 +15,7 @@ public class Employee {
     private String phone;
     private String shift;
     private double salary;
-    //private int passCode;
+    private String passCode;
     private Job job;
 
 
@@ -27,7 +27,7 @@ public class Employee {
         this.phone = builder.phone;
         this.shift = builder.shift;
         this.salary = builder.salary;
-        //this.passCode = builder.passCode;
+        this.passCode = builder.passCode;
         this.job = builder.job;
     }
 
@@ -59,9 +59,9 @@ public class Employee {
         return salary;
     }
 
-    /*public int getPassCode(){
+    public int getPassCode(){
         return passCode;
-    }*/
+    }
 
     public Job getJob(){
         return job;
@@ -75,7 +75,7 @@ public class Employee {
                 ", address='" + address + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phone=" + phone +
-                //", passCode=" + passCode +
+                ", passCode=" + passCode +
                 ", job=" + job +
                 '}';
     }
@@ -88,7 +88,7 @@ public class Employee {
         private String phone;
         private String shift;
         private double salary;
-        //private int passCode;
+        private String passCode;
         private Job job;
 
         public EmployeeBuilder setEmployeeCode(int employeeCode) {
@@ -126,10 +126,10 @@ public class Employee {
             return this;
         }
 
-        /*public EmployeeBuilder setPassCode(int passCode){
+        public EmployeeBuilder setPassCode(String passCode){
             this.passCode = passCode;
             return this;
-        }*/
+        }
 
         public EmployeeBuilder setJob(Job job){
             this.job = job;
@@ -144,7 +144,7 @@ public class Employee {
             this.phone = employee.phone;
             this.shift = employee.shift;
             this.salary = employee.salary;
-            //this.passCode = employee.passCode;
+            this.passCode = employee.passCode;
             this.job = employee.job;
             return this;
         }
