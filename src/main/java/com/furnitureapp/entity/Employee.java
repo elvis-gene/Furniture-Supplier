@@ -90,6 +90,9 @@ public class Employee {
         private String passCode;
         private Job job;
 
+        public EmployeeBuilder() {
+        }
+
         public EmployeeBuilder setEmployeeCode(int employeeCode) {
             this.employeeCode = employeeCode;
             return this;
