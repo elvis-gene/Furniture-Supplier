@@ -23,7 +23,6 @@ public class SaleProduct {
         return quantity;
     }
 
-
     public static class SaleProductBuilder{
         private int saleCode;
         private int prodCode;
