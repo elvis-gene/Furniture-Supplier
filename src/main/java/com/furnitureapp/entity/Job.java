@@ -45,8 +45,6 @@ public class Job {
         private String jobTitle;
         private String jobDescription;
 
-        public JobBuilder() {
-        }
 
         public JobBuilder setJobCode(int jobCode) {
             this.jobCode = jobCode;
