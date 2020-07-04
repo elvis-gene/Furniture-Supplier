@@ -95,16 +95,21 @@ public class Product {
             return this;
         }
 
-        public void setLength(float length) {
+        public Builder setLength(float length) {
             this.length = length;
+            return this;
         }
 
-        public void setWidth(float width) {
+        public Builder setWidth(float width) {
             this.width = width;
+            return this;
+
         }
 
-        public void setWeight(float weight) {
+        public Builder setWeight(float weight) {
             this.weight = weight;
+            return this;
+
         }
 
         public Builder setDescription(String description) {
