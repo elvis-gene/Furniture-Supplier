@@ -14,14 +14,16 @@ public class EmployeeFactoryTest {
                 , "xyz@gmail.com"
                 , "0123456789"
                 , "9:00 - 16:00"
-                ,25000);
+                , 25000
+                ,"54321");
 
         Employee e2 = EmployeeFactory.createEmployee("John Doe"
                 ,"42 Saturn Street, Cape Town"
                 ,"abc@aol.com"
                 ,"9876543210"
                 ,"8:00 - 15:00"
-                ,15500);
+                , 15500
+                ,"12345");
 
         assertNotSame(e2, e1);
     }
