@@ -19,7 +19,7 @@ public class Employee {
     private Job job;
 
 
-    public Employee(EmployeeBuilder builder) {
+    private Employee(EmployeeBuilder builder) {
         this.employeeCode = builder.employeeCode;
         this.fullName = builder.fullName;
         this.address = builder.address;
@@ -89,6 +89,9 @@ public class Employee {
         private double salary;
         private String passCode;
         private Job job;
+
+        public EmployeeBuilder() {
+        }
 
         public EmployeeBuilder setEmployeeCode(int employeeCode) {
             this.employeeCode = employeeCode;
