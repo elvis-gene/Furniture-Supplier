@@ -16,7 +16,7 @@ public class Promotion {
     private String year;
 
     //Constructor
-    public Promotion(PromotionBuilder builder) {
+    private Promotion(PromotionBuilder builder) {
         this.prodTitle = builder.prodTitle;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
@@ -66,6 +66,8 @@ public class Promotion {
 
     //Builder Pattern Design implementation
     public static class PromotionBuilder{
+        //constructor
+        public PromotionBuilder(){}
         //All attributes in the builder class
         private String prodTitle;
         private String startDate;
