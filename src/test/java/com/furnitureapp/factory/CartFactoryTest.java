@@ -7,17 +7,25 @@ Desc:This is the CartFactoryTest class, it helps with the test of all the object
 package com.furnitureapp.factory;
 
 import com.furnitureapp.entity.Cart;
+import com.furnitureapp.entity.SaleProduct;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CartFactoryTest {
 
     @Test
     public void createCart() {
-       //  Cart cart = CartFactory.createCart(,10,4500);
+        //add element to the
+        List <SaleProduct> cartItems = new ArrayList();
+        cartItems.add(SaleProductFactory.createSaleProduct(152,3));
+        //create an object of Cart class
+        Cart cart = CartFactory.createCart( cartItems, 2, 6000);
+        Cart cart1 = new Cart.CartBuilder().copy(cart).build();
+        //asserting the objects
+        Assert.assertNotEquals(cart.toString(),cart1.toString());
 
     }
-
 }

@@ -10,17 +10,19 @@ package com.furnitureapp.factory;
 import com.furnitureapp.entity.Cart;
 import com.furnitureapp.entity.SaleProduct;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CartFactory {
 
     public CartFactory(){}
-    public static Cart createCart(SaleProduct cartItems, int numItem, double total){
+    public static Cart createCart(List<SaleProduct> cartItems, int numItem, double total){
         //create a new Cart object
-        Cart cart = null;
-             cart = new Cart.CartBuilder()
-                    .setCartItem(cartItems)
-                    .setNumbItem(numItem)
-                    .setTotal(total)
-                    .build();
+        Cart cart = new Cart.CartBuilder()
+                        .setCartItems(cartItems)
+                        .setNumbItems(numItem)
+                        .setTotal(total)
+                        .build();
             return cart;
         }
 

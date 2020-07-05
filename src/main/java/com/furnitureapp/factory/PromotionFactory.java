@@ -7,7 +7,6 @@ Desc:This is the PromotionFactory class, it helps with the encapsulation of all 
 
 package com.furnitureapp.factory;
 
-import com.furnitureapp.entity.Cart;
 import com.furnitureapp.entity.Promotion;
 
 public class PromotionFactory {
