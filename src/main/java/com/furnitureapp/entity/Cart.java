@@ -16,7 +16,7 @@ public class Cart {
     private double total;
 
     //Constructor
-    public Cart(CartBuilder builder) {
+    private Cart(CartBuilder builder) {
         this.cartItems =  builder.cartItems;
         this.numbItems = builder.numbItems;
         this.total = builder.total;
