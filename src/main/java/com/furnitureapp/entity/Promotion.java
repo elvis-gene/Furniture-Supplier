@@ -16,7 +16,7 @@ public class Promotion {
     private String year;
 
     //Constructor
-    public Promotion(PromotionBuilder builder) {
+    private Promotion(PromotionBuilder builder) {
         this.prodTitle = builder.prodTitle;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;

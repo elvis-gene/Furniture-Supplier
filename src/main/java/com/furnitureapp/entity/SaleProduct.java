@@ -5,7 +5,7 @@ public class SaleProduct {
     private int prodCode;
     private int quantity;
 
-    public SaleProduct(SaleProductBuilder builder) {
+    private SaleProduct(Builder builder) {
         this.saleCode = builder.saleCode;
         this.prodCode = builder.prodCode;
         this.quantity = builder.quantity;
@@ -23,27 +23,29 @@ public class SaleProduct {
         return quantity;
     }
 
-    public static class SaleProductBuilder{
+    public static class Builder{
         private int saleCode;
         private int prodCode;
         private int quantity;
 
-        public SaleProductBuilder setSaleCode(int saleCode) {
+        public Builder(){}
+
+        public Builder setSaleCode(int saleCode) {
             this.saleCode = saleCode;
             return this;
         }
 
-        public SaleProductBuilder setProdCode(int prodCode) {
+        public Builder setProdCode(int prodCode) {
             this.prodCode = prodCode;
             return this;
         }
 
-        public SaleProductBuilder setQuantity(int quantity) {
+        public Builder setQuantity(int quantity) {
             this.quantity = quantity;
             return this;
         }
 
-        public SaleProductBuilder copy(SaleProduct saleProduct){
+        public Builder copy(SaleProduct saleProduct){
             this.saleCode = saleProduct.saleCode;
             this.prodCode = saleProduct.prodCode;
             this.quantity = saleProduct.quantity;

@@ -29,5 +29,4 @@ public class EmployeeFactoryTest {
 
         assertNotSame(e2, e1);
     }
-
 }

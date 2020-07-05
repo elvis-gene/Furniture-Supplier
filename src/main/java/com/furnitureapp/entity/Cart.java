@@ -9,13 +9,13 @@ package com.furnitureapp.entity;
 public class Cart {
     //All attributes
     private int saleCode;
-    private int numbItmes;
+    private int numbItems;
     private int total;
 
     //Constructor
-    public Cart(CartBuilder builder) {
+    private Cart(CartBuilder builder) {
         this.saleCode = builder.saleCode;
-        this.numbItmes = builder.numbItmes;
+        this.numbItems = builder.numbItems;
         this.total = builder.total;
     }
 
@@ -24,8 +24,8 @@ public class Cart {
         return saleCode;
     }
 
-    public int getNumbItmes() {
-        return numbItmes;
+    public int getNumbItems() {
+        return numbItems;
     }
 
     public int getTotal() {
@@ -38,7 +38,7 @@ public class Cart {
     public String toString() {
         return "Cart{" +
                 "saleCode=" + saleCode +
-                ", numbItmes=" + numbItmes +
+                ", numbItmes=" + numbItems +
                 ", total=" + total +
                 '}';
     }
@@ -47,8 +47,10 @@ public class Cart {
     public static class CartBuilder{
         //All attributes inside builder class
         private int saleCode;
-        private int numbItmes;
+        private int numbItems;
         private int total;
+        
+        public CartBuilder(){}
 
         //Setters
         public CartBuilder setSaleCode(int saleCode) {
@@ -56,8 +58,8 @@ public class Cart {
             return this;
         }
 
-        public CartBuilder setNumbItmes(int numbItmes) {
-            this.numbItmes = numbItmes;
+        public CartBuilder setNumbItems(int numbItems) {
+            this.numbItems = numbItems;
             return this;
         }
 
@@ -69,7 +71,7 @@ public class Cart {
         //Copy of the class Cart
         public CartBuilder copy(Cart cart){
             this.saleCode = cart.saleCode;
-            this.numbItmes = cart.numbItmes;
+            this.numbItems = cart.numbItems;
             this.total = cart.total;
             return this;
         }

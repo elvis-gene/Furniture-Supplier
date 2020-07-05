@@ -19,7 +19,7 @@ public class Employee {
     private Job job;
 
 
-    public Employee(EmployeeBuilder builder) {
+    private Employee(EmployeeBuilder builder) {
         this.employeeCode = builder.employeeCode;
         this.fullName = builder.fullName;
         this.address = builder.address;
