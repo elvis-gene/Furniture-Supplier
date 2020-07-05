@@ -1,7 +1,7 @@
 /*
 Author: Ntumba Owin
 Date of Creation: 4/7/2020
-This is the Promotion class, it keep tracks of all discounts the system can offer.
+Desc: This is the Promotion class, it keeps track of all discounts the system can offer.
 
  */
 package com.furnitureapp.entity;
