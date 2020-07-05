@@ -4,7 +4,7 @@ public class Stock {
     private int prodCatCode;
     private int quantity;
 
-    public Stock(StockBuilder stockBuilder){
+    private Stock(StockBuilder stockBuilder){
         this.prodCatCode = stockBuilder.prodCatCode;
         this.quantity = stockBuilder.quantity;
     }

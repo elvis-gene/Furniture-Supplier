@@ -1,3 +1,8 @@
+/*
+    Coder: Elvis Gene
+    Description: Sale class. Will be used once a sale is made.
+ */
+
 package com.furnitureapp.entity;
 
 import java.text.SimpleDateFormat;
@@ -5,18 +10,18 @@ import java.util.Date;
 
 public class Sale{
     private int saleCode;
-    private double totAmt;
+    private double totalAmount;
     private String saleTime;
 
     private Sale(SaleBuilder builder){
         this.saleCode = builder.saleCode;
-        this.totAmt = builder.totAmt;
+        this.totalAmount = builder.totalAmount;
         this.saleTime = builder.saleTime;
     }
 
     public int getSaleCode() { return saleCode; }
 
-    public double getTotAmt() { return totAmt;  }
+    public double getTotalAmount() { return totalAmount;  }
 
     public String getSaleTime() {
         //SimpleDateFormat will be used on the receipt to show the time of the transaction
@@ -30,23 +35,25 @@ public class Sale{
     public String toString() {
         return "Sale{" +
                 "saleCode=" + saleCode +
-                ", totAmt=" + totAmt +
+                ", totAmt=" + totalAmount +
                 ", saleTime='" + saleTime + '\'' +
                 '}';
     }
 
     public static class SaleBuilder{
         private int saleCode;
-        private double totAmt;
+        private double totalAmount;
         private String saleTime;
+
+        public SaleBuilder(){}
 
         public SaleBuilder setSaleCode(int saleCode) {
             this.saleCode = saleCode;
             return this;
         }
 
-        public SaleBuilder setTotAmt(double totAmt) {
-            this.totAmt = totAmt;
+        public SaleBuilder setTotalAmount(double totalAmount) {
+            this.totalAmount = totalAmount;
             return this;
         }
 
@@ -57,7 +64,7 @@ public class Sale{
 
         public SaleBuilder copy(Sale sale){
             this.saleCode = sale.saleCode;
-            this.totAmt = sale.totAmt;
+            this.totalAmount = sale.totalAmount;
             this.saleTime= sale.saleTime;
             return this;
         }
