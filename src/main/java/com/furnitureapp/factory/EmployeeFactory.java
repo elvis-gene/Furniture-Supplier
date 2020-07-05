@@ -6,11 +6,12 @@ package com.furnitureapp.factory;
  */
 
 import com.furnitureapp.entity.Employee;
+import com.furnitureapp.entity.Job;
 import com.furnitureapp.utility.Helper;
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee(String fullName, String address, String emailAddress, String phone, String shift, double salary, String passCode){
+    public static Employee createEmployee(String fullName, String address, String emailAddress, String phone, String shift, double salary, String passCode, Job job){
 
         Employee employee = new Employee.EmployeeBuilder()
                 .setEmployeeCode(Helper.generateCode())
@@ -21,6 +22,7 @@ public class EmployeeFactory {
                 .setShift(shift)
                 .setSalary(salary)
                 .setPassCode(passCode)
+                .setJob(job)
                 .build();
         return employee;
     }
