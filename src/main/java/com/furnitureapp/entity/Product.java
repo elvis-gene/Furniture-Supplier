@@ -1,5 +1,11 @@
 package com.furnitureapp.entity;
 
+/**
+ * @author @Siba182
+ * Description: Entity for product
+ */
+
+
 public class Product {
 
     private int productCode;
@@ -11,7 +17,7 @@ public class Product {
     private String description;
     private ProductCategory category;
 
-    private Product(Builder builder) {
+    private Product(ProductBuilder builder) {
         this.productCode = builder.productCode;
         this.name = builder.name;
         this.price = builder.price;
@@ -69,7 +75,7 @@ public class Product {
                 '}';
     }
 
-    public static class Builder {
+    public static class ProductBuilder {
         private int productCode;
         private String name;
         private double price;
@@ -79,50 +85,54 @@ public class Product {
         private String description;
         private ProductCategory category;
 
+        public ProductBuilder() {
 
-        public Builder setProductCode(int productCode) {
+        }
+
+
+        public ProductBuilder setProductCode(int productCode) {
             this.productCode = productCode;
             return this;
         }
 
-        public Builder setName(String name) {
+        public ProductBuilder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder setPrice(double price) {
+        public ProductBuilder setPrice(double price) {
             this.price = price;
             return this;
         }
 
-        public Builder setLength(float length) {
+        public ProductBuilder setLength(float length) {
             this.length = length;
             return this;
         }
 
-        public Builder setWidth(float width) {
+        public ProductBuilder setWidth(float width) {
             this.width = width;
             return this;
 
         }
 
-        public Builder setWeight(float weight) {
+        public ProductBuilder setWeight(float weight) {
             this.weight = weight;
             return this;
 
         }
 
-        public Builder setDescription(String description) {
+        public ProductBuilder setDescription(String description) {
             this.description = description;
             return this;
         }
 
-        public Builder setCategory(ProductCategory category) {
+        public ProductBuilder setCategory(ProductCategory category) {
             this.category = category;
             return this;
         }
 
-        public Builder copy(Product product) {
+        public ProductBuilder copy(Product product) {
             this.productCode = product.productCode;
             this.name = product.name;
             this.price = product.price;
