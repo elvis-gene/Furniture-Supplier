@@ -11,7 +11,7 @@ public class Delivery {
     private int trackingNum;
     private boolean deliveryStatus;
 
-    public Delivery(DeliveryBuilder deliveryBuilder){
+    private Delivery(DeliveryBuilder deliveryBuilder){
         this.deliveryCode = deliveryBuilder.deliveryCode;
         this.employeeCode = deliveryBuilder.employeeCode;
         this.saleCode = deliveryBuilder.saleCode;
