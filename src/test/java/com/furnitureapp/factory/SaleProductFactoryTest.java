@@ -1,3 +1,8 @@
+/*
+    Coder: Elvis Gene
+    Description: Tests of the SaleProductFactory class methods
+ */
+
 package com.furnitureapp.factory;
 
 import com.furnitureapp.entity.SaleProduct;
@@ -12,5 +17,4 @@ public class SaleProductFactoryTest {
 
         Assert.assertNotNull(saleProduct);
     }
-
 }

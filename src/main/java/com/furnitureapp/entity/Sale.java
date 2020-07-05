@@ -1,3 +1,8 @@
+/*
+    Coder: Elvis Gene
+    Description: Sale class. Will be used once a sale is made.
+ */
+
 package com.furnitureapp.entity;
 
 import java.text.SimpleDateFormat;

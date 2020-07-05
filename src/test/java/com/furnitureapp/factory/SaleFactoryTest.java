@@ -1,3 +1,8 @@
+/*
+    Coder: Elvis Gene
+    Description: Tests of the SaleFactory class methods
+ */
+
 package com.furnitureapp.factory;
 
 import com.furnitureapp.entity.Sale;

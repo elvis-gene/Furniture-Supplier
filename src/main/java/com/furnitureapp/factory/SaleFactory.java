@@ -1,3 +1,8 @@
+/*
+    Coder: Elvis Gene
+    Description: This class is used to instantiate Sale objects.
+ */
+
 package com.furnitureapp.factory;
 
 import com.furnitureapp.entity.Sale;
