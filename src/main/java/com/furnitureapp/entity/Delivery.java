@@ -9,7 +9,7 @@ public class Delivery {
     private String dateTimeReceived;
     private String dateTimeSet;
     private int trackingNum;
-    private boolean deliveryStatus;
+    private String deliveryStatus;
 
     private Delivery(DeliveryBuilder deliveryBuilder){
         this.deliveryCode = deliveryBuilder.deliveryCode;
@@ -23,6 +23,7 @@ public class Delivery {
     }
 
     public int getDeliveryCode() {
+
         return deliveryCode;
     }
 
@@ -50,8 +51,8 @@ public class Delivery {
         return trackingNum;
     }
 
-    public boolean isDeliveryStatus() {
-        return deliveryStatus;
+    public String isDeliveryStatus() {
+        return  deliveryStatus;
     }
 
     public static class DeliveryBuilder{
@@ -62,7 +63,7 @@ public class Delivery {
         private String dateTimeReceived;
         private String dateTimeSet;
         private int trackingNum;
-        private boolean deliveryStatus;
+        private String deliveryStatus;
 
         public DeliveryBuilder(){}
 
@@ -101,7 +102,7 @@ public class Delivery {
             return this;
         }
 
-        public DeliveryBuilder setDeliveryStatus(boolean deliveryStatus) {
+        public DeliveryBuilder setDeliveryStatus(String deliveryStatus) {
             this.deliveryStatus = deliveryStatus;
             return this;
         }

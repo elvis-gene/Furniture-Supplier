@@ -15,9 +15,24 @@ public class DeliveryFactoryTest {
     @Test
 
     public void createDelivery(){
-        Delivery d1 = DeliveryFactory.createDelivery( 1123, 111,123, "55 Jesse Way", "05/07/2020 15:55", "03/07/2020 14:44", 7856, true);
+        Delivery d1 = DeliveryFactory.createDelivery(
 
-        Delivery d2 = DeliveryFactory.createDelivery(5455, 777,321, "48 Dank Way", "05/06/2020 15:55", "03/05/2020 14:44", 4568, false);
+                111,
+                123,
+                "55 Jesse Way",
+                "05/07/2020 15:55",
+                "03/07/2020 14:44",
+                7856,
+                "Complete");
+
+        Delivery d2 = DeliveryFactory.createDelivery(
+                777,
+                321,
+                "48 Dank Way",
+                "05/06/2020 15:55",
+                "03/05/2020 14:44",
+                4568,
+                "In-progress");
 
         assertNotSame(d2, d1);
     }
