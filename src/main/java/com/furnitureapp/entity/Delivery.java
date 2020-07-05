@@ -122,7 +122,5 @@ public class Delivery {
             return new Delivery(this);
         }
 
-       // public DeliveryBuilder setDeliveryCode() {
-      //  }
     }
 }
