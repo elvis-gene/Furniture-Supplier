@@ -1,5 +1,6 @@
 /*
     Coder: Elvis Gene
+    Date: 05-07-2020
     Description: Tests of the SaleProductFactory class methods
  */
 

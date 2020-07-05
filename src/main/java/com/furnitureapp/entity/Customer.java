@@ -2,7 +2,7 @@ package com.furnitureapp.entity;
 
 /*
  * @author: @nkosinathisola
- * Description: Appointment Entity
+ * Description: Customer Entity
  */
 
 public class Customer{
