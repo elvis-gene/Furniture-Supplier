@@ -1,11 +1,16 @@
 package com.furnitureapp.entity;
 
+/**
+ * @author @Siba182
+ * Description: Entity for ProductCatergory
+ */
+
 public class ProductCategory {
 
     private int categoryCode;
     private String categoryName;
 
-    private ProductCategory(Builder builder) {
+    private ProductCategory(ProductCategoryBuilder builder) {
         this.categoryCode = builder.categoryCode;
         this.categoryName = builder.categoryName;
     }
@@ -26,21 +31,21 @@ public class ProductCategory {
                 '}';
     }
 
-    public static class Builder {
+    public static class ProductCategoryBuilder {
         private int categoryCode;
         private String categoryName;
 
-        public Builder setCategoryCode(int categoryCode) {
+        public ProductCategoryBuilder setCategoryCode(int categoryCode) {
             this.categoryCode = categoryCode;
             return this;
         }
 
-        public Builder setCategoryName(String categoryName) {
+        public ProductCategoryBuilder setCategoryName(String categoryName) {
             this.categoryName = categoryName;
             return this;
         }
 
-        public Builder copy(ProductCategory productCategory){
+        public ProductCategoryBuilder copy(ProductCategory productCategory){
             this.categoryCode = productCategory.categoryCode;
             this.categoryName = productCategory.categoryName;
             return this;

@@ -6,38 +6,42 @@ This is the Cart class, it keep tracks of all the items the customer wan to buy.
  */
 package com.furnitureapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cart {
     //All attributes
-    private int saleCode;
+    List <SaleProduct> cartItems;
     private int numbItems;
-    private int total;
+    private double total;
 
     //Constructor
     private Cart(CartBuilder builder) {
-        this.saleCode = builder.saleCode;
+        this.cartItems =  builder.cartItems;
         this.numbItems = builder.numbItems;
         this.total = builder.total;
     }
 
     //Getters
-    public int getSaleCode() {
-        return saleCode;
+
+
+    public List<SaleProduct> getCartItems() {
+        return cartItems;
     }
 
     public int getNumbItems() {
         return numbItems;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
     //Display with toString
-
     @Override
     public String toString() {
         return "Cart{" +
-                "saleCode=" + saleCode +
+                "cartItems=" + cartItems +
                 ", numbItmes=" + numbItems +
                 ", total=" + total +
                 '}';
@@ -46,15 +50,14 @@ public class Cart {
     //Builder Pattern Design implementation
     public static class CartBuilder{
         //All attributes inside builder class
-        private int saleCode;
+        private List<SaleProduct> cartItems;
         private int numbItems;
-        private int total;
-        
+        private double total;
+        //constructor
         public CartBuilder(){}
-
         //Setters
-        public CartBuilder setSaleCode(int saleCode) {
-            this.saleCode = saleCode;
+        public CartBuilder setCartItems(List<SaleProduct> cartItems) {
+            this.cartItems = cartItems;
             return this;
         }
 
@@ -63,14 +66,14 @@ public class Cart {
             return this;
         }
 
-        public CartBuilder setTotal(int total) {
+        public CartBuilder setTotal(double total) {
             this.total = total;
             return this;
         }
 
         //Copy of the class Cart
         public CartBuilder copy(Cart cart){
-            this.saleCode = cart.saleCode;
+            this.numbItems = cart.numbItems;
             this.numbItems = cart.numbItems;
             this.total = cart.total;
             return this;

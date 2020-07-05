@@ -1,6 +1,11 @@
+/*
+    Coder: Elvis Gene
+    Date: 05-07-2020
+    Description: This class is used to instantiate Product items belonging to a specific sale.
+ */
+
 package com.furnitureapp.factory;
 
-import com.furnitureapp.entity.Sale;
 import com.furnitureapp.entity.SaleProduct;
 import com.furnitureapp.utility.Helper;
 

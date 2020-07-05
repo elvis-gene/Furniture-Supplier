@@ -1,3 +1,10 @@
+/*
+    Coder: Elvis Gene
+    Description: SaleProduct class. A sale might have more than one item and an item might exist in many sales
+                    so this class serves as a bridge class whose objects will be unique to a sale.
+ */
+
+
 package com.furnitureapp.entity;
 
 public class SaleProduct {
