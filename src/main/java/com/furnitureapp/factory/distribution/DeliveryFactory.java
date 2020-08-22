@@ -7,23 +7,23 @@ package com.furnitureapp.factory.distribution;
 import com.furnitureapp.entity.distribution.Delivery;
 import  com.furnitureapp.utility.Helper;
 
+import java.time.LocalDateTime;
+
 public class DeliveryFactory {
 
+    public static Delivery createDelivery(int saleCode,int employeeCode,String deliveryAddress,int trackingNum, String deliveryStatus){
 
-    public static Delivery createDelivery(int saleCode,int employeeCode,String deliveryAddress,String dateTimeReceived, String dateTimeSet,int trackingNum, String deliveryStatus){
-        Delivery delivery = new Delivery.DeliveryBuilder()
+        return new Delivery.DeliveryBuilder()
 
                 .setDeliveryCode(Helper.generateCode())
                 .setSaleCode(saleCode)
                 .setEmployeeCode(employeeCode)
                 .setDeliveryAddress(deliveryAddress)
-                .setDateTimeReceived(dateTimeReceived)
-                .setDateTimeSet(dateTimeSet)
+                .setDateTimeReceived(LocalDateTime.now())
+                .setDateTimeSet(LocalDateTime.now())
                 .setTrackingNum(trackingNum)
                 .setDeliveryStatus(deliveryStatus)
                 .build();
-
-                return delivery;
 
 
 

@@ -6,7 +6,6 @@ package com.furnitureapp.entity.stockcontrol;
  */
 
 public class ProductCategory {
-
     private int categoryCode;
     private String categoryName;
 

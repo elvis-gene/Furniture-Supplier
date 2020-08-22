@@ -6,14 +6,16 @@ Desc: This is the Promotion class, it keeps track of all discounts the system ca
  */
 package com.furnitureapp.entity.sales;
 
+import java.time.LocalDate;
+
 public class Promotion {
     //All attributes
     private String prodTitle;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String description;
     private String season;
-    private String year;
+    private int year;
 
     //Constructor
     private Promotion(PromotionBuilder builder) {
@@ -30,11 +32,11 @@ public class Promotion {
         return prodTitle;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
@@ -46,7 +48,7 @@ public class Promotion {
         return season;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
@@ -70,11 +72,11 @@ public class Promotion {
         public PromotionBuilder(){}
         //All attributes in the builder class
         private String prodTitle;
-        private String startDate;
-        private String endDate;
+        private LocalDate startDate;
+        private LocalDate endDate;
         private String description;
         private String season;
-        private String year;
+        private int year;
 
         //Setters
 
@@ -83,12 +85,12 @@ public class Promotion {
             return this;
         }
 
-        public PromotionBuilder setStartDate(String startDate) {
+        public PromotionBuilder setStartDate(LocalDate startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public PromotionBuilder setEndDate(String endDate) {
+        public PromotionBuilder setEndDate(LocalDate endDate) {
             this.endDate = endDate;
             return this;
         }
@@ -103,7 +105,7 @@ public class Promotion {
             return this;
         }
 
-        public PromotionBuilder setYear(String year) {
+        public PromotionBuilder setYear(int year) {
             this.year = year;
             return this;
         }

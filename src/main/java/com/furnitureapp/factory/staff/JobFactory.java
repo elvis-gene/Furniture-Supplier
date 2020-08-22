@@ -12,12 +12,10 @@ public class JobFactory {
 
     public static Job createJob(String jobTitle, String jobDescription){
 
-        Job job = new Job.JobBuilder()
+        return new Job.JobBuilder()
                 .setJobCode(Helper.generateCode())
                 .setJobTitle(jobTitle)
                 .setJobDescription(jobDescription)
                 .build();
-        return job;
     }
-
 }

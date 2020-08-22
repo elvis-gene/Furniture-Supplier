@@ -5,10 +5,13 @@ package com.furnitureapp.entity.clientele;
  * Description: Appointment Entity
  */
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Appointment {
-    private String date;
+    private LocalDate date;
     private String customerName;
-    private String time;
+    private LocalTime time;
     private String reason;
 
     private Appointment(AppointmentBuilder appointmentBuilder){
@@ -22,11 +25,11 @@ public class Appointment {
         return customerName;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
@@ -39,17 +42,17 @@ public class Appointment {
 
         public AppointmentBuilder() {}
 
-        private String date;
-        private String time;
+        private LocalDate date;
+        private LocalTime time;
         private String reason;
         private String customerName;
 
-        public AppointmentBuilder setDate(String date) {
+        public AppointmentBuilder setDate(LocalDate date) {
             this.date = date;
             return this;
         }
 
-        public AppointmentBuilder setTime(String time) {
+        public AppointmentBuilder setTime(LocalTime time) {
             this.time = time;
             return this;
         }

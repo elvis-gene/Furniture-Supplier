@@ -6,7 +6,6 @@ package com.furnitureapp.entity.staff;
  */
 
 public class Job {
-
     private int jobCode;
     private String jobTitle;
     private String jobDescription;

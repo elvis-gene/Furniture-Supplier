@@ -17,12 +17,11 @@ public class CartFactory {
     public CartFactory(){}
     public static Cart createCart(List<SaleProduct> cartItems, int numItem, double total){
         //create a new Cart object
-        Cart cart = new Cart.CartBuilder()
+        return new Cart.CartBuilder()
                         .setCartItems(cartItems)
                         .setNumbItems(numItem)
                         .setTotal(total)
                         .build();
-            return cart;
         }
 
 }

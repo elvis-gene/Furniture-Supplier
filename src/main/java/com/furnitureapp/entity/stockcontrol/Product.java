@@ -7,7 +7,6 @@ package com.furnitureapp.entity.stockcontrol;
 
 
 public class Product {
-
     private int productCode;
     private String name;
     private double price;

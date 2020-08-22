@@ -4,14 +4,13 @@
  */
 
 package com.furnitureapp.entity.sales;
+import java.time.LocalDateTime;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Sale{
     private int saleCode;
     private double totalAmount;
-    private String saleTime;
+    private LocalDateTime saleTime;
 
     private Sale(SaleBuilder builder){
         this.saleCode = builder.saleCode;
@@ -23,12 +22,8 @@ public class Sale{
 
     public double getTotalAmount() { return totalAmount;  }
 
-    public String getSaleTime() {
-        //SimpleDateFormat will be used on the receipt to show the time of the transaction
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date now = new Date();
-        saleTime = sdf.format(now);
-        return saleTime;
+    public LocalDateTime getSaleTime() {
+        return LocalDateTime.now();
     }
 
     @Override
@@ -43,7 +38,7 @@ public class Sale{
     public static class SaleBuilder{
         private int saleCode;
         private double totalAmount;
-        private String saleTime;
+        private LocalDateTime saleTime;
 
         public SaleBuilder(){}
 
@@ -57,7 +52,7 @@ public class Sale{
             return this;
         }
 
-        public SaleBuilder setSaleTime(String saleTime) {
+        public SaleBuilder setSaleTime(LocalDateTime saleTime) {
             this.saleTime = saleTime;
             return this;
         }

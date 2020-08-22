@@ -1,13 +1,15 @@
 package com.furnitureapp.entity.distribution;
 
 
+import java.time.LocalDateTime;
+
 public class Delivery {
     private int deliveryCode;
     private int saleCode;
     private int employeeCode;
     private String deliveryAddress;
-    private String dateTimeReceived;
-    private String dateTimeSet;
+    private LocalDateTime dateTimeReceived;
+    private LocalDateTime dateTimeSet;
     private int trackingNum;
     private String deliveryStatus;
 
@@ -39,11 +41,11 @@ public class Delivery {
         return deliveryAddress;
     }
 
-    public String getDateTimeReceived() {
+    public LocalDateTime getDateTimeReceived() {
         return dateTimeReceived;
     }
 
-    public String getDateTimeSet() {
+    public LocalDateTime getDateTimeSet() {
         return dateTimeSet;
     }
 
@@ -60,8 +62,8 @@ public class Delivery {
         private int saleCode;
         private int employeeCode;
         private String deliveryAddress;
-        private String dateTimeReceived;
-        private String dateTimeSet;
+        private LocalDateTime dateTimeReceived;
+        private LocalDateTime dateTimeSet;
         private int trackingNum;
         private String deliveryStatus;
 
@@ -87,12 +89,12 @@ public class Delivery {
             return this;
         }
 
-        public DeliveryBuilder setDateTimeReceived(String dateTimeReceived) {
+        public DeliveryBuilder setDateTimeReceived(LocalDateTime dateTimeReceived) {
             this.dateTimeReceived = dateTimeReceived;
             return this;
         }
 
-        public DeliveryBuilder setDateTimeSet(String dateTimeSet) {
+        public DeliveryBuilder setDateTimeSet(LocalDateTime dateTimeSet) {
             this.dateTimeSet = dateTimeSet;
             return this;
         }

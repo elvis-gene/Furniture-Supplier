@@ -12,10 +12,9 @@ public class ProductCategoryFactory {
 
     public static ProductCategory createProductCategory(String categoryName){
 
-        ProductCategory productCategory = new ProductCategory.ProductCategoryBuilder()
+        return new ProductCategory.ProductCategoryBuilder()
                 .setCategoryCode(Helper.generateCode())
                 .setCategoryName(categoryName)
                 .build();
-        return productCategory;
     }
 }

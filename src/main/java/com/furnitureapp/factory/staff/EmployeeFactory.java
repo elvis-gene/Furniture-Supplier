@@ -13,7 +13,7 @@ public class EmployeeFactory {
 
     public static Employee createEmployee(String fullName, String address, String emailAddress, String phone, String shift, double salary, String passCode, Job job){
 
-        Employee employee = new Employee.EmployeeBuilder()
+        return new Employee.EmployeeBuilder()
                 .setEmployeeCode(Helper.generateCode())
                 .setFullName(fullName)
                 .setAddress(address)
@@ -24,7 +24,5 @@ public class EmployeeFactory {
                 .setPassCode(passCode)
                 .setJob(job)
                 .build();
-        return employee;
     }
-
 }

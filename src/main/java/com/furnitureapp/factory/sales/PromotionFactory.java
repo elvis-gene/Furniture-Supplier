@@ -9,19 +9,18 @@ package com.furnitureapp.factory.sales;
 
 import com.furnitureapp.entity.sales.Promotion;
 
+import java.time.LocalDate;
+
 public class PromotionFactory {
-    public static Promotion createPromotion(String prodTitle, String startDate, String endDate, String description, String season, String year) {
-        //create a new promotion object
-        Promotion promotion = null;
-        promotion = new Promotion.PromotionBuilder()
+    public static Promotion createPromotion(String prodTitle, String description, String season, int year) {
+        return new Promotion.PromotionBuilder()
                 .setProdTitle(prodTitle)
                 .setDescription(description)
-                .setStartDate(startDate)
-                .setEndDate(endDate)
+                .setStartDate(LocalDate.now())
+                .setEndDate(LocalDate.now())
                 .setSeason(season)
                 .setYear(year)
                 .build();
-        return promotion;
     }
 }
 
