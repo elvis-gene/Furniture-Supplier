@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 
 public class Sale{
-    private int saleCode;
+    private Long saleCode;
     private double totalAmount;
     private LocalDateTime saleTime;
 
@@ -18,7 +18,7 @@ public class Sale{
         this.saleTime = builder.saleTime;
     }
 
-    public int getSaleCode() { return saleCode; }
+    public Long getSaleCode() { return saleCode; }
 
     public double getTotalAmount() { return totalAmount;  }
 
@@ -36,13 +36,13 @@ public class Sale{
     }
 
     public static class SaleBuilder{
-        private int saleCode;
+        private Long saleCode;
         private double totalAmount;
         private LocalDateTime saleTime;
 
         public SaleBuilder(){}
 
-        public SaleBuilder setSaleCode(int saleCode) {
+        public SaleBuilder setSaleCode(Long saleCode) {
             this.saleCode = saleCode;
             return this;
         }

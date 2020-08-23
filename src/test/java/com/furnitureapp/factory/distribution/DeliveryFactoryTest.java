@@ -7,6 +7,7 @@ package com.furnitureapp.factory.distribution;
 
 import com.furnitureapp.entity.distribution.Delivery;
 import com.furnitureapp.factory.distribution.DeliveryFactory;
+import com.furnitureapp.utility.Helper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotSame;
@@ -14,24 +15,19 @@ import static org.junit.Assert.assertNotSame;
 public class DeliveryFactoryTest {
 
     @Test
-
     public void createDelivery(){
         Delivery d1 = DeliveryFactory.createDelivery(
 
-                111,
-                123,
+                Helper.generateCode(),
+                Helper.generateCode(),
                 "55 Jesse Way",
-                "05/07/2020 15:55",
-                "03/07/2020 14:44",
                 7856,
                 "Complete");
 
         Delivery d2 = DeliveryFactory.createDelivery(
-                777,
-                321,
+                Helper.generateCode(),
+                Helper.generateCode(),
                 "48 Dank Way",
-                "05/06/2020 15:55",
-                "03/05/2020 14:44",
                 4568,
                 "In-progress");
 

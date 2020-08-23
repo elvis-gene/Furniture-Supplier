@@ -1,7 +1,7 @@
 package com.furnitureapp.entity.stockcontrol;
 
 public class Stock {
-    private int prodCatCode;
+    private Long prodCatCode;
     private int quantity;
 
     private Stock(StockBuilder stockBuilder){
@@ -9,7 +9,7 @@ public class Stock {
         this.quantity = stockBuilder.quantity;
     }
 
-    public int getProdCatCode() {
+    public Long getProdCatCode() {
         return prodCatCode;
     }
 
@@ -18,10 +18,10 @@ public class Stock {
     }
 
     public static class StockBuilder{
-        private int prodCatCode;
+        private Long prodCatCode;
         private int quantity;
 
-        public StockBuilder setProdCatCode(int prodCatCode) {
+        public StockBuilder setProdCatCode(Long prodCatCode) {
             this.prodCatCode = prodCatCode;
             return this;
         }

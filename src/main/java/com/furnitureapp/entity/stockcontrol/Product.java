@@ -7,7 +7,7 @@ package com.furnitureapp.entity.stockcontrol;
 
 
 public class Product {
-    private int productCode;
+    private Long productCode;
     private String name;
     private double price;
     private float length;
@@ -28,7 +28,7 @@ public class Product {
 
     }
 
-    public int getProductCode() {
+    public Long getProductCode() {
         return productCode;
     }
 
@@ -75,7 +75,7 @@ public class Product {
     }
 
     public static class ProductBuilder {
-        private int productCode;
+        private Long productCode;
         private String name;
         private double price;
         private float length;
@@ -89,7 +89,7 @@ public class Product {
         }
 
 
-        public ProductBuilder setProductCode(int productCode) {
+        public ProductBuilder setProductCode(Long productCode) {
             this.productCode = productCode;
             return this;
         }

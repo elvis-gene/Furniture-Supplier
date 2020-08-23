@@ -1,4 +1,8 @@
 package com.furnitureapp.repository.sales;
 
-public class PromotionRepository {
+import com.furnitureapp.entity.sales.Promotion;
+import com.furnitureapp.repository.Repository;
+
+// Identified by the promotion title, Second type to be a String.
+public interface PromotionRepository extends Repository<Promotion, String> {
 }

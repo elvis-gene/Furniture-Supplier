@@ -6,7 +6,7 @@ package com.furnitureapp.entity.staff;
  */
 
 public class Employee {
-    private int employeeCode;
+    private Long employeeCode;
     private String fullName;
     private String address;
     private String emailAddress;
@@ -29,7 +29,7 @@ public class Employee {
         this.job = builder.job;
     }
 
-    public int getEmployeeCode() {
+    public Long getEmployeeCode() {
         return employeeCode;
     }
 
@@ -78,7 +78,7 @@ public class Employee {
     }
 
     public static class EmployeeBuilder{
-        private int employeeCode;
+        private Long employeeCode;
         private String fullName;
         private String address;
         private String emailAddress;
@@ -91,7 +91,7 @@ public class Employee {
         public EmployeeBuilder() {
         }
 
-        public EmployeeBuilder setEmployeeCode(int employeeCode) {
+        public EmployeeBuilder setEmployeeCode(Long employeeCode) {
             this.employeeCode = employeeCode;
             return this;
         }

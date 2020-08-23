@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 public class SaleFactory {
     public static Sale createSale(double totalAmount){
-        int saleCode = Helper.generateCode();
+        Long saleCode = Helper.generateCode();
 
         return new Sale.SaleBuilder()
                 .setSaleCode(saleCode)

@@ -9,6 +9,7 @@ package com.furnitureapp.factory.sales;
 
 import com.furnitureapp.entity.sales.Cart;
 import com.furnitureapp.entity.sales.SaleProduct;
+import com.furnitureapp.utility.Helper;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class CartFactory {
     public static Cart createCart(List<SaleProduct> cartItems, int numItem, double total){
         //create a new Cart object
         return new Cart.CartBuilder()
+                        .setCartNum(Helper.generateCode())
                         .setCartItems(cartItems)
                         .setNumbItems(numItem)
                         .setTotal(total)

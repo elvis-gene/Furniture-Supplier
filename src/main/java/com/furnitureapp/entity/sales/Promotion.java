@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 public class Promotion {
     //All attributes
-    private String prodTitle;
+    private String promoTitle;
     private LocalDate startDate;
     private LocalDate endDate;
     private String description;
@@ -19,7 +19,7 @@ public class Promotion {
 
     //Constructor
     private Promotion(PromotionBuilder builder) {
-        this.prodTitle = builder.prodTitle;
+        this.promoTitle = builder.prodTitle;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
         this.description = builder.description;
@@ -28,8 +28,8 @@ public class Promotion {
     }
     //Getters
 
-    public String getProdTitle() {
-        return prodTitle;
+    public String getPromoTitle() {
+        return promoTitle;
     }
 
     public LocalDate getStartDate() {
@@ -57,7 +57,7 @@ public class Promotion {
     @Override
     public String toString() {
         return "Promotion{" +
-                "prodTitle='" + prodTitle + '\'' +
+                "prodTitle='" + promoTitle + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", description='" + description + '\'' +
@@ -112,7 +112,7 @@ public class Promotion {
 
         //Copy of the class Promotion
         public PromotionBuilder copy(Promotion promotion){
-            this.prodTitle = promotion.prodTitle;
+            this.prodTitle = promotion.promoTitle;
             this.startDate = promotion.startDate;
             this.endDate = promotion.endDate;
             this.description = promotion.description;

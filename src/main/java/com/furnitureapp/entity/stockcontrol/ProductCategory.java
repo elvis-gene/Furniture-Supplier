@@ -6,7 +6,7 @@ package com.furnitureapp.entity.stockcontrol;
  */
 
 public class ProductCategory {
-    private int categoryCode;
+    private Long categoryCode;
     private String categoryName;
 
     private ProductCategory(ProductCategoryBuilder builder) {
@@ -14,7 +14,7 @@ public class ProductCategory {
         this.categoryName = builder.categoryName;
     }
 
-    public int getCategoryCode() {
+    public Long getCategoryCode() {
         return categoryCode;
     }
 
@@ -31,10 +31,10 @@ public class ProductCategory {
     }
 
     public static class ProductCategoryBuilder {
-        private int categoryCode;
+        private Long categoryCode;
         private String categoryName;
 
-        public ProductCategoryBuilder setCategoryCode(int categoryCode) {
+        public ProductCategoryBuilder setCategoryCode(Long categoryCode) {
             this.categoryCode = categoryCode;
             return this;
         }

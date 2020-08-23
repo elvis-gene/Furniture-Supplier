@@ -4,9 +4,9 @@ package com.furnitureapp.entity.distribution;
 import java.time.LocalDateTime;
 
 public class Delivery {
-    private int deliveryCode;
-    private int saleCode;
-    private int employeeCode;
+    private Long deliveryCode;
+    private Long saleCode;
+    private Long employeeCode;
     private String deliveryAddress;
     private LocalDateTime dateTimeReceived;
     private LocalDateTime dateTimeSet;
@@ -24,16 +24,16 @@ public class Delivery {
         this.deliveryStatus = deliveryBuilder.deliveryStatus;
     }
 
-    public int getDeliveryCode() {
+    public Long getDeliveryCode() {
 
         return deliveryCode;
     }
 
-    public int getSaleCode() {
+    public Long getSaleCode() {
         return saleCode;
     }
 
-    public int getEmployeeCode() {
+    public Long getEmployeeCode() {
         return employeeCode;
     }
 
@@ -58,9 +58,9 @@ public class Delivery {
     }
 
     public static class DeliveryBuilder{
-        private int deliveryCode;
-        private int saleCode;
-        private int employeeCode;
+        private Long deliveryCode;
+        private Long saleCode;
+        private Long employeeCode;
         private String deliveryAddress;
         private LocalDateTime dateTimeReceived;
         private LocalDateTime dateTimeSet;
@@ -69,17 +69,17 @@ public class Delivery {
 
         public DeliveryBuilder(){}
 
-        public DeliveryBuilder setDeliveryCode(int deliveryCode) {
+        public DeliveryBuilder setDeliveryCode(Long deliveryCode) {
             this.deliveryCode = deliveryCode;
             return this;
         }
 
-        public DeliveryBuilder setSaleCode(int saleCode) {
+        public DeliveryBuilder setSaleCode(Long saleCode) {
             this.saleCode = saleCode;
             return this;
         }
 
-        public DeliveryBuilder setEmployeeCode(int employeeCode) {
+        public DeliveryBuilder setEmployeeCode(Long employeeCode) {
             this.employeeCode = employeeCode;
             return this;
         }

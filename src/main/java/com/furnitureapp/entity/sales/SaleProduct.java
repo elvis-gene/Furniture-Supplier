@@ -8,8 +8,8 @@
 package com.furnitureapp.entity.sales;
 
 public class SaleProduct {
-    private int saleCode;
-    private int prodCode;
+    private Long saleCode;
+    private Long prodCode;
     private int quantity;
 
     private SaleProduct(Builder builder) {
@@ -18,11 +18,11 @@ public class SaleProduct {
         this.quantity = builder.quantity;
     }
 
-    public int getSaleCode() {
+    public Long getSaleCode() {
         return saleCode;
     }
 
-    public int getProdCode() {
+    public Long getProdCode() {
         return prodCode;
     }
 
@@ -31,18 +31,18 @@ public class SaleProduct {
     }
 
     public static class Builder{
-        private int saleCode;
-        private int prodCode;
+        private Long saleCode;
+        private Long prodCode;
         private int quantity;
 
         public Builder(){}
 
-        public Builder setSaleCode(int saleCode) {
+        public Builder setSaleCode(Long saleCode) {
             this.saleCode = saleCode;
             return this;
         }
 
-        public Builder setProdCode(int prodCode) {
+        public Builder setProdCode(Long prodCode) {
             this.prodCode = prodCode;
             return this;
         }

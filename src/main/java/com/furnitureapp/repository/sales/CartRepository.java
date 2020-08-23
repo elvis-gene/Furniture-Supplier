@@ -1,4 +1,7 @@
 package com.furnitureapp.repository.sales;
 
-public class CartRepository {
+import com.furnitureapp.entity.sales.Cart;
+import com.furnitureapp.repository.Repository;
+
+public interface CartRepository extends Repository<Cart, Long> {
 }

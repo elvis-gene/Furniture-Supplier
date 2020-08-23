@@ -1,4 +1,7 @@
 package com.furnitureapp.repository.staff;
 
-public class JobRepository {
+import com.furnitureapp.entity.staff.Job;
+import com.furnitureapp.repository.Repository;
+
+public interface JobRepository extends Repository<Job, Long> {
 }

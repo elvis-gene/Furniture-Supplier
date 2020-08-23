@@ -1,4 +1,7 @@
 package com.furnitureapp.repository.clientele;
 
-public class CustomerRepository {
+import com.furnitureapp.entity.clientele.Customer;
+import com.furnitureapp.repository.Repository;
+
+public interface CustomerRepository extends Repository<Customer, Long> {
 }

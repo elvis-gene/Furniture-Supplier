@@ -10,12 +10,14 @@ import java.util.List;
 
 public class Cart {
     //All attributes
-    List <SaleProduct> cartItems;
+    private Long cartNum;
+    private List <SaleProduct> cartItems;
     private int numbItems;
     private double total;
 
     //Constructor
     private Cart(CartBuilder builder) {
+        this.cartNum = builder.cartNum;
         this.cartItems =  builder.cartItems;
         this.numbItems = builder.numbItems;
         this.total = builder.total;
@@ -36,12 +38,16 @@ public class Cart {
         return total;
     }
 
-    //Display with toString
+    public Long getCartNum() {
+        return cartNum;
+    }
+
     @Override
     public String toString() {
         return "Cart{" +
-                "cartItems=" + cartItems +
-                ", numbItmes=" + numbItems +
+                "cartNum=" + cartNum +
+                ", cartItems=" + cartItems +
+                ", numbItems=" + numbItems +
                 ", total=" + total +
                 '}';
     }
@@ -49,12 +55,21 @@ public class Cart {
     //Builder Pattern Design implementation
     public static class CartBuilder{
         //All attributes inside builder class
+        private Long cartNum;
         private List<SaleProduct> cartItems;
         private int numbItems;
         private double total;
+
         //constructor
         public CartBuilder(){}
+
         //Setters
+
+        public CartBuilder setCartNum(Long cartNum){
+            this.cartNum = cartNum;
+            return this;
+        }
+
         public CartBuilder setCartItems(List<SaleProduct> cartItems) {
             this.cartItems = cartItems;
             return this;
@@ -72,7 +87,8 @@ public class Cart {
 
         //Copy of the class Cart
         public CartBuilder copy(Cart cart){
-            this.numbItems = cart.numbItems;
+            this.cartNum = cart.cartNum;
+            this.cartItems = cart.cartItems;
             this.numbItems = cart.numbItems;
             this.total = cart.total;
             return this;
