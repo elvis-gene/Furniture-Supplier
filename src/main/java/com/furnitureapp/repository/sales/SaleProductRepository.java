@@ -1,6 +1,5 @@
 package com.furnitureapp.repository.sales;
 
-import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.entity.sales.SaleProduct;
 
 import java.util.Set;
