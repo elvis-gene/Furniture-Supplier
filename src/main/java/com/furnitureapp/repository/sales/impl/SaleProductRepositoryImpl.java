@@ -22,9 +22,16 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
      */
 
     private Set<SaleProduct> saleProducts;
+    private static SaleProductRepository saleProductRepository = null;
 
     public SaleProductRepositoryImpl() {
         saleProducts = new HashSet<>();
+    }
+
+    public SaleProductRepository getSaleProductRepository(){
+        if (saleProductRepository == null)
+            saleProductRepository = new SaleProductRepositoryImpl();
+        return saleProductRepository;
     }
 
     @Override

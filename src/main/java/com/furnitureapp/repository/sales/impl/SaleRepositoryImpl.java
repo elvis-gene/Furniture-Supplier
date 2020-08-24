@@ -16,9 +16,16 @@ public class SaleRepositoryImpl implements SaleRepository {
 
     // Using 'Set' as each sale is unique
     private Set<Sale> sales;
+    private static SaleRepository saleRepository = null;
 
     public SaleRepositoryImpl() {
         sales = new HashSet<>();
+    }
+
+    public static SaleRepository getSaleRepository(){
+        if (saleRepository == null)
+            saleRepository = new SaleRepositoryImpl();
+        return saleRepository;
     }
 
     @Override

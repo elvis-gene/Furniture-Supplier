@@ -1,6 +1,6 @@
 package com.furnitureapp.repository.stockcontrol;
 
-import com.furnitureapp.repository.Repository;
+import com.furnitureapp.repository.IRepository;
 
-public interface ProductCategoryRepository extends Repository<ProductRepository, Integer> {
+public interface ProductCategoryRepository extends IRepository<ProductRepository, Integer> {
 }

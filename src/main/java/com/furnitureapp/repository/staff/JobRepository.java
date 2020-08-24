@@ -1,7 +1,7 @@
 package com.furnitureapp.repository.staff;
 
 import com.furnitureapp.entity.staff.Job;
-import com.furnitureapp.repository.Repository;
+import com.furnitureapp.repository.IRepository;
 
-public interface JobRepository extends Repository<Job, Long> {
+public interface JobRepository extends IRepository<Job, Long> {
 }

@@ -1,7 +1,7 @@
 package com.furnitureapp.repository.distribution;
 
 import com.furnitureapp.entity.distribution.Delivery;
-import com.furnitureapp.repository.Repository;
+import com.furnitureapp.repository.IRepository;
 
-public interface DeliveryRepository extends Repository<Delivery, Long> {
+public interface DeliveryRepository extends IRepository<Delivery, Long> {
 }

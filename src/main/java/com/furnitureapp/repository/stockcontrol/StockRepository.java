@@ -1,8 +1,8 @@
 package com.furnitureapp.repository.stockcontrol;
 
 import com.furnitureapp.entity.stockcontrol.Stock;
-import com.furnitureapp.repository.Repository;
+import com.furnitureapp.repository.IRepository;
 
-public interface StockRepository extends Repository<Stock, Integer> {
+public interface StockRepository extends IRepository<Stock, Integer> {
 
 }
