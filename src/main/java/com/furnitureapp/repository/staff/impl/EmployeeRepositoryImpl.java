@@ -39,10 +39,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public Employee read(Long employeeCode){
         return this.employees.stream()
-                        .filter(employee -> employee.getEmployeeCode()
-                        .equals(employeeCode))
-                        .findAny()
-                        .orElse(null);
+                    .filter(employee -> employee.getEmployeeCode()
+                            .equals(employeeCode))
+                            .findAny()
+                            .orElse(null);
     }
 
     @Override
