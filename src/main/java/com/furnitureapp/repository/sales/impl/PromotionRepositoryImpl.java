@@ -86,9 +86,10 @@ public class PromotionRepositoryImpl implements PromotionRepository {
             if (promotion != null) this.promotionSet.remove(promoTitle);
 
         }
-    //
+    //This return the dataset with all its objects
         @Override
-        public Set<Promotion> list() {
-        return null;
-    }
+        public Set<Promotion> list()
+        {
+            return promotionSet;
+        }
 }

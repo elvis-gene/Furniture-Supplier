@@ -17,7 +17,7 @@ public class CartFactoryTest {
 
     @Test
     public void createCart() {
-        //add element to the
+        //add element to the cartItems
         ArrayList<SaleProduct> cartItems = new ArrayList<>();
         cartItems.add(SaleProductFactory.createSaleProduct((long) 152,3));
         //create an object of Cart class

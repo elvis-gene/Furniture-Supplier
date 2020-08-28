@@ -14,9 +14,12 @@ import java.util.Set;
 
 public interface CartRepository extends IRepository<Cart, Long> {
 
-    //CRUD method that will be apply to the cart objects
-
+    ///CRUD method that will be apply to the cart objects
+        Cart create(Cart cart);
+        Cart read(Long cartNum);
+        Cart update(Cart cart);
+        void delete(Long cartNum);
     //Creation of the set that will contain the Cart objects and on which the CRUD method will be applied
-
+        Set<Cart>list();
 
 }
