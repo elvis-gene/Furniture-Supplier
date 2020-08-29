@@ -7,12 +7,10 @@ Desc:This is the CartRepositoryImplTest class, it contains all the CRUD method t
 package com.furnitureapp.repository.sales.impl;
 
 import com.furnitureapp.entity.sales.Cart;
-import com.furnitureapp.entity.sales.Promotion;
 import com.furnitureapp.entity.sales.SaleProduct;
 import com.furnitureapp.factory.sales.CartFactory;
 import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.CartRepository;
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -52,7 +50,7 @@ public class CartRepositoryImplTest {
     @Test
     public void c_update()
     {
-        Cart updatedCart = new Cart.CartBuilder().copy(cart).setCartNum(cart.getCartNum()).build();
+        Cart updatedCart = new Cart.CartBuilder().copy(cart).setNumbItems(4).build();
         updatedCart = cartRepository.update(updatedCart);
         System.out.println("Update: " +updatedCart);
     }
