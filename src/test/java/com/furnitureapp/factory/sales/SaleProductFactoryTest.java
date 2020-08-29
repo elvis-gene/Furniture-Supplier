@@ -7,7 +7,6 @@
 package com.furnitureapp.factory.sales;
 
 import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.utility.Helper;
 import org.junit.Assert;
 import org.junit.Test;

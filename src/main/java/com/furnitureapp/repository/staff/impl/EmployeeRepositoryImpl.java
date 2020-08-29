@@ -37,7 +37,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Employee read(Long employeeCode){
+    public Employee read(Integer employeeCode){
         return this.employees.stream()
                     .filter(employee -> employee.getEmployeeCode()
                             .equals(employeeCode))
@@ -56,7 +56,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void delete(Long employeeCode){
+    public void delete(Integer employeeCode){
         Employee existingEmployee = read(employeeCode);
         if(existingEmployee != null){
             employees.remove(existingEmployee);

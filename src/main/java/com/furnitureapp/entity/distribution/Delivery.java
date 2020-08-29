@@ -4,9 +4,9 @@ package com.furnitureapp.entity.distribution;
 import java.time.LocalDateTime;
 
 public class Delivery {
-    private Long deliveryCode;
-    private Long saleCode;
-    private Long employeeCode;
+    private Integer deliveryCode;
+    private Integer saleCode;
+    private Integer employeeCode;
     private String deliveryAddress;
     private LocalDateTime dateTimeReceived;
     private LocalDateTime dateTimeSet;
@@ -24,16 +24,16 @@ public class Delivery {
         this.deliveryStatus = deliveryBuilder.deliveryStatus;
     }
 
-    public Long getDeliveryCode() {
+    public Integer getDeliveryCode() {
 
         return deliveryCode;
     }
 
-    public Long getSaleCode() {
+    public Integer getSaleCode() {
         return saleCode;
     }
 
-    public Long getEmployeeCode() {
+    public Integer getEmployeeCode() {
         return employeeCode;
     }
 
@@ -58,9 +58,9 @@ public class Delivery {
     }
 
     public static class DeliveryBuilder{
-        private Long deliveryCode;
-        private Long saleCode;
-        private Long employeeCode;
+        private Integer deliveryCode;
+        private Integer saleCode;
+        private Integer employeeCode;
         private String deliveryAddress;
         private LocalDateTime dateTimeReceived;
         private LocalDateTime dateTimeSet;
@@ -69,17 +69,17 @@ public class Delivery {
 
         public DeliveryBuilder(){}
 
-        public DeliveryBuilder setDeliveryCode(Long deliveryCode) {
+        public DeliveryBuilder setDeliveryCode(Integer deliveryCode) {
             this.deliveryCode = deliveryCode;
             return this;
         }
 
-        public DeliveryBuilder setSaleCode(Long saleCode) {
+        public DeliveryBuilder setSaleCode(Integer saleCode) {
             this.saleCode = saleCode;
             return this;
         }
 
-        public DeliveryBuilder setEmployeeCode(Long employeeCode) {
+        public DeliveryBuilder setEmployeeCode(Integer employeeCode) {
             this.employeeCode = employeeCode;
             return this;
         }

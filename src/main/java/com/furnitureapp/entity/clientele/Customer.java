@@ -6,7 +6,7 @@ package com.furnitureapp.entity.clientele;
  */
 
 public class Customer{
-    private Long customerCode;
+    private Integer customerCode;
     private String fullName;
     private String emailAddress;
     private String phoneNumber;
@@ -25,7 +25,7 @@ public class Customer{
         this.password = customerBuilder.password;
     }
 
-    public Long getCustomerCode() {
+    public Integer getCustomerCode() {
         return customerCode;
     }
 
@@ -66,7 +66,7 @@ public class Customer{
     }
 
     public static class CustomerBuilder{
-        private Long customerCode;
+        private Integer customerCode;
         private String fullName;
         private String emailAddress;
         private String phoneNumber;
@@ -74,7 +74,7 @@ public class Customer{
         private String password;
         private Appointment appointment;
 
-        public CustomerBuilder setCustomerCode(Long customerCode) {
+        public CustomerBuilder setCustomerCode(Integer customerCode) {
             this.customerCode = customerCode;
             return this;
         }
