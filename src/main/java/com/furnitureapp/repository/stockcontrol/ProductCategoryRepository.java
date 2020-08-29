@@ -1,6 +1,10 @@
 package com.furnitureapp.repository.stockcontrol;
 
+import com.furnitureapp.entity.stockcontrol.ProductCategory;
 import com.furnitureapp.repository.IRepository;
 
-public interface ProductCategoryRepository extends IRepository<ProductRepository, Integer> {
+import java.util.Set;
+
+public interface ProductCategoryRepository extends IRepository<ProductCategory, Integer> {
+    Set<ProductCategory> list();
 }
