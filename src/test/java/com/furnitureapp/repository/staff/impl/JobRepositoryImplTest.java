@@ -21,24 +21,28 @@ public class JobRepositoryImplTest {
     public void a_create() {
         Job created = repo.create(job);
         assertEquals(job, created);
+        System.out.println("Create: " + created);
     }
 
     @Test
     public void b_read() {
         Job read = repo.read(job.getJobCode());
         assertEquals(job.getJobCode(), read.getJobCode());
+        System.out.println("Read: " + read);
     }
 
     @Test
     public void c_update() {
-        Job updated = new Job.JobBuilder().copy(job).setJobCode((long) 465789).build();
+        Job updated = new Job.JobBuilder().copy(job).setJobTitle("Front-End Engineer").build();
         updated = repo.update(updated);
-        assertNotEquals(updated.getJobCode(), job.getJobCode());
+        assertNotEquals(updated.getJobTitle(), job.getJobTitle());
+        System.out.println("Update: " + updated);
     }
 
     @Test
     public void d_delete() {
         repo.delete(job.getJobCode());
+        System.out.println("Job deleted");
     }
 
     @Test

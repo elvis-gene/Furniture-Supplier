@@ -25,12 +25,14 @@ public class EmployeeRepositoryImplTest {
     public void a_create() {
         Employee created = repo.create(employee);
         assertEquals(created, employee);
+        System.out.println("Create: " + created);
     }
 
     @Test
     public void b_read() {
         Employee read = repo.read(employee.getEmployeeCode());
         assertEquals(employee.getEmployeeCode(), read.getEmployeeCode());
+        System.out.println("Read: " + read);
     }
 
     @Test
@@ -38,11 +40,13 @@ public class EmployeeRepositoryImplTest {
         Employee updated = new Employee.EmployeeBuilder().copy(employee).setFullName("Isaac Isaacs").build();
         updated = repo.update(updated);
         assertNotEquals(updated, employee);
+        System.out.println("Update: " + updated);
     }
 
     @Test
     public void d_delete() {
         repo.delete(employee.getEmployeeCode());
+        System.out.println("Employee deleted");
     }
 
     @Test
