@@ -14,11 +14,6 @@ import java.util.Set;
 // Identified by the promotion title, Second type to be a String.
 public interface PromotionRepository extends IRepository<Promotion, String> {
 
-    //CRUD method that will be apply to the cart objects
-        Promotion create(Promotion promo);
-        Promotion read(String promoTitle);
-        Promotion update(Promotion promo);
-        void delete(String promoTitle);
     //Creation of the set that will contain the Cart objects and on which the CRUD method will be applied
         Set<Promotion>list();
 }
