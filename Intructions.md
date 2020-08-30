@@ -10,5 +10,5 @@ different data structures compared to others. Read below to find out more.
 - Appointment Class: 
 A map. Key = customer name, value = appointment object.
 
-###Note:
+### Note:
 Carts (Cart class objects) will not be saved in any database. They will just exist in the browser using sessions (creation, update, & deletion).

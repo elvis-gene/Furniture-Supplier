@@ -5,6 +5,6 @@ import com.furnitureapp.repository.IRepository;
 
 import java.util.Set;
 
-public interface SaleRepository extends IRepository<Sale, Long> {
+public interface SaleRepository extends IRepository<Sale, Integer> {
     Set<Sale> list();
 }
