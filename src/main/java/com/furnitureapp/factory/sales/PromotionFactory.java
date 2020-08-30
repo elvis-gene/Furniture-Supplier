@@ -12,9 +12,9 @@ import com.furnitureapp.entity.sales.Promotion;
 import java.time.LocalDate;
 
 public class PromotionFactory {
-    public static Promotion createPromotion(String prodTitle, String description, String season, int year) {
+    public static Promotion createPromotion(String promoTitle, String description, String season, int year) {
         return new Promotion.PromotionBuilder()
-                .setProdTitle(prodTitle)
+                .setPromoTitle(promoTitle)
                 .setDescription(description)
                 .setStartDate(LocalDate.now())
                 .setEndDate(LocalDate.now())

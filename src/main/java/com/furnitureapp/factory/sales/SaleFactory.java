@@ -7,18 +7,30 @@
 package com.furnitureapp.factory.sales;
 
 import com.furnitureapp.entity.sales.Sale;
+import com.furnitureapp.entity.sales.SaleProduct;
+import com.furnitureapp.repository.stockcontrol.ProductRepository;
+import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
 import com.furnitureapp.utility.Helper;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 
 public class SaleFactory {
-    public static Sale createSale(double totalAmount){
-        Integer saleCode = Helper.generateCode();
+    private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
+
+    public static Sale createSale(Set<SaleProduct> saleProducts){
+
+        // Calculate total sale amount
+        double totalAmount = 0;
+        for (SaleProduct saleProduct : saleProducts){
+            totalAmount += productRepository.read(saleProduct.getProdCode()).getPrice();
+        }
 
         return new Sale.SaleBuilder()
-                .setSaleCode(saleCode)
+                .setSaleCode(Helper.generateCode())
                 .setSaleTime(LocalDateTime.now())
+                .setSaleProducts(saleProducts)
                 .setTotalAmount(totalAmount).build();
     }
 }
