@@ -32,7 +32,7 @@ public class CartRepositoryImplTest {
     @Test
     public void a_create()
     {
-        cartItems.add(SaleProductFactory.createSaleProduct((long) 152,3));
+        cartItems.add(SaleProductFactory.createSaleProduct( 152,3));
         cart = CartFactory.createCart(cartItems, 2, 6000);
         Cart createCart = cartRepository.create(cart);
         System.out.println("Creation: " +createCart);

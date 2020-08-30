@@ -18,81 +18,82 @@ import java.util.Set;
 public class CartRepositoryImpl implements CartRepository {
 
     //Declaration of the Cart Set variable.
-        private Set<Cart> cartSet;
+    private Set<Cart> cartSet;
 
     //Instantiation of CartRepositoryImpl class.
-        private static CartRepository cartRepository = null;
+    private static CartRepository cartRepository = null;
 
     //CartRepositoryImpl constructor.
-        public CartRepositoryImpl()
-        {
-            //Giving a value to the Cart Set.
-            cartSet= new HashSet<>();
-        }
+    public CartRepositoryImpl()
+    {
+        //Giving a value to the Cart Set.
+        cartSet= new HashSet<>();
+    }
 
     //
-        public static CartRepository getCartRepository()
-        {
-            //Checking if a CartRepository object already exist so that we can create a new one with the values that will
-            // come from the CartRepositoryImpl.
-            if (cartRepository == null)
+    public static CartRepository getCartRepository()
+    {
+        //Checking if a CartRepository object already exist so that we can create a new one with the values that will
+        // come from the CartRepositoryImpl.
+        if (cartRepository == null)
             cartRepository = new CartRepositoryImpl();
-            return cartRepository;
-        }
+        return cartRepository;
+    }
     // All CRUD method that will be used to edit dataset
 
     //create method will add new cart to the dataset
-        @Override
-        public Cart create(Cart cart)
-        {
-            cartSet.add(cart);
-            return cart;
-        }
+    @Override
+    public Cart create(Cart cart)
+    {
+        cartSet.add(cart);
+        return cart;
+    }
     //read method will read cartNum to update or remove value from the dataset.
-        @Override
-        public Cart read(Long cartNum)
-        {
-            Cart cart = null;
+    @Override
+    public Cart read(Integer cartNum)
+    {
+        Cart cart = null;
 
-            //Going through the set to find the cart that matches the cartNum.
-            for (Cart c : this.cartSet)
+        //Going through the set to find the cart that matches the cartNum.
+        for (Cart c : this.cartSet)
+        {
+            if (c.getCartNum().equals(cartNum));
             {
-                if (c.getCartNum().equals(cartNum));
-                {
-                    cart = c;
-                    break;
-                }
+                cart = c;
+                break;
             }
-            return cart;
         }
+        return cart;
+    }
 
     //update method will get the object and it will either delete or save the changes made to it.
-        @Override
-        public Cart update(Cart cart)
+    @Override
+    public Cart update(Cart cart)
+    {
+        //get the object
+        Cart oldCart = read(cart.getCartNum());
+        //update object
+        if (oldCart != null)
         {
-            //get the object
-            Cart oldCart = read(cart.getCartNum());
-            //update object
-            if (oldCart != null)
-            {
-                this.cartSet.remove(oldCart);
-                this.cartSet.add(cart);
-            }
-            return cart;
+            this.cartSet.remove(oldCart);
+            this.cartSet.add(cart);
         }
+        return cart;
+    }
     //delete will erase the object from the dataset
-        @Override
-        public void delete(Long cartNum)
-        {
-            //get the object the erase it.
-            Cart cart = read(cartNum);
-            if (cart != null) this.cartSet.remove(cartNum);
+    @Override
+    public void delete(Integer cartNum)
+    {
+        //get the object the erase it.
+        Cart cart = read(cartNum);
+        if (cart != null) this.cartSet.remove(cartNum);
 
-        }
+    }
+
     //This return the dataset with all its objects
-        @Override
-        public Set<Cart> list()
-        {
-            return cartSet;
-        }
+    @Override
+    public Set<Cart> list()
+    {
+        return cartSet;
+    }
 }
