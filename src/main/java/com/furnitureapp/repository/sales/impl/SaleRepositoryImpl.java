@@ -35,7 +35,7 @@ public class SaleRepositoryImpl implements SaleRepository {
     }
 
     @Override
-    public Sale read(Long saleCode){
+    public Sale read(Integer saleCode){
         return sales.stream().filter(sale -> sale.getSaleCode().equals(saleCode)).
                 findAny().orElse(null);
     }
@@ -54,7 +54,7 @@ public class SaleRepositoryImpl implements SaleRepository {
     }
 
     @Override
-    public void delete(Long saleCode){
+    public void delete(Integer saleCode){
         Sale existingSale = read(saleCode);
         if (existingSale != null)
             sales.remove(existingSale);
