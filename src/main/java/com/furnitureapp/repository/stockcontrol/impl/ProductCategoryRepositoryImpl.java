@@ -47,7 +47,7 @@ public class ProductCategoryRepositoryImpl implements ProductCategoryRepository 
             productCategories.remove(category);
             productCategories.add(productCategory);
         }
-        return null;
+        return category;
     }
 
     @Override
