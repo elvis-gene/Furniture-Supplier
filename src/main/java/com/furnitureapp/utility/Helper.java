@@ -3,7 +3,7 @@ package com.furnitureapp.utility;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Helper {
-    public static int generateCode(){
+    public static Integer generateCode(){
 
         //This generates a fully numeric unique code
         int min = 1;
