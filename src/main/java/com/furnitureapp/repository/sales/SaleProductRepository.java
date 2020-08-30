@@ -14,9 +14,9 @@ import java.util.Set;
 
 public interface SaleProductRepository {
 
-    SaleProduct read(Long saleId, Long prodId);
+    SaleProduct read(Integer saleId, Integer prodId);
     SaleProduct create(SaleProduct saleProduct);
     SaleProduct update(SaleProduct saleProduct);
-    void delete(Long saleId, Long prodId);
+    void delete(Integer saleId, Integer prodId);
     Set<SaleProduct> list();
 }

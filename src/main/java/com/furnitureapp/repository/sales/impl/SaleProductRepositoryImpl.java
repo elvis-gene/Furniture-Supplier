@@ -42,7 +42,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
 
     // Use sale code & product code to read
     @Override
-    public SaleProduct read(Long saleCode, Long prodCode){
+    public SaleProduct read(Integer saleCode, Integer prodCode){
         return saleProducts.stream().
                 filter(sp -> sp.getSaleCode().equals(saleCode) && sp.getProdCode().equals(prodCode)).
                 findAny().orElse(null);
@@ -59,7 +59,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
     }
 
     @Override
-    public void delete(Long saleCode, Long prodCode){
+    public void delete(Integer saleCode, Integer prodCode){
         SaleProduct saleProduct = read(saleCode, prodCode);
         if (saleProduct != null)
             saleProducts.remove(saleProduct);

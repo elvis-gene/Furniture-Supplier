@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Cart {
     //All attributes
-    private Long cartNum;
+    private Integer cartNum;
     private List <SaleProduct> cartItems;
     private int numbItems;
     private double total;
@@ -38,7 +38,7 @@ public class Cart {
         return total;
     }
 
-    public Long getCartNum() {
+    public Integer getCartNum() {
         return cartNum;
     }
 
@@ -55,7 +55,7 @@ public class Cart {
     //Builder Pattern Design implementation
     public static class CartBuilder{
         //All attributes inside builder class
-        private Long cartNum;
+        private Integer cartNum;
         private List<SaleProduct> cartItems;
         private int numbItems;
         private double total;
@@ -65,7 +65,7 @@ public class Cart {
 
         //Setters
 
-        public CartBuilder setCartNum(Long cartNum){
+        public CartBuilder setCartNum(Integer cartNum){
             this.cartNum = cartNum;
             return this;
         }
