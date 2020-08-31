@@ -19,7 +19,7 @@ public class Promotion {
 
     //Constructor
     private Promotion(PromotionBuilder builder) {
-        this.promoTitle = builder.prodTitle;
+        this.promoTitle = builder.promoTitle;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
         this.description = builder.description;
@@ -71,7 +71,7 @@ public class Promotion {
         //constructor
         public PromotionBuilder(){}
         //All attributes in the builder class
-        private String prodTitle;
+        private String promoTitle;
         private LocalDate startDate;
         private LocalDate endDate;
         private String description;
@@ -80,8 +80,8 @@ public class Promotion {
 
         //Setters
 
-        public PromotionBuilder setProdTitle(String prodTitle) {
-            this.prodTitle = prodTitle;
+        public PromotionBuilder setPromoTitle(String promoTitle) {
+            this.promoTitle = promoTitle;
             return this;
         }
 
@@ -112,7 +112,8 @@ public class Promotion {
 
         //Copy of the class Promotion
         public PromotionBuilder copy(Promotion promotion){
-            this.prodTitle = promotion.promoTitle;
+
+            this.promoTitle = promotion.promoTitle;
             this.startDate = promotion.startDate;
             this.endDate = promotion.endDate;
             this.description = promotion.description;

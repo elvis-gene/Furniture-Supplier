@@ -1,12 +1,15 @@
 /*
     Coder: Elvis Gene
     Description: CRUD methods for the Sale entity
-    Date:
+    Date: 29-Aug-2020
  */
 
 package com.furnitureapp.repository.sales.impl;
 
 import com.furnitureapp.entity.sales.Sale;
+import com.furnitureapp.entity.sales.SaleProduct;
+import com.furnitureapp.factory.sales.SaleFactory;
+import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleRepository;
 
 import java.util.HashSet;
@@ -20,6 +23,18 @@ public class SaleRepositoryImpl implements SaleRepository {
 
     public SaleRepositoryImpl() {
         sales = new HashSet<>();
+
+        /*
+         The following code has the goal of allowing me to run my test method in any order.
+         If I already have a sale object in the sales set, the read or delete method
+         can be run before the create. This ensures that all my test methods are
+         independent of each other and I don't have the use the annotation
+         @FixMethodOrder
+         */
+        Set<SaleProduct> saleProducts = new HashSet<>();
+        saleProducts.add(SaleProductFactory.createSaleProduct(435,5));
+
+        sales.add(SaleFactory.createSale(saleProducts));
     }
 
     public static SaleRepository getSaleRepository(){
@@ -49,7 +64,6 @@ public class SaleRepositoryImpl implements SaleRepository {
             sales.remove(existingSale);
             sales.add(sale);
         }
-        //TODO: Review
         return sale;
     }
 
