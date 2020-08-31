@@ -6,14 +6,18 @@ package com.furnitureapp.repository.clientele.impl;
 import com.furnitureapp.entity.clientele.Customer;
 import com.furnitureapp.factory.clientele.CustomerFactory;
 import com.furnitureapp.repository.clientele.CustomerRepository;
-import junit.framework.TestCase;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class CustomerRepositoryImplTest extends TestCase {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
+public class CustomerRepositoryImplTest{
     private static CustomerRepository repo = CustomerRepositoryImpl.getCustomerRepository();
     private static Customer customer = CustomerFactory.createCustomer("Nkosinathi Sola",
             "nkosinathisola@gmail.com",
@@ -22,21 +26,21 @@ public class CustomerRepositoryImplTest extends TestCase {
             "password123");
 
     @Test
-    public void create_customer() {
+    public void a_create_customer() {
         Customer created = repo.create(customer);
         assertEquals(created, customer);
         System.out.println("Create: " + created);
     }
 
     @Test
-    public void read_customer() {
+    public void b_read_customer() {
         Customer read = repo.read(customer.getCustomerCode());
         assertEquals(read.getCustomerCode(), customer.getCustomerCode());
         System.out.println("Read: " + read);
     }
 
     @Test
-    public void update_customer() {
+    public void c_update_customer() {
         Customer updated = new Customer.CustomerBuilder().copy(customer).setFullName("Emanuel Skye").build();
         updated = repo.update(updated);
         assertNotEquals(updated, customer);
@@ -44,9 +48,9 @@ public class CustomerRepositoryImplTest extends TestCase {
     }
 
     @Test
-    public void delete_customer() {
+    public void d_delete_customer() {
         repo.delete(customer.getCustomerCode());
-        System.out.println("Employee deleted");
+        System.out.println("Customer deleted");
     }
 
     @Test

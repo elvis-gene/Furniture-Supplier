@@ -6,32 +6,38 @@ package com.furnitureapp.repository.clientele.impl;
 import com.furnitureapp.entity.clientele.Appointment;
 import com.furnitureapp.factory.clientele.AppointmentFactory;
 import com.furnitureapp.repository.clientele.AppointmentRepository;
-import junit.framework.TestCase;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
 import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class AppointmentRepositoryImplTest extends TestCase{
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
+public class AppointmentRepositoryImplTest{
 
     private static AppointmentRepository repo = AppointmentRepositoryImpl.getAppointmentRepository();
     private static Appointment appointment = AppointmentFactory.createAppointment("Nkosinathi Sola", "Customer Returns");
 
     @Test
-    public void create_appointment() {
+    public void a_create_appointment() {
         Appointment created = repo.create(appointment);
         assertEquals(created, appointment);
         System.out.println("Create: " + created);
     }
 
     @Test
-    public void read_appointment() {
+    public void b_read_appointment() {
         Appointment read = repo.read(appointment.getCustomerName());
         assertEquals(read.getCustomerName(), appointment.getCustomerName());
         System.out.println("Read: " + read);
     }
 
     @Test
-    public void update_appointment() {
+    public void c_update_appointment() {
         Appointment updated = new Appointment.AppointmentBuilder().copy(appointment).setCustomerName("Emanuel Skye").build();
         updated = repo.update(updated);
         assertNotEquals(updated, appointment);
@@ -39,7 +45,7 @@ public class AppointmentRepositoryImplTest extends TestCase{
     }
 
     @Test
-    public void delete_appointment() {
+    public void d_delete_appointment() {
         repo.delete(appointment.getCustomerName());
         System.out.println("Appointment Deleted");
     }
