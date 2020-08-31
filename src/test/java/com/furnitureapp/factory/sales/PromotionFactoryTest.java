@@ -16,7 +16,7 @@ public class PromotionFactoryTest {
 
     @Test
     public void createPromotion() {
-        Promotion promotion = PromotionFactory.createPromotion("Bed","Buy one get the other one half price","Summer",2018);
+        Promotion promotion = PromotionFactory.createPromotion("Summer Sale","Buy one get the other one half price","Summer",2018);
         Promotion promotion1 = new Promotion.PromotionBuilder().copy(promotion).build();
         Assert.assertEquals(promotion.getYear(),promotion1.getYear());
 

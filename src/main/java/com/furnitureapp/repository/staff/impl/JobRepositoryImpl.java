@@ -33,7 +33,7 @@ public class JobRepositoryImpl implements JobRepository {
     }
 
     @Override
-    public Job read(Long jobCode){
+    public Job read(Integer jobCode){
         return this.jobs.stream().filter(sale -> sale.getJobCode().equals(jobCode)).
                 findAny().orElse(null);
     }
@@ -50,7 +50,7 @@ public class JobRepositoryImpl implements JobRepository {
     }
 
     @Override
-    public void delete(Long jobCode){
+    public void delete(Integer jobCode){
       Job existingJob = read(jobCode);
       if(existingJob != null){
           jobs.remove(existingJob);

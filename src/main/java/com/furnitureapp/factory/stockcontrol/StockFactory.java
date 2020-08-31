@@ -7,7 +7,7 @@ public class StockFactory {
 
     public static Stock createStock(int quantity){
         // Will come from the class ProductCategory latter
-        Long prodCatCode = Helper.generateCode();
+        Integer prodCatCode = Helper.generateCode();
 
         return new Stock.StockBuilder().
                 setProdCatCode(prodCatCode).

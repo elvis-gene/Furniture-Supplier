@@ -11,8 +11,8 @@ import com.furnitureapp.utility.Helper;
 
 public class SaleProductFactory {
 
-    public static SaleProduct createSaleProduct(Long prodCode, int quantity){
-        Long saleCode = Helper.generateCode();
+    public static SaleProduct createSaleProduct(Integer prodCode, int quantity){
+        Integer saleCode = Helper.generateCode();
 
         return new SaleProduct.Builder()
                 .setSaleCode(saleCode)

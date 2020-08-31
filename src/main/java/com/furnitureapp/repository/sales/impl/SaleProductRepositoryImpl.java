@@ -1,11 +1,12 @@
 /*
     Coder: Elvis Gene
     Description: CRUD methods for the SaleProduct entity
-    Date:
+    Date: 29-Aug-2020
  */
 
 package com.furnitureapp.repository.sales.impl;
 import com.furnitureapp.entity.sales.SaleProduct;
+import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleProductRepository;
 
 import java.util.HashSet;
@@ -13,12 +14,9 @@ import java.util.Set;
 
 public class SaleProductRepositoryImpl implements SaleProductRepository {
     /**
-     *      The sale product id could be the concatenation of the product id
-     *      and the sale id as a result of SaleProduct being the bridge entity
-     *      And since the sale code will always be different, the product although
-     *      it might repeat for different sales, the combination of both the
-     *      the sale code and product code will always be unique. This means a set
-     *      is the appropriate data type.
+     *      SaleProduct being the bridge entity of Product and Sale, we will need
+     *      both the sale id and the product id to read/delete a product belonging to
+     *      a specific sale.
      */
 
     private Set<SaleProduct> saleProducts;
@@ -26,6 +24,16 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
 
     public SaleProductRepositoryImpl() {
         saleProducts = new HashSet<>();
+
+         /*
+         The following code has the goal of allowing me to run my test method in any order.
+         If I already have a saleProduct object in the saleProducts set, the read or delete method
+         can be run before the create. This ensures that all my test methods are
+         independent of each other and I don't have the use the annotation
+         @FixMethodOrder
+         */
+
+        saleProducts.add(SaleProductFactory.createSaleProduct(435, 23));
     }
 
     public SaleProductRepository getSaleProductRepository(){
@@ -42,7 +50,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
 
     // Use sale code & product code to read
     @Override
-    public SaleProduct read(Long saleCode, Long prodCode){
+    public SaleProduct read(Integer saleCode, Integer prodCode){
         return saleProducts.stream().
                 filter(sp -> sp.getSaleCode().equals(saleCode) && sp.getProdCode().equals(prodCode)).
                 findAny().orElse(null);
@@ -59,7 +67,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
     }
 
     @Override
-    public void delete(Long saleCode, Long prodCode){
+    public void delete(Integer saleCode, Integer prodCode){
         SaleProduct saleProduct = read(saleCode, prodCode);
         if (saleProduct != null)
             saleProducts.remove(saleProduct);

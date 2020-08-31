@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 public class DeliveryFactory {
 
-    public static Delivery createDelivery(Long saleCode, Long employeeCode, String deliveryAddress, int trackingNum, String deliveryStatus){
+    public static Delivery createDelivery(Integer saleCode, Integer employeeCode, String deliveryAddress, int trackingNum, String deliveryStatus){
 
         return new Delivery.DeliveryBuilder()
 
