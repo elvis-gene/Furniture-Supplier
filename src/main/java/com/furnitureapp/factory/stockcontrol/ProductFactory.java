@@ -15,7 +15,7 @@ public class ProductFactory {
     public static Product createProduct(String name, double price, float length, float width, float weight, String description, ProductCategory category){
 
         return new Product.ProductBuilder()
-                .setProductCode(Helper.generateCode())
+                .setProductCode(435)
                 .setName(name)
                 .setPrice(price)
                 .setLength(length)
