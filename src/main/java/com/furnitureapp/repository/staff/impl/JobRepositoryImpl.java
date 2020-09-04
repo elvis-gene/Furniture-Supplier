@@ -50,11 +50,15 @@ public class JobRepositoryImpl implements JobRepository {
     }
 
     @Override
-    public void delete(Integer jobCode){
+    public boolean delete(Integer jobCode){
+      boolean deleted = false;
+
       Job existingJob = read(jobCode);
       if(existingJob != null){
           jobs.remove(existingJob);
+          deleted = true;
       }
+      return deleted;
     }
 
     @Override

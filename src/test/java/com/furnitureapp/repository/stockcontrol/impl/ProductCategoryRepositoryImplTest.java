@@ -31,7 +31,7 @@ public class ProductCategoryRepositoryImplTest {
     @Test
     public void b_read() {
         ProductCategory read = productCategoryRepository.read(category.getCategoryCode());
-        Assert.assertNotEquals(category.getCategoryCode(), read.getCategoryCode());
+        Assert.assertEquals(category.getCategoryCode(), read.getCategoryCode());
         System.out.println("Read: " + read);
     }
 

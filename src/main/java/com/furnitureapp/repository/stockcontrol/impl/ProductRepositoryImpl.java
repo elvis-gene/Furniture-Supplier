@@ -68,11 +68,15 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 
     @Override
-    public void delete(Integer productCode) {
-        Product products = read(productCode);
-        if (products != null)
-            productSet.remove(products);
+    public boolean delete(Integer productCode) {
+        boolean deleted = false;
 
+        Product products = read(productCode);
+        if (products != null) {
+            productSet.remove(products);
+            deleted = true;
+        }
+        return deleted;
     }
 
     @Override
