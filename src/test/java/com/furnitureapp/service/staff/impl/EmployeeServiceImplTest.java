@@ -54,7 +54,8 @@ public class EmployeeServiceImplTest {
 
     @Test
     public void d_delete() {
-        service.delete(employee.getEmployeeCode());
-        System.out.println("Employee deleted");
+        boolean deleted = service.delete(employee.getEmployeeCode());
+        assertTrue(deleted);
+        System.out.println("Employee deleted: " + deleted);
     }
 }

@@ -45,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void delete(Integer employeeCode) {
-        this.repository.delete(employeeCode);
+    public boolean delete(Integer employeeCode) {
+        return this.repository.delete(employeeCode);
     }
 }

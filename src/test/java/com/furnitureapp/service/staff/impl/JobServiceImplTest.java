@@ -49,7 +49,8 @@ public class JobServiceImplTest {
 
     @Test
     public void d_delete() {
-        service.delete(job.getJobCode());
-        System.out.println("Job deleted");
+        boolean deleted = service.delete(job.getJobCode());
+        assertTrue(deleted);
+        System.out.println("Job deleted: " + deleted);
     }
 }

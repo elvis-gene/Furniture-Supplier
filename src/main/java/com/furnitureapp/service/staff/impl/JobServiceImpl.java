@@ -44,7 +44,7 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public void delete(Integer jobCode) {
-        this.repository.delete(jobCode);
+    public boolean delete(Integer jobCode) {
+        return this.repository.delete(jobCode);
     }
 }
