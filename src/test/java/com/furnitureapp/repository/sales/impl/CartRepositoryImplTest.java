@@ -11,11 +11,15 @@ import com.furnitureapp.entity.sales.SaleProduct;
 import com.furnitureapp.factory.sales.CartFactory;
 import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.CartRepository;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import java.util.ArrayList;
+import java.util.Set;
+
+import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CartRepositoryImplTest {
@@ -35,6 +39,7 @@ public class CartRepositoryImplTest {
         cartItems.add(SaleProductFactory.createSaleProduct( 152,3));
         cart = CartFactory.createCart(cartItems, 2, 6000);
         Cart createCart = cartRepository.create(cart);
+        assertEquals(cart.getCartNum(),createCart.getCartNum());
         System.out.println("Creation: " +createCart);
     }
 
@@ -43,6 +48,7 @@ public class CartRepositoryImplTest {
     public void b_read()
     {
         Cart readCart = cartRepository.read(cart.getCartNum());
+        assertEquals(readCart.getCartNum(),cart.getCartNum());
         System.out.println("Read: " +readCart);
     }
 
@@ -52,6 +58,7 @@ public class CartRepositoryImplTest {
     {
         Cart updatedCart = new Cart.CartBuilder().copy(cart).setNumbItems(4).build();
         updatedCart = cartRepository.update(updatedCart);
+        assertNotEquals(cart.getNumbItems(),updatedCart.getNumbItems());
         System.out.println("Update: " +updatedCart);
     }
 
@@ -60,7 +67,15 @@ public class CartRepositoryImplTest {
     public void d_delete()
     {
         cartRepository.delete(cart.getCartNum());
+        assertNull(cartRepository.read(cart.getCartNum()));
         System.out.println("Cart deleted");
     }
 
+    @Test
+    public void list()
+    {
+        Set<Cart> carts = cartRepository.list();
+        assertEquals(1,carts.size());
+        System.out.println(carts);
+    }
 }
