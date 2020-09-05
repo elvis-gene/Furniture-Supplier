@@ -26,7 +26,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
         saleProducts = new HashSet<>();
     }
 
-    public SaleProductRepository getSaleProductRepository(){
+    public static SaleProductRepository getSaleProductRepository(){
         if (saleProductRepository == null)
             saleProductRepository = new SaleProductRepositoryImpl();
         return saleProductRepository;
