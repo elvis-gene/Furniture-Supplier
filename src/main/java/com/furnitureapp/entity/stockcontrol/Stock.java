@@ -13,6 +13,14 @@ public class Stock {
         return prodCatCode;
     }
 
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "prodCatCode=" + prodCatCode +
+                ", quantity=" + quantity +
+                '}';
+    }
+
     public int getQuantity() {
         return quantity;
     }

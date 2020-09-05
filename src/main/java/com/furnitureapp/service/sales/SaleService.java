@@ -1,3 +1,9 @@
+/*
+    Coder: Elvis Gene
+    Description: Interface for SaleServiceImpl
+    Date: 05-Sept-2020
+ */
+
 package com.furnitureapp.service.sales;
 
 import com.furnitureapp.entity.sales.Sale;

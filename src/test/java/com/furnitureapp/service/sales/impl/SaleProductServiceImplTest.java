@@ -21,14 +21,14 @@ public class SaleProductServiceImplTest {
     @Test
     public void a_create() {
         SaleProduct createdSP = service.create(saleProduct);
-        assertEquals(createdSP, saleProduct);
+        assertEquals(saleProduct, createdSP);
         System.out.println("New sale product: "+ createdSP);
     }
 
     @Test
     public void b_read() {
         SaleProduct readSP = service.read(saleProduct.getSaleCode(), saleProduct.getProdCode());
-        assertEquals(readSP, saleProduct);
+        assertEquals(saleProduct, readSP);
         System.out.println("read sale product: "+ readSP);
     }
 
@@ -36,7 +36,7 @@ public class SaleProductServiceImplTest {
     public void c_update() {
         SaleProduct updatedSP = new SaleProduct.Builder().copy(saleProduct).setQuantity(5).build();
         updatedSP = service.update(updatedSP);
-        assertNotEquals(updatedSP, saleProduct);
+        assertNotEquals(saleProduct, updatedSP);
         System.out.println("Updated sale product: "+ updatedSP);
     }
 
@@ -49,6 +49,7 @@ public class SaleProductServiceImplTest {
     @Test
     public void list() {
         Set<SaleProduct> saleProducts = service.list();
-        assertEquals(saleProducts.size(), 0);
+        assertEquals(0, saleProducts.size());
+        System.out.println("Sale products: " + saleProducts.toString());
     }
 }
