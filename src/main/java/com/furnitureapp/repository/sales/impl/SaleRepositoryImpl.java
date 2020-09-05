@@ -12,8 +12,11 @@ import com.furnitureapp.factory.sales.SaleFactory;
 import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleRepository;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+
+import static java.util.stream.Collectors.toSet;
 
 public class SaleRepositoryImpl implements SaleRepository {
 
@@ -23,18 +26,6 @@ public class SaleRepositoryImpl implements SaleRepository {
 
     public SaleRepositoryImpl() {
         sales = new HashSet<>();
-
-        /*
-         The following code has the goal of allowing me to run my test method in any order.
-         If I already have a sale object in the sales set, the read or delete method
-         can be run before the create. This ensures that all my test methods are
-         independent of each other and I don't have the use the annotation
-         @FixMethodOrder
-         */
-        Set<SaleProduct> saleProducts = new HashSet<>();
-        saleProducts.add(SaleProductFactory.createSaleProduct(435,5));
-
-        sales.add(SaleFactory.createSale(saleProducts));
     }
 
     public static SaleRepository getSaleRepository(){
@@ -68,14 +59,34 @@ public class SaleRepositoryImpl implements SaleRepository {
     }
 
     @Override
-    public void delete(Integer saleCode){
+    public boolean delete(Integer saleCode){
+        boolean deleted = false;
+
         Sale existingSale = read(saleCode);
-        if (existingSale != null)
+        if (existingSale != null) {
             sales.remove(existingSale);
+            deleted = true;
+        }
+        return deleted;
     }
 
     @Override
     public Set<Sale> list() {
         return sales;
+    }
+
+    // To be replaced later with a SQL statement.
+    // When we have a database.
+    @Override
+    public Set<Sale> monthlySales() {
+        return list().stream().filter(sale -> sale.getSaleTime().
+                isAfter(LocalDateTime.now().
+                        minusMonths(1))).collect(toSet());
+    }
+
+    // When we have a database, this will be replaced with a SQL statement.
+    @Override
+    public double monthlySalesAmount() {
+        return monthlySales().stream().mapToDouble(Sale::getTotalAmount).sum();
     }
 }

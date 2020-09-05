@@ -48,11 +48,15 @@ public class StockRepositoryImpl implements StockRepository{
     }
 
     @Override
-    public void delete(Integer catCode){
+    public boolean delete(Integer catCode){
+        boolean deleted = false;
+
         Stock existingStock = read(catCode);
         if(existingStock != null){
             stocks.remove(existingStock);
+            deleted = true;
         }
+        return deleted;
     }
 
     @Override

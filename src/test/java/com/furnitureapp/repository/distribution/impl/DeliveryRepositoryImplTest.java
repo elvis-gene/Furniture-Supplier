@@ -43,8 +43,8 @@ public class DeliveryRepositoryImplTest {
 
     @Test
     public void d_delete() {
-        repo.delete(delivery.getDeliveryCode());
-        System.out.println("Delivery deleted");
+        boolean deleted = repo.delete(delivery.getDeliveryCode());
+        assertTrue(deleted);
     }
 
     @Test
