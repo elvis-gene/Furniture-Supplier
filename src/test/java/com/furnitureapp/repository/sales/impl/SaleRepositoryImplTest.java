@@ -28,7 +28,7 @@ public class SaleRepositoryImplTest {
                     ));
 
     @Test
-    public void b_create() {
+    public void a_create() {
         Sale createdSale = saleRepository.create(sale);
         assertEquals(createdSale, sale);
         System.out.println("created " + createdSale);
@@ -36,22 +36,36 @@ public class SaleRepositoryImplTest {
 
     // Null if the sale object is deleted before this method is tested.
     @Test
-    public void c_read() {
+    public void b_read() {
         Sale readSale = saleRepository.read(sale.getSaleCode());
         assertEquals(readSale, sale);
         System.out.println("Read " + readSale);
     }
 
     @Test
-    public void d_update() {
-        Sale updatedSale = new Sale.SaleBuilder().copy(sale).setTotalAmount(400).build();
-        saleRepository.update(updatedSale);
+    public void c_update() {
+        Sale updatedSale = new Sale.SaleBuilder().copy(sale).setTotalAmount(2000).build();
+        updatedSale = saleRepository.update(updatedSale);
         assertNotEquals(sale, updatedSale);
         System.out.println("Updated sale: " + updatedSale);
     }
 
     @Test
-    public void e_delete() {
+    public void d_monthlySales() {
+        Set<Sale> monthlySales = saleRepository.monthlySales();
+        assertNotNull(monthlySales);
+        System.out.println("Last Month Sales: " + monthlySales);
+    }
+
+    @Test
+    public void e_monthlySalesAmount() {
+        double amount = saleRepository.monthlySalesAmount();
+        assertTrue(amount > 0);
+        System.out.println("Monthly Total: " + amount);
+    }
+
+    @Test
+    public void f_delete() {
         saleRepository.delete(sale.getSaleCode());
         assertNull(saleRepository.read(sale.getSaleCode()));
     }
@@ -61,4 +75,5 @@ public class SaleRepositoryImplTest {
         Set<Sale> sales = saleRepository.list();
         assertEquals(sales.size(), 0);
     }
+
 }

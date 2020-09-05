@@ -63,6 +63,7 @@ public class PromotionRepositoryImplTest {
         System.out.println("Promotion deleted");
     }
 
+  
     @Test
     public void d_list()
     {

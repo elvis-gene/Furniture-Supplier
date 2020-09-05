@@ -7,13 +7,13 @@
 package com.furnitureapp.repository.sales.impl;
 
 import com.furnitureapp.entity.sales.Sale;
-import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.factory.sales.SaleFactory;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleRepository;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+
+import static java.util.stream.Collectors.toSet;
 
 public class SaleRepositoryImpl implements SaleRepository {
 
@@ -70,5 +70,20 @@ public class SaleRepositoryImpl implements SaleRepository {
     @Override
     public Set<Sale> list() {
         return sales;
+    }
+
+    // To be replaced later with a SQL statement.
+    // When we have a database.
+    @Override
+    public Set<Sale> monthlySales() {
+        return list().stream().filter(sale -> sale.getSaleTime().
+                isAfter(LocalDateTime.now().
+                        minusMonths(1))).collect(toSet());
+    }
+
+    // When we have a database, this will be replaced with a SQL statement.
+    @Override
+    public double monthlySalesAmount() {
+        return monthlySales().stream().mapToDouble(Sale::getTotalAmount).sum();
     }
 }

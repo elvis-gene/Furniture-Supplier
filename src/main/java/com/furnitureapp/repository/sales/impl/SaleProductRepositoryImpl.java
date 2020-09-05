@@ -6,7 +6,6 @@
 
 package com.furnitureapp.repository.sales.impl;
 import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleProductRepository;
 
 import java.util.HashSet;
@@ -26,7 +25,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
         saleProducts = new HashSet<>();
     }
 
-    public SaleProductRepository getSaleProductRepository(){
+    public static SaleProductRepository getSaleProductRepository(){
         if (saleProductRepository == null)
             saleProductRepository = new SaleProductRepositoryImpl();
         return saleProductRepository;
