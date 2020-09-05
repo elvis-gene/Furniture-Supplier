@@ -15,6 +15,6 @@ import java.util.Set;
 public interface PromotionService extends IService<Promotion, String> {
 
     //Creation of the set that will contain the Promotion services
-    Set<Promotion> getAll();
+    Set<Promotion> list();
 
 }

@@ -6,12 +6,15 @@ Desc:This is the PromotionRepositoryImplTest class, it contains all the CRUD met
  */
 package com.furnitureapp.repository.sales.impl;
 
+import com.furnitureapp.entity.sales.Cart;
 import com.furnitureapp.entity.sales.Promotion;
 import com.furnitureapp.factory.sales.PromotionFactory;
 import com.furnitureapp.repository.sales.PromotionRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+
+import java.util.Set;
 
 import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -36,6 +39,7 @@ public class PromotionRepositoryImplTest {
     public void b_read()
     {
         Promotion readPromo = promotionRepository.read(promotion.getPromoTitle());
+        assertEquals(readPromo.getPromoTitle(),promotion.getPromoTitle());
         System.out.println("Read: " +readPromo);
     }
 
@@ -43,18 +47,27 @@ public class PromotionRepositoryImplTest {
     @Test
     public void c_update()
     {
-        Promotion updatedPromo = new Promotion.PromotionBuilder().copy(promotion).setPromoTitle("Summer Sales").build();
+        Promotion updatedPromo = new Promotion.PromotionBuilder().copy(promotion).setYear(2021).build();
         updatedPromo = promotionRepository.update(updatedPromo);
+        assertNotEquals(updatedPromo.getYear(),promotion.getYear());
         System.out.println("Update: " +updatedPromo);
         //System.out.println(promotionRepository.toString());
     }
 
     //Delete values based on the promotion title selected
     @Test
-    public void d_delete()
+    public void e_delete()
     {
-        promotionRepository.delete(promotion.getPromoTitle());
+        boolean delete = promotionRepository.delete(promotion.getPromoTitle());
+        assertTrue(delete);
         System.out.println("Promotion deleted");
     }
 
+    @Test
+    public void d_list()
+    {
+        Set<Promotion> promotions = promotionRepository.list();
+        assertEquals(1,promotions.size());
+        System.out.println(promotions);
+    }
 }

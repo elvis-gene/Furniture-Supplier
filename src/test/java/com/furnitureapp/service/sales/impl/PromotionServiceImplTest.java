@@ -22,20 +22,21 @@ import java.util.Set;
 public class PromotionServiceImplTest {
 
     private static PromotionService service = PromotionServiceImpl.getService();
-    private static Promotion promotion = PromotionFactory.createPromotion("Summar Sale","Buy one get the other one half price","Summer",2018);
+    private static Promotion promotion = PromotionFactory.createPromotion("Summer Sale","Buy one get the other one half price","Summer",2018);
 
     @Test
     public void d_getAll()
     {
-        Set<Promotion> promotions = service.getAll();
+        Set<Promotion> promotions = service.list();
         assertEquals(1,promotions.size());
+        System.out.println(promotions);
     }
 
     @Test
     public void a_create()
     {
         Promotion created = service.create(promotion);
-        Assert.assertEquals(promotion.getPromoTitle(),created.getPromoTitle());
+        assertEquals(promotion.getPromoTitle(),created.getPromoTitle());
         System.out.println("Promotion created: " +created);
     }
 
@@ -43,21 +44,24 @@ public class PromotionServiceImplTest {
     public void b_read()
     {
         Promotion read = service.read(promotion.getPromoTitle());
+        assertEquals(read.getPromoTitle(),promotion.getPromoTitle());
         System.out.println("Read promotion: " +read);
     }
 
     @Test
     public void c_update()
     {
-        Promotion updated = new Promotion.PromotionBuilder().copy(promotion).setPromoTitle("Summer").build();
+        Promotion updated = new Promotion.PromotionBuilder().copy(promotion).setYear(2021).build();
         updated = service.update(updated);
+        assertNotEquals(promotion.getYear(),updated.getYear());
         System.out.println("Updated promotion: " +updated);
     }
 
     @Test
     public void e_delete()
     {
-        service.delete(promotion.getPromoTitle());
+        boolean deleted = service.delete(promotion.getPromoTitle());
+        assertTrue(deleted);
         System.out.println("Promotion deleted!");
     }
 }

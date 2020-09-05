@@ -13,5 +13,5 @@ import java.util.Set;
 
 public interface CartService extends IService<Cart, Integer> {
     //Creation of the set that will contain the Cart services
-    Set<Cart>getAll();
+    Set<Cart>list();
 }

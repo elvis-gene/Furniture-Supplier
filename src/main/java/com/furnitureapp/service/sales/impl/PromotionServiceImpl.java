@@ -34,7 +34,7 @@ public class PromotionServiceImpl implements PromotionService {
     }
 
     @Override
-        public Set<Promotion> getAll()
+        public Set<Promotion> list()
         {
             return this.repository.list();
         }
@@ -58,8 +58,9 @@ public class PromotionServiceImpl implements PromotionService {
         }
 
     @Override
-    public void delete(String promoTitle)
+    public boolean delete(String promoTitle)
     {
         this.repository.delete(promoTitle);
+        return true;
     }
 }

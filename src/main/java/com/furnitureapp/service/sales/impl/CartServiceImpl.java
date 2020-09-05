@@ -36,7 +36,7 @@ public class CartServiceImpl implements CartService {
         }
 
     @Override
-        public Set<Cart> getAll()
+        public Set<Cart> list()
         {
             return this.repository.list();
         }
@@ -60,8 +60,9 @@ public class CartServiceImpl implements CartService {
         }
 
     @Override
-        public void delete(Integer cartID)
+        public boolean delete(Integer cartID)
         {
             this.repository.delete(cartID);
+            return true;
         }
 }
