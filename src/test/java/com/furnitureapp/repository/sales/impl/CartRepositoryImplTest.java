@@ -66,7 +66,7 @@ public class CartRepositoryImplTest {
     @Test
     public void d_delete()
     {
-        boolean deleted = cartRepository.delete(cart.getCartNum());
+        cartRepository.delete(cart.getCartNum());
         assertNull(cartRepository.read(cart.getCartNum()));
         System.out.println("Cart deleted");
     }

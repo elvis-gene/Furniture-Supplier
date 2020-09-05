@@ -62,7 +62,6 @@ public class CartServiceImpl implements CartService {
     @Override
         public boolean delete(Integer cartID)
         {
-            this.repository.delete(cartID);
-            return true;
+             return this.repository.delete(cartID);
         }
 }

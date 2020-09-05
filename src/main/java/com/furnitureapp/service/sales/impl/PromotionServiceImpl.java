@@ -60,7 +60,6 @@ public class PromotionServiceImpl implements PromotionService {
     @Override
     public boolean delete(String promoTitle)
     {
-        this.repository.delete(promoTitle);
-        return true;
+        return this.repository.delete(promoTitle);
     }
 }

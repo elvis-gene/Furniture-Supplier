@@ -72,7 +72,7 @@ public class CartServiceImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = service.delete(cart.getCartNum());
+        service.delete(cart.getCartNum());
         assertNull(service.read(cart.getCartNum()));
         System.out.println("Promotion deleted!");
     }
