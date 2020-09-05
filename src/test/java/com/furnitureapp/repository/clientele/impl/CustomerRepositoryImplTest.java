@@ -12,8 +12,7 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -49,8 +48,8 @@ public class CustomerRepositoryImplTest{
 
     @Test
     public void d_delete_customer() {
-        repo.delete(customer.getCustomerCode());
-        System.out.println("Customer deleted");
+       boolean deleted = repo.delete(customer.getCustomerCode());
+       assertTrue(deleted);
     }
 
     @Test

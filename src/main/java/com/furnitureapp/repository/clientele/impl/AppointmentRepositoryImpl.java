@@ -51,11 +51,15 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
     }
 
     @Override
-    public void delete(String customerName) {
+    public boolean delete(String customerName) {
+        boolean deleted = false;
+
         Appointment existingAppointment = read(customerName);
         if (existingAppointment != null) {
             appointments.remove(existingAppointment);
+            deleted = true;
         }
+        return deleted;
     }
 
     @Override

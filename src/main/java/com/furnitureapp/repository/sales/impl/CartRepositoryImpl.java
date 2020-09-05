@@ -82,12 +82,16 @@ public class CartRepositoryImpl implements CartRepository {
     }
     //delete will erase the object from the dataset
     @Override
-    public void delete(Integer cartNum)
+    public boolean delete(Integer cartNum)
     {
+        boolean deleted = false;
         //get the object the erase it.
         Cart cart = read(cartNum);
-        if (cart != null) this.cartSet.remove(cartNum);
-
+        if (cart != null) {
+            this.cartSet.remove(cart);
+            deleted = true;
+        }
+        return deleted;
     }
 
     //This return the dataset with all its objects
