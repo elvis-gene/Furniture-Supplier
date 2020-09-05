@@ -13,6 +13,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import java.util.Set;
+
 import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -45,14 +47,15 @@ public class ProductCategoryRepositoryImplTest {
 
     @Test
     public void e_delete() {
-        productCategoryRepository.delete(category.getCategoryCode());
-        System.out.println("Category deleted");
+       boolean deleted = productCategoryRepository.delete(category.getCategoryCode());
+        Assert.assertTrue(deleted);
     }
 
     @Test
     public void d_list() {
-        productCategoryRepository.list();
-        System.out.println("Lists of: " + productCategoryRepository);
+        Set<ProductCategory> productCategories = productCategoryRepository.list();
+        Assert.assertNotEquals(1, productCategories.size());
+
     }
 
 }
