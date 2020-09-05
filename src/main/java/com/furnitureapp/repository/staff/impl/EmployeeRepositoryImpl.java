@@ -56,11 +56,15 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void delete(Integer employeeCode){
+    public boolean delete(Integer employeeCode){
+        boolean deleted = false;
+
         Employee existingEmployee = read(employeeCode);
         if(existingEmployee != null){
             employees.remove(existingEmployee);
+            deleted = true;
         }
+        return deleted;
     }
 
     @Override

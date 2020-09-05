@@ -53,12 +53,15 @@ public class DeliveryRepositoryImpl implements DeliveryRepository {
     }
 
     @Override
-    public void delete(Integer deliveryCode) {
+    public boolean delete(Integer deliveryCode) {
+        boolean deleted = false;
+
         Delivery oldDelivery = read(deliveryCode);
         if (oldDelivery != null) {
             deliveries.remove(oldDelivery);
-
+            deleted = true;
         }
+        return deleted;
     }
 
     public Set<Delivery> list () {

@@ -17,6 +17,6 @@ public interface SaleProductRepository {
     SaleProduct read(Integer saleId, Integer prodId);
     SaleProduct create(SaleProduct saleProduct);
     SaleProduct update(SaleProduct saleProduct);
-    void delete(Integer saleId, Integer prodId);
+    boolean delete(Integer saleId, Integer prodId);
     Set<SaleProduct> list();
 }

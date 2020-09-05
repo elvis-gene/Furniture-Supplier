@@ -23,18 +23,6 @@ public class SaleRepositoryImpl implements SaleRepository {
 
     public SaleRepositoryImpl() {
         sales = new HashSet<>();
-
-        /*
-         The following code has the goal of allowing me to run my test method in any order.
-         If I already have a sale object in the sales set, the read or delete method
-         can be run before the create. This ensures that all my test methods are
-         independent of each other and I don't have the use the annotation
-         @FixMethodOrder
-         */
-        Set<SaleProduct> saleProducts = new HashSet<>();
-        saleProducts.add(SaleProductFactory.createSaleProduct(435,5));
-
-        sales.add(SaleFactory.createSale(saleProducts));
     }
 
     public static SaleRepository getSaleRepository(){
@@ -68,10 +56,15 @@ public class SaleRepositoryImpl implements SaleRepository {
     }
 
     @Override
-    public void delete(Integer saleCode){
+    public boolean delete(Integer saleCode){
+        boolean deleted = false;
+
         Sale existingSale = read(saleCode);
-        if (existingSale != null)
+        if (existingSale != null) {
             sales.remove(existingSale);
+            deleted = true;
+        }
+        return deleted;
     }
 
     @Override

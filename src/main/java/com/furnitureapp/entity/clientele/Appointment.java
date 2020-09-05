@@ -37,6 +37,15 @@ public class Appointment {
         return reason;
     }
 
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "customerName='" + customerName + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                ", reason='" + reason + '\'' +
+                '}';
+    }
 
     public static class AppointmentBuilder {
 
