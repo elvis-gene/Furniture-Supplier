@@ -51,11 +51,15 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public void delete(Integer customerCode) {
+    public boolean delete(Integer customerCode) {
+        boolean deleted = false;
+
         Customer existingCustomer = read(customerCode);
         if (existingCustomer != null) {
             customers.remove(existingCustomer);
+            deleted = true;
         }
+        return deleted;
     }
 
     @Override

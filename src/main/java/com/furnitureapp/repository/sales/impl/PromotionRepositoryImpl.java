@@ -79,13 +79,18 @@ public class PromotionRepositoryImpl implements PromotionRepository {
         }
     //delete will erase the object from the dataset
         @Override
-        public void delete(String promoTitle)
+        public boolean delete(String promoTitle)
         {
+            boolean deleted = false;
             //get the object the erase it.
             Promotion promotion = read(promoTitle);
-            if (promotion != null) this.promotionSet.remove(promoTitle);
-
+            if (promotion != null) {
+                this.promotionSet.remove(promotion);
+                deleted = true;
+            }
+            return deleted;
         }
+
     //This return the dataset with all its objects
         @Override
         public Set<Promotion> list()

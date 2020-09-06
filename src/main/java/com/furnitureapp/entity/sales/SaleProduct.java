@@ -30,6 +30,15 @@ public class SaleProduct {
         return quantity;
     }
 
+    @Override
+    public String toString() {
+        return "SaleProduct{" +
+                "saleCode=" + saleCode +
+                ", prodCode=" + prodCode +
+                ", quantity=" + quantity +
+                '}';
+    }
+
     public static class Builder{
         private Integer saleCode;
         private Integer prodCode;

@@ -1,3 +1,9 @@
+/*
+    Coder: Elvis Gene
+    Description: Interface for SaleProductRepositoryImpl
+    Date: 29-Aug-2020
+ */
+
 package com.furnitureapp.repository.sales;
 
 import com.furnitureapp.entity.sales.SaleProduct;
@@ -17,6 +23,6 @@ public interface SaleProductRepository {
     SaleProduct read(Integer saleId, Integer prodId);
     SaleProduct create(SaleProduct saleProduct);
     SaleProduct update(SaleProduct saleProduct);
-    void delete(Integer saleId, Integer prodId);
+    boolean delete(Integer saleId, Integer prodId);
     Set<SaleProduct> list();
 }
