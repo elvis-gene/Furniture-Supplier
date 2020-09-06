@@ -1,4 +1,9 @@
 package com.furnitureapp.service.clientele;
 
-public interface AppointmentService {
+import com.furnitureapp.entity.clientele.Appointment;
+import com.furnitureapp.service.IService;
+import java.util.Set;
+
+public interface AppointmentService extends IService<Appointment, String> {
+    Set<Appointment> list();
 }
