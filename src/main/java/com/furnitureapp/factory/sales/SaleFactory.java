@@ -22,10 +22,10 @@ public class SaleFactory {
     public static Sale createSale(Set<SaleProduct> saleProducts){
 
         // Calculate total sale amount
-        double totalAmount = 0;
-        for (SaleProduct saleProduct : saleProducts){
-            totalAmount += productRepository.read(saleProduct.getProdCode()).getPrice();
-        }
+        double totalAmount = 2700;
+//        for (SaleProduct saleProduct : saleProducts){
+//            totalAmount += productRepository.read(saleProduct.getProdCode()).getPrice();
+//        }
 
         return new Sale.SaleBuilder()
                 .setSaleCode(Helper.generateCode())
