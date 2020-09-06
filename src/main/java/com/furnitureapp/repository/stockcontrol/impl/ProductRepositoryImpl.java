@@ -21,17 +21,6 @@ public class ProductRepositoryImpl implements ProductRepository {
     public ProductRepositoryImpl() {
         productSet = new HashSet<>();
 
-        // The code belows allows the SaleFactory to calculate the amount
-        // of each sale by accessing the price of each product in the sale
-        // from the list of products in the products repository.
-        ProductCategory productCategory = ProductCategoryFactory.
-                createProductCategory("Beds");
-
-        productSet.add(ProductFactory.createProduct("Bed",
-                2700,
-                2,
-                1,
-                10,"double bed",productCategory));
     }
 
     public static ProductRepository getProductRepository(){
