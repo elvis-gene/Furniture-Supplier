@@ -6,50 +6,66 @@ import com.furnitureapp.factory.sales.SaleFactory;
 import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleRepository;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.*;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleRepositoryImplTest {
 
     private static SaleRepository saleRepository = SaleRepositoryImpl.getSaleRepository();
-    Sale sale = null;
-
-    @Before
-    public void setUp() throws Exception {
-        SaleProduct saleProduct = SaleProductFactory.createSaleProduct(435,2);
-        Set<SaleProduct> saleProducts = new HashSet<>();
-        saleProducts.add(saleProduct);
-
-        sale = SaleFactory.createSale(saleProducts);
-    }
+    private static Sale sale = SaleFactory.createSale(
+                    new HashSet<>(Collections.singletonList(SaleProductFactory.
+                            createSaleProduct(435, 2))
+                    ));
 
     @Test
-    public void create() {
+    public void a_create() {
         Sale createdSale = saleRepository.create(sale);
         assertEquals(createdSale, sale);
+        System.out.println("created " + createdSale);
     }
 
     // Null if the sale object is deleted before this method is tested.
     @Test
-    public void read() {
+    public void b_read() {
         Sale readSale = saleRepository.read(sale.getSaleCode());
-        assertNull(readSale);
+        assertEquals(readSale, sale);
+        System.out.println("Read " + readSale);
     }
 
     @Test
-    public void update() {
-        Sale updatedSale = new Sale.SaleBuilder().copy(sale).setTotalAmount(400).build();
-        saleRepository.update(updatedSale);
+    public void c_update() {
+        Sale updatedSale = new Sale.SaleBuilder().copy(sale).setTotalAmount(2000).build();
+        updatedSale = saleRepository.update(updatedSale);
         assertNotEquals(sale, updatedSale);
         System.out.println("Updated sale: " + updatedSale);
     }
 
     @Test
-    public void delete() {
+    public void d_monthlySales() {
+        Set<Sale> monthlySales = saleRepository.monthlySales();
+        assertNotNull(monthlySales);
+        System.out.println("Last Month Sales: " + monthlySales);
+    }
+
+    @Test
+    public void e_monthlySalesAmount() {
+        double amount = saleRepository.monthlySalesAmount();
+        assertTrue(amount > 0);
+        System.out.println("Monthly Total: " + amount);
+    }
+
+    @Test
+    public void f_delete() {
         saleRepository.delete(sale.getSaleCode());
         assertNull(saleRepository.read(sale.getSaleCode()));
     }
@@ -57,6 +73,7 @@ public class SaleRepositoryImplTest {
     @Test
     public void list() {
         Set<Sale> sales = saleRepository.list();
-        assertNotEquals(sales.size(), 0);
+        assertEquals(sales.size(), 0);
     }
+
 }

@@ -47,16 +47,19 @@ public class ProductCategoryRepositoryImpl implements ProductCategoryRepository 
             productCategories.remove(category);
             productCategories.add(productCategory);
         }
-        return category;
+        return productCategory;
     }
 
     @Override
-    public void delete(Integer categoryCode) {
+    public boolean delete(Integer categoryCode) {
+        boolean deleted = false;
+
         ProductCategory category = read(categoryCode);
-        if (category != null)
+        if (category != null) {
             productCategories.remove(category);
-
-
+            deleted = true;
+        }
+        return deleted;
     }
 
     @Override

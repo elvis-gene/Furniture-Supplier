@@ -57,6 +57,20 @@ public class Delivery {
         return  deliveryStatus;
     }
 
+    @Override
+    public String toString() {
+        return "Delivery{" +
+                "deliveryCode=" + deliveryCode +
+                ", saleCode=" + saleCode +
+                ", employeeCode=" + employeeCode +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", dateTimeReceived=" + dateTimeReceived +
+                ", dateTimeSet=" + dateTimeSet +
+                ", trackingNum=" + trackingNum +
+                ", deliveryStatus='" + deliveryStatus + '\'' +
+                '}';
+    }
+
     public static class DeliveryBuilder{
         private Integer deliveryCode;
         private Integer saleCode;

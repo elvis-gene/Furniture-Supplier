@@ -6,7 +6,6 @@
 
 package com.furnitureapp.repository.sales.impl;
 import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleProductRepository;
 
 import java.util.HashSet;
@@ -24,19 +23,9 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
 
     public SaleProductRepositoryImpl() {
         saleProducts = new HashSet<>();
-
-         /*
-         The following code has the goal of allowing me to run my test method in any order.
-         If I already have a saleProduct object in the saleProducts set, the read or delete method
-         can be run before the create. This ensures that all my test methods are
-         independent of each other and I don't have the use the annotation
-         @FixMethodOrder
-         */
-
-        saleProducts.add(SaleProductFactory.createSaleProduct(435, 23));
     }
 
-    public SaleProductRepository getSaleProductRepository(){
+    public static SaleProductRepository getSaleProductRepository(){
         if (saleProductRepository == null)
             saleProductRepository = new SaleProductRepositoryImpl();
         return saleProductRepository;
@@ -67,10 +56,15 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
     }
 
     @Override
-    public void delete(Integer saleCode, Integer prodCode){
+    public boolean delete(Integer saleCode, Integer prodCode){
+        boolean deleted = false;
+
         SaleProduct saleProduct = read(saleCode, prodCode);
-        if (saleProduct != null)
+        if (saleProduct != null) {
             saleProducts.remove(saleProduct);
+            deleted = true;
+        }
+        return deleted;
     }
 
     @Override
