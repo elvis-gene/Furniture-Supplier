@@ -18,23 +18,23 @@ import static org.junit.Assert.*;
 public class SaleServiceImplTest {
 
     private static SaleService service = SaleServiceImpl.getSaleService();
+
     private static Sale sale = SaleFactory.createSale(
             new HashSet<>(Collections.singletonList(SaleProductFactory.
                     createSaleProduct(435, 2))
             ));
 
-
     @Test
     public void a_create() {
         Sale newSale = service.create(sale);
-        assertEquals(newSale, sale);
+        assertEquals(sale, newSale);
         System.out.println("New Sale: "+ newSale);
     }
 
     @Test
     public void b_read() {
         Sale readSale = service.read(sale.getSaleCode());
-        assertEquals(readSale, sale);
+        assertEquals(sale, readSale);
         System.out.println("Read " + readSale);
     }
 
@@ -72,6 +72,6 @@ public class SaleServiceImplTest {
     public void g_delete() {
         boolean deleted = service.delete(sale.getSaleCode());
         assertTrue(deleted);
-        System.out.println("Sale deleted: "+ Boolean.toString(deleted));
+        System.out.println("Sale deleted: "+ deleted);
     }
 }

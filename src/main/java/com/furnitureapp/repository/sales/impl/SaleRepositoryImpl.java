@@ -7,9 +7,6 @@
 package com.furnitureapp.repository.sales.impl;
 
 import com.furnitureapp.entity.sales.Sale;
-import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.factory.sales.SaleFactory;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 import com.furnitureapp.repository.sales.SaleRepository;
 
 import java.time.LocalDateTime;
