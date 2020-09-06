@@ -14,6 +14,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -30,7 +32,7 @@ public class ProductRepositoryImplTest {
     @Test
     public void a_create() {
         Product created = productRepository.create(product);
-        Assert.assertEquals(created, product);
+        Assert.assertEquals(product.getProductCode(), created.getProductCode());
         System.out.println("Created: " + created);
     }
 
@@ -51,14 +53,15 @@ public class ProductRepositoryImplTest {
 
     @Test
     public void e_delete() {
-        productRepository.delete(product.getProductCode());
-        System.out.println(" Product deleted");
+        boolean deleted = productRepository.delete(product.getProductCode());
+        Assert.assertTrue(deleted);
+        System.out.println("Product deleted: " + deleted);
     }
 
     @Test
     public void d_list() {
-        productRepository.list();
-        System.out.println(productRepository);
+       Set<Product> products = productRepository.list();
+        Assert.assertEquals(1, products.size());
 
     }
 
