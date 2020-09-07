@@ -1,4 +1,10 @@
 package com.furnitureapp.service.stockcontrol;
 
-public interface StockService {
+import com.furnitureapp.entity.stockcontrol.Stock;
+import com.furnitureapp.service.IService;
+
+import java.util.Set;
+
+public interface StockService extends IService<Stock, Integer> {
+    Set<Stock> list();
 }
