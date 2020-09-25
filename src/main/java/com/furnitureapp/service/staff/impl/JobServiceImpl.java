@@ -1,5 +1,10 @@
 package com.furnitureapp.service.staff.impl;
 
+/*
+ * @author: @yaseenjohnston
+ * Description: Implementation for Job Service
+ */
+
 import com.furnitureapp.entity.staff.Job;
 import com.furnitureapp.repository.staff.JobRepository;
 import com.furnitureapp.repository.staff.impl.JobRepositoryImpl;
