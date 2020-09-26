@@ -31,6 +31,7 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
         return saleProductRepository;
     }
 
+    // To add a product to a sale
     @Override
     public SaleProduct create(SaleProduct saleProduct){
         saleProducts.add(saleProduct);

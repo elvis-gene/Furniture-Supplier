@@ -10,9 +10,11 @@ import com.furnitureapp.entity.sales.SaleProduct;
 import com.furnitureapp.repository.sales.SaleProductRepository;
 import com.furnitureapp.repository.sales.impl.SaleProductRepositoryImpl;
 import com.furnitureapp.service.sales.SaleProductService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class SaleProductServiceImpl implements SaleProductService {
 
     private SaleProductRepository repository;

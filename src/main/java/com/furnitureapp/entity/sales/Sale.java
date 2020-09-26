@@ -14,6 +14,8 @@ public class Sale{
     private LocalDateTime saleTime;
     private Set<SaleProduct> saleProducts;
 
+    public Sale(){}
+
     private Sale(SaleBuilder builder){
         this.saleCode = builder.saleCode;
         this.totalAmount = builder.totalAmount;

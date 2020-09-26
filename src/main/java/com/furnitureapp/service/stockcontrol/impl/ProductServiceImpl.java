@@ -4,9 +4,11 @@ import com.furnitureapp.entity.stockcontrol.Product;
 import com.furnitureapp.repository.stockcontrol.ProductRepository;
 import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
 import com.furnitureapp.service.stockcontrol.ProductService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     private static ProductService productService = null;
