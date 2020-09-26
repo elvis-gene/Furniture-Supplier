@@ -10,6 +10,8 @@ public class Job {
     private String jobTitle;
     private String jobDescription;
 
+    public Job() {
+    }
 
     private Job(JobBuilder builder) {
         this.jobCode = builder.jobCode;
