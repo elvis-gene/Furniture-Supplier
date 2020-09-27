@@ -4,9 +4,11 @@ import com.furnitureapp.entity.stockcontrol.Stock;
 import com.furnitureapp.repository.stockcontrol.StockRepository;
 import com.furnitureapp.repository.stockcontrol.impl.StockRepositoryImpl;
 import com.furnitureapp.service.stockcontrol.StockService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class StockServiceImpl implements StockService {
 
     private StockRepository repository;

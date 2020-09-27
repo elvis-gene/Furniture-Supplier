@@ -21,6 +21,10 @@ public class Appointment {
         this.customerName = appointmentBuilder.customerName;
     }
 
+    public Appointment(){
+
+    }
+
     public String getCustomerName() {
         return customerName;
     }
