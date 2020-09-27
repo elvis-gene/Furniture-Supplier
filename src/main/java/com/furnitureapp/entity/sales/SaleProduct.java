@@ -12,7 +12,7 @@ public class SaleProduct {
     private Integer prodCode;
     private int quantity;
 
-    private SaleProduct(){}
+    public SaleProduct(){}
 
     private SaleProduct(Builder builder) {
         this.saleCode = builder.saleCode;

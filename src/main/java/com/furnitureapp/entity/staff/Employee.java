@@ -16,6 +16,8 @@ public class Employee {
     private String passCode;
     private Job job;
 
+    public Employee() {
+    }
 
     private Employee(EmployeeBuilder builder) {
         this.employeeCode = builder.employeeCode;
