@@ -9,10 +9,12 @@ import com.furnitureapp.entity.staff.Employee;
 import com.furnitureapp.repository.staff.EmployeeRepository;
 import com.furnitureapp.repository.staff.impl.EmployeeRepositoryImpl;
 import com.furnitureapp.service.staff.EmployeeService;
+import org.springframework.stereotype.Service;
 
 
 import java.util.Set;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository repository;
