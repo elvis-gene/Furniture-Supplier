@@ -1,9 +1,10 @@
 package com.furnitureapp.entity.distribution;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Delivery {
+public class Delivery implements Serializable {
     private Integer deliveryCode;
     private Integer saleCode;
     private Integer employeeCode;
@@ -12,6 +13,8 @@ public class Delivery {
     private LocalDateTime dateTimeSet;
     private int trackingNum;
     private String deliveryStatus;
+
+    private Delivery(){}
 
     private Delivery(DeliveryBuilder deliveryBuilder){
         this.deliveryCode = deliveryBuilder.deliveryCode;
