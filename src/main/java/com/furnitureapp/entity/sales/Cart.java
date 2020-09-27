@@ -6,9 +6,10 @@ This is the Cart class, it keep tracks of all the items the customer wan to buy.
  */
 package com.furnitureapp.entity.sales;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Cart {
+public class Cart implements Serializable{
     //All attributes
     private Integer cartNum;
     private List <SaleProduct> cartItems;
@@ -16,6 +17,9 @@ public class Cart {
     private double total;
 
     //Constructor
+
+    private Cart() {   }
+
     private Cart(CartBuilder builder) {
         this.cartNum = builder.cartNum;
         this.cartItems =  builder.cartItems;
@@ -24,8 +28,6 @@ public class Cart {
     }
 
     //Getters
-
-
     public List<SaleProduct> getCartItems() {
         return cartItems;
     }
