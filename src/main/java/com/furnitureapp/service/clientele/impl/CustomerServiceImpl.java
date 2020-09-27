@@ -7,8 +7,10 @@ import com.furnitureapp.entity.clientele.Customer;
 import com.furnitureapp.repository.clientele.CustomerRepository;
 import com.furnitureapp.repository.clientele.impl.CustomerRepositoryImpl;
 import com.furnitureapp.service.clientele.CustomerService;
-import java.util.Set;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
     private CustomerRepository repository;
