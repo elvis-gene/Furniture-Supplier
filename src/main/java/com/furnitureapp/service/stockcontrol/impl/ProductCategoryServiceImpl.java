@@ -4,9 +4,12 @@ import com.furnitureapp.entity.stockcontrol.ProductCategory;
 import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
 import com.furnitureapp.repository.stockcontrol.impl.ProductCategoryRepositoryImpl;
 import com.furnitureapp.service.stockcontrol.ProductCategoryService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+
+@Service
 
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 

@@ -1,6 +1,5 @@
 package com.furnitureapp.controller.stockcontrol;
 
-import com.furnitureapp.entity.stockcontrol.Product;
 import com.furnitureapp.entity.stockcontrol.ProductCategory;
 import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
 import org.junit.Assert;
@@ -45,7 +44,7 @@ class ProductCategoryControllerTest {
 
     @Test
     public void b_read() {
-        String url = baseURL + "read/" + productCategory.getCategoryCode();
+        String url = baseURL + "read" + productCategory.getCategoryCode();
         System.out.println("URL: " + url);
         ResponseEntity<ProductCategory> response = restTemplate.getForEntity(url, ProductCategory.class);
         Assert.assertEquals(productCategory.getCategoryCode(), response.getBody().getCategoryCode());
@@ -63,7 +62,7 @@ class ProductCategoryControllerTest {
 
     @Test
     public void e_delete() {
-        String url = baseURL + "delete/" + productCategory.getCategoryCode();
+        String url = baseURL + "delete" + productCategory.getCategoryCode();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }

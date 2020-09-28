@@ -48,7 +48,7 @@ public class ProductControllerTest {
 
     @Test
     public void b_read() {
-        String url = baseURL + "read/" + product.getProductCode();
+        String url = baseURL + "read" + product.getProductCode();
         System.out.println("URL: " + url);
         ResponseEntity<Product> response = restTemplate.getForEntity(url, Product.class);
         Assert.assertEquals(product.getName(), response.getBody().getName());
@@ -66,7 +66,7 @@ public class ProductControllerTest {
 
     @Test
     public void e_delete() {
-        String url = baseURL + "delete/" + product.getProductCode();
+        String url = baseURL + "delete" + product.getProductCode();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }

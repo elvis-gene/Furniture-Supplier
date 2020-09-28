@@ -1,7 +1,6 @@
 package com.furnitureapp.controller.stockcontrol;
 
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.factory.stockcontrol.ProductFactory;
 import com.furnitureapp.service.stockcontrol.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +17,7 @@ public class ProductController {
 
     @PostMapping ("/create")
     public Product create (@RequestBody Product product){
-        Product newProduct = ProductFactory.createProduct(product.getName(),
-                product.getPrice(), product.getLength(), product.getWidth(),
-                product.getWeight(), product.getDescription(), product.getCategory());
-        return productService.create(newProduct);
+        return productService.create(product);
     }
 
     @GetMapping("/read {prodCode}")
