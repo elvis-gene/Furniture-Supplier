@@ -11,9 +11,11 @@ import com.furnitureapp.entity.sales.Promotion;
 import com.furnitureapp.repository.sales.PromotionRepository;
 import com.furnitureapp.repository.sales.impl.PromotionRepositoryImpl;
 import com.furnitureapp.service.sales.PromotionService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PromotionServiceImpl implements PromotionService {
 
     //Instantiation of a CartService object and a CartRepository object.

@@ -16,6 +16,8 @@ public class Product {
     private String description;
     private ProductCategory category;
 
+    public Product(){}
+
     private Product(ProductBuilder builder) {
         this.productCode = builder.productCode;
         this.name = builder.name;
@@ -149,3 +151,5 @@ public class Product {
 
     }
 }
+
+

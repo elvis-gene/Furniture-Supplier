@@ -4,10 +4,13 @@ import com.furnitureapp.entity.distribution.Delivery;
 import com.furnitureapp.repository.distribution.DeliveryRepository;
 import com.furnitureapp.repository.distribution.impl.DeliveryRepositoryImpl;
 import com.furnitureapp.service.distribution.DeliveryService;
+import org.springframework.stereotype.Service;
 
 
 import java.util.Set;
 
+
+@Service
 public class DeliveryServiceImpl implements DeliveryService {
     private static DeliveryService deliveryService = null;
     private DeliveryRepository deliveryRepository;

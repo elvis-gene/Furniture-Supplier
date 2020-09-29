@@ -4,6 +4,7 @@ public class Stock {
     private Integer prodCatCode;
     private int quantity;
 
+    public Stock(){}
     private Stock(StockBuilder stockBuilder){
         this.prodCatCode = stockBuilder.prodCatCode;
         this.quantity = stockBuilder.quantity;

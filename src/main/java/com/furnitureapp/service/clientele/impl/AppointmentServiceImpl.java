@@ -7,8 +7,10 @@ import com.furnitureapp.entity.clientele.Appointment;
 import com.furnitureapp.repository.clientele.AppointmentRepository;
 import com.furnitureapp.repository.clientele.impl.AppointmentRepositoryImpl;
 import com.furnitureapp.service.clientele.AppointmentService;
-import java.util.Set;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service
 public class AppointmentServiceImpl implements AppointmentService {
 
     private AppointmentRepository repository;

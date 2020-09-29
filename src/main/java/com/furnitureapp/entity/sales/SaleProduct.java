@@ -12,6 +12,8 @@ public class SaleProduct {
     private Integer prodCode;
     private int quantity;
 
+    public SaleProduct(){}
+
     private SaleProduct(Builder builder) {
         this.saleCode = builder.saleCode;
         this.prodCode = builder.prodCode;
