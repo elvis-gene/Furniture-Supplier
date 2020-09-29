@@ -9,6 +9,6 @@ public interface DeliveryService extends IService<Delivery, Integer> {
 
     Set<Delivery> list();
 
-    Delivery getDeliveryStatus(String deliveryStatus);
+   // Delivery getDeliveryStatus(String deliveryStatus);
 
 }
