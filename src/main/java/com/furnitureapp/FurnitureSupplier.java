@@ -16,7 +16,6 @@ public class FurnitureSupplier {
         return "Spring-boot works!";
     }
 
-
     public static void main(String[] args) {
         SpringApplication.run(FurnitureSupplier.class, args);
     }
