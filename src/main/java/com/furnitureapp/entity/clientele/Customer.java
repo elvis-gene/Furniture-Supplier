@@ -25,6 +25,10 @@ public class Customer{
         this.password = customerBuilder.password;
     }
 
+    public Customer(){
+
+    }
+
     public Integer getCustomerCode() {
         return customerCode;
     }
