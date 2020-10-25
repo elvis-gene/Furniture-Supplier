@@ -4,17 +4,27 @@
                     so this class serves as a bridge class whose objects will be unique to a sale.
  */
 
+//Alternatives:
+//        https://www.baeldung.com/jpa-many-to-many
 
 package com.furnitureapp.entity.sales;
 
+import javax.persistence.*;
+
+@Entity(name = "sale_products")
+@IdClass(SaleProductCode.class)
 public class SaleProduct {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer saleCode;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer prodCode;
     private int quantity;
 
     public SaleProduct(){}
 
-    private SaleProduct(Builder builder) {
+    protected SaleProduct(Builder builder) {
         this.saleCode = builder.saleCode;
         this.prodCode = builder.prodCode;
         this.quantity = builder.quantity;

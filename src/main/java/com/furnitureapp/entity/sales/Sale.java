@@ -4,32 +4,36 @@
  */
 
 package com.furnitureapp.entity.sales;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-
+@Entity(name = "sales")
 public class Sale{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer saleCode;
     private double totalAmount;
     private LocalDateTime saleTime;
-    private Set<SaleProduct> saleProducts;
+
+//    @OneToMany(mappedBy = "sales")
+//    Set<SaleProduct> products;
 
     public Sale(){}
 
-    private Sale(SaleBuilder builder){
-        this.saleCode = builder.saleCode;
+    protected Sale(SaleBuilder builder){
         this.totalAmount = builder.totalAmount;
         this.saleTime = builder.saleTime;
-        this.saleProducts = builder.saleProducts;
+//        this.products = builder.products;
     }
 
     public Integer getSaleCode() { return saleCode; }
 
     public double getTotalAmount() { return totalAmount;  }
 
-    public Set<SaleProduct> getSaleProducts() {
-        return saleProducts;
-    }
+//    public Set<SaleProduct> getProducts() {
+//        return products;
+//    }
 
     public LocalDateTime getSaleTime() {
         return LocalDateTime.now();
@@ -45,17 +49,13 @@ public class Sale{
     }
 
     public static class SaleBuilder{
-        private Integer saleCode;
         private double totalAmount;
         private LocalDateTime saleTime;
-        private Set<SaleProduct> saleProducts;
+
+//        @OneToMany(mappedBy = "sales")
+//        private Set<SaleProduct> products;
 
         public SaleBuilder(){}
-
-        public SaleBuilder setSaleCode(Integer saleCode) {
-            this.saleCode = saleCode;
-            return this;
-        }
 
         public SaleBuilder setTotalAmount(double totalAmount) {
             this.totalAmount = totalAmount;
@@ -67,16 +67,15 @@ public class Sale{
             return this;
         }
 
-        public SaleBuilder setSaleProducts(Set<SaleProduct> saleProducts) {
-            this.saleProducts = saleProducts;
-            return this;
-        }
+//        public SaleBuilder setProducts(Set<SaleProduct> products) {
+//            this.products = products;
+//            return this;
+//        }
 
         public SaleBuilder copy(Sale sale){
-            this.saleCode = sale.saleCode;
             this.totalAmount = sale.totalAmount;
             this.saleTime= sale.saleTime;
-            this.saleProducts = sale.saleProducts;
+//            this.products = sale.products;
             return this;
         }
 
