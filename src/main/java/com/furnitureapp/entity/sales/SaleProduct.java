@@ -25,8 +25,6 @@ public class SaleProduct {
     public SaleProduct(){}
 
     protected SaleProduct(Builder builder) {
-        this.saleCode = builder.saleCode;
-        this.prodCode = builder.prodCode;
         this.quantity = builder.quantity;
     }
 
@@ -52,21 +50,9 @@ public class SaleProduct {
     }
 
     public static class Builder{
-        private Integer saleCode;
-        private Integer prodCode;
         private int quantity;
 
         public Builder(){}
-
-        public Builder setSaleCode(Integer saleCode) {
-            this.saleCode = saleCode;
-            return this;
-        }
-
-        public Builder setProdCode(Integer prodCode) {
-            this.prodCode = prodCode;
-            return this;
-        }
 
         public Builder setQuantity(int quantity) {
             this.quantity = quantity;
@@ -74,8 +60,6 @@ public class SaleProduct {
         }
 
         public Builder copy(SaleProduct saleProduct){
-            this.saleCode = saleProduct.saleCode;
-            this.prodCode = saleProduct.prodCode;
             this.quantity = saleProduct.quantity;
             return this;
         }
