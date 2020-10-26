@@ -28,9 +28,8 @@ public class SaleFactory {
 //        }
 
         return new Sale.SaleBuilder()
-                .setSaleCode(Helper.generateCode())
                 .setSaleTime(LocalDateTime.now())
-                .setSaleProducts(saleProducts)
+//                .setProducts(saleProducts)
                 .setTotalAmount(totalAmount).build();
     }
 }
