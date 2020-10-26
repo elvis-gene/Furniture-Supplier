@@ -26,7 +26,7 @@ so that both your codes work perfectly with each other after pull requests are m
 <br/><br/>
 
 **Necessary Changes to make to the UML:**
-- Remove relationship Appointment & Customer
+- Remove relationship Appointment & Employee
 - Remove relationship Employeee & Stock
 - Connect Cart to SaleProduct without a relation type and cardinalities. Make cart a value object. Carts might exist in our db for a beginning but they 
 should use browser session objects for their lifespan.
