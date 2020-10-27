@@ -5,7 +5,15 @@ package com.furnitureapp.entity.clientele;
  * Description: Customer Entity
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
+@Entity
+@IdClass(CustomerAppointmentId.class)
 public class Customer{
+
+    @Id
     private Integer customerCode;
     private String fullName;
     private String emailAddress;
@@ -13,7 +21,6 @@ public class Customer{
     private String address;
     private String password;
     private Appointment appointment;
-
 
     private Customer(CustomerBuilder customerBuilder){
         this.customerCode = customerBuilder.customerCode;
@@ -25,7 +32,7 @@ public class Customer{
         this.password = customerBuilder.password;
     }
 
-    public Customer(){
+    protected Customer(){
 
     }
 
