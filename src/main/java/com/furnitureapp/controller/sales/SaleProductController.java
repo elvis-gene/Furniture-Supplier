@@ -33,12 +33,11 @@ public class SaleProductController {
             return saleProductService.create(saleProduct);
         else
             return SaleProductFactory.createSaleProduct(null, 0);
-
     }
 
     @GetMapping("/read/{sId}/{pId}")
     public SaleProduct read(@PathVariable Integer sId, @PathVariable Integer pId){
-        return saleProductService.read(sId,pId);
+        return saleProductService.read(sId, pId);
     }
 
     @PostMapping("/update")
