@@ -5,8 +5,17 @@ package com.furnitureapp.entity.staff;
  * Description: Entity for Employee
  */
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class Employee {
+
+    @Id
     private Integer employeeCode;
+
     private String fullName;
     private String address;
     private String emailAddress;
@@ -14,9 +23,8 @@ public class Employee {
     private String shift;
     private double salary;
     private String passCode;
-    private Job job;
 
-    public Employee() {
+    protected Employee() {
     }
 
     private Employee(EmployeeBuilder builder) {
@@ -28,7 +36,6 @@ public class Employee {
         this.shift = builder.shift;
         this.salary = builder.salary;
         this.passCode = builder.passCode;
-        this.job = builder.job;
     }
 
     public Integer getEmployeeCode() {
@@ -63,10 +70,6 @@ public class Employee {
         return passCode;
     }
 
-    public Job getJob(){
-        return job;
-    }
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -75,7 +78,6 @@ public class Employee {
                 ", address='" + address + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phone=" + phone +
-                ", job=" + job +
                 '}';
     }
 
@@ -88,7 +90,6 @@ public class Employee {
         private String shift;
         private double salary;
         private String passCode;
-        private Job job;
 
         public EmployeeBuilder() {
         }
@@ -133,10 +134,6 @@ public class Employee {
             return this;
         }
 
-        public EmployeeBuilder setJob(Job job){
-            this.job = job;
-            return this;
-        }
 
         public EmployeeBuilder copy(Employee employee){
             this.employeeCode = employee.employeeCode;
@@ -147,7 +144,6 @@ public class Employee {
             this.shift = employee.shift;
             this.salary = employee.salary;
             this.passCode = employee.passCode;
-            this.job = employee.job;
             return this;
         }
 
@@ -156,4 +152,16 @@ public class Employee {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return employeeCode.equals(employee.employeeCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeCode);
+    }
 }

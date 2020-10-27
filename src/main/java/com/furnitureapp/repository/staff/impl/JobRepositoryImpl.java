@@ -1,9 +1,9 @@
-package com.furnitureapp.repository.staff.impl;
+//package com.furnitureapp.repository.staff.impl;
 /*
  * @author: @yaseenjohnston
  * Description: Repository for Job
  */
-
+/*
 import com.furnitureapp.entity.staff.Job;
 import com.furnitureapp.repository.staff.JobRepository;
 
@@ -65,4 +65,4 @@ public class JobRepositoryImpl implements JobRepository {
     public Set<Job> list() {
         return jobs;
     }
-}
+}*/
