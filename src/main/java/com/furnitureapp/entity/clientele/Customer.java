@@ -5,12 +5,10 @@ package com.furnitureapp.entity.clientele;
  * Description: Customer Entity
  */
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
 @Entity
-@IdClass(CustomerAppointmentId.class)
+@Embeddable
 public class Customer{
 
     @Id
@@ -20,6 +18,7 @@ public class Customer{
     private String phoneNumber;
     private String address;
     private String password;
+    @ManyToOne
     private Appointment appointment;
 
     private Customer(CustomerBuilder customerBuilder){

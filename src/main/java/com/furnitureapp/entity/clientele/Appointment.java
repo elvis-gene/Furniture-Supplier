@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-public class Appointment {
+public class Appointment{
 
     @Id
     private String customerName;
