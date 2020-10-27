@@ -8,7 +8,6 @@ package com.furnitureapp.entity.clientele;
 import javax.persistence.*;
 
 @Entity
-@Embeddable
 public class Customer{
 
     @Id
