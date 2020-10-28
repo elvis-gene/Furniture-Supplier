@@ -6,6 +6,7 @@ import com.furnitureapp.service.sales.SaleProductService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -14,8 +15,9 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleProductServiceImplTest {
 
-    private static SaleProductService service = SaleProductServiceImpl.getService();
-    private static SaleProduct saleProduct = SaleProductFactory.createSaleProduct(435, 4);
+    @Autowired
+    private static SaleProductService service;
+    private static SaleProduct saleProduct = SaleProductFactory.createSaleProduct(1, 3, 4);
 
 
     @Test
@@ -27,7 +29,7 @@ public class SaleProductServiceImplTest {
 
     @Test
     public void b_read() {
-        SaleProduct readSP = service.read(saleProduct.getSaleCode(), saleProduct.getProdCode());
+        SaleProduct readSP = service.read(saleProduct.getId());
         assertEquals(saleProduct, readSP);
         System.out.println("read sale product: "+ readSP);
     }
@@ -42,7 +44,7 @@ public class SaleProductServiceImplTest {
 
     @Test
     public void d_delete() {
-        boolean deleted = service.delete(saleProduct.getSaleCode(), saleProduct.getProdCode());
+        boolean deleted = service.delete(saleProduct.getId());
         assertTrue(deleted);
     }
 

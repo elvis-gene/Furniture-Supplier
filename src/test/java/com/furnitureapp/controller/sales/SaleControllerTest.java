@@ -28,7 +28,7 @@ public class SaleControllerTest {
 
     private static Sale sale = SaleFactory.createSale(
             new HashSet<>(Collections.singletonList(SaleProductFactory.
-                    createSaleProduct(435, 2))
+                    createSaleProduct(1, 435, 2))
             ));
 
     @Autowired

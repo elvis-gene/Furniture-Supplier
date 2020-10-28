@@ -13,7 +13,7 @@ public class Employee {
     private String phone;
     private String shift;
     private double salary;
-    private String passCode;
+    private String passCode;z
     private Job job;
 
     public Employee() {

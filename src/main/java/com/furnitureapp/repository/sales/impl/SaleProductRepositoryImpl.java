@@ -2,7 +2,6 @@
     Coder: Elvis Gene
     Description: CRUD methods for the SaleProduct entity
     Date: 29-Aug-2020
- */
 
 package com.furnitureapp.repository.sales.impl;
 import com.furnitureapp.entity.sales.SaleProduct;
@@ -11,12 +10,8 @@ import com.furnitureapp.repository.sales.SaleProductRepository;
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class SaleProductRepositoryImpl implements SaleProductRepository {
-    /**
-     *      SaleProduct being the bridge entity of Product and Sale, we will need
-     *      both the sale id and the product id to read/delete a product belonging to
-     *      a specific sale.
-     */
 
     private Set<SaleProduct> saleProducts;
     private static SaleProductRepository saleProductRepository = null;
@@ -73,3 +68,5 @@ public class SaleProductRepositoryImpl implements SaleProductRepository {
         return saleProducts;
     }
 }
+
+ */
