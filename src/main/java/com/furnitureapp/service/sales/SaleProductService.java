@@ -7,15 +7,16 @@
 package com.furnitureapp.service.sales;
 
 import com.furnitureapp.entity.sales.SaleProduct;
+import com.furnitureapp.entity.sales.SaleProductCode;
 
 import java.util.Set;
 
 // Services of a bridge entity
 public interface SaleProductService {
 
-    SaleProduct read(Integer saleId, Integer prodId);
+    SaleProduct read(SaleProductCode id);
     SaleProduct create(SaleProduct saleProduct);
     SaleProduct update(SaleProduct saleProduct);
-    boolean delete(Integer saleId, Integer prodId);
+    boolean delete(SaleProductCode id);
     Set<SaleProduct> list();
 }
