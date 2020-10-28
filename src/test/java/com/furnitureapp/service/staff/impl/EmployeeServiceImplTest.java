@@ -2,11 +2,11 @@ package com.furnitureapp.service.staff.impl;
 
 import com.furnitureapp.entity.staff.Employee;
 import com.furnitureapp.factory.staff.EmployeeFactory;
-import com.furnitureapp.factory.staff.JobFactory;
 import com.furnitureapp.service.staff.EmployeeService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.util.Set;
@@ -16,11 +16,13 @@ import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeServiceImplTest {
-    private static EmployeeService service = EmployeeServiceImpl.getEmployeeService();
+
+    @Autowired
+    private static EmployeeService service;
     private static Employee employee = EmployeeFactory.createEmployee("Yaseen Johnston", "123 South Street",
             "yaseenj@abc.com", "0123456789",
-            "9am - 3pm", 40000, "1234",
-            JobFactory.createJob("Software Engineer", "Develops and maintains software infrastructure"));
+            "9am - 3pm", 40000, "1234"
+            );
 
 
     @Test

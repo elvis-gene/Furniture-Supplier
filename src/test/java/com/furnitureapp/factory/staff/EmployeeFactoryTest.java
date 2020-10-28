@@ -18,7 +18,7 @@ public class EmployeeFactoryTest {
                 , "9:00 - 16:00"
                 , 25000
                 ,"54321"
-                , JobFactory.createJob("Clerk", "I work with stock and manipulating stock levels"));
+                );
 
         Employee e2 = EmployeeFactory.createEmployee("John Doe"
                 ,"42 Saturn Street, Cape Town"
@@ -27,7 +27,7 @@ public class EmployeeFactoryTest {
                 ,"8:00 - 15:00"
                 , 15500
                 ,"12345"
-                ,JobFactory.createJob("Accountant", "I manage the finances of the company"));
+                );
 
         assertNotSame(e2, e1);
     }

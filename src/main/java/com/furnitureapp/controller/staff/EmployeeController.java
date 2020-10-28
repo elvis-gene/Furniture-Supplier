@@ -32,7 +32,7 @@ public class EmployeeController {
     public Employee create(@RequestBody Employee employee){
         Employee newEmployee = EmployeeFactory.createEmployee(employee.getFullName(), employee.getAddress(),
                 employee.getEmailAddress(), employee.getPhone(), employee.getShift(), employee.getSalary(),
-                employee.getPassCode(), employee.getJob());
+                employee.getPassCode());
         return employeeService.create(newEmployee);
     }
 
