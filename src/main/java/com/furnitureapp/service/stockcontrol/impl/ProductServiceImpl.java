@@ -2,50 +2,44 @@ package com.furnitureapp.service.stockcontrol.impl;
 
 import com.furnitureapp.entity.stockcontrol.Product;
 import com.furnitureapp.repository.stockcontrol.ProductRepository;
-import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
 import com.furnitureapp.service.stockcontrol.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private static ProductService productService = null;
+    @Autowired
     private ProductRepository productRepository;
-
-    private ProductServiceImpl() {
-        this.productRepository = ProductRepositoryImpl.getProductRepository();
-    }
-
-    public static ProductService getProductService(){
-        if (productService == null)
-            productService = new ProductServiceImpl();
-        return productService;
-    }
 
     @Override
     public Set<Product> list() {
-        return this.productRepository.list();
+
+        return this.productRepository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Product create(Product product) {
-        return this.productRepository.create(product);
+        return this.productRepository.save(product);
     }
 
     @Override
     public Product read(Integer integer) {
-        return this.productRepository.read(integer);
+        return this.productRepository.findById(integer).orElseGet(null);
     }
 
     @Override
     public Product update(Product product) {
-        return this.productRepository.update(product);
+        return this.productRepository.save(product);
     }
 
     @Override
     public boolean delete(Integer integer) {
-        return this.productRepository.delete(integer);
+
+        this.productRepository.deleteById(integer);
+        if (this.productRepository.existsById(integer)) return false;
+        return true;
     }
 }

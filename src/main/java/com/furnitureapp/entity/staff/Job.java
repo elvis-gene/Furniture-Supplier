@@ -5,12 +5,20 @@ package com.furnitureapp.entity.staff;
  * Description: Entity for Job
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class Job {
+
+    @Id
     private Integer jobCode;
+
     private String jobTitle;
     private String jobDescription;
 
-    public Job() {
+    protected Job() {
     }
 
     private Job(JobBuilder builder) {
@@ -76,4 +84,16 @@ public class Job {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return jobCode.equals(job.jobCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(jobCode);
+    }
 }
