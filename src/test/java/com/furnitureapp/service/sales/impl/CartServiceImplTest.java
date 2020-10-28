@@ -11,7 +11,6 @@ import com.furnitureapp.entity.sales.Cart;
 import com.furnitureapp.entity.sales.SaleProduct;
 import com.furnitureapp.factory.sales.CartFactory;
 import com.furnitureapp.factory.sales.SaleProductFactory;
-import com.furnitureapp.repository.sales.CartRepository;
 import com.furnitureapp.service.sales.CartService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -31,14 +30,14 @@ public class CartServiceImplTest {
 
     //Instantiation of an object of the class CartRepositoryImpl
     //And creation of a cart object
-    private static CartService service = CartServiceImpl.getService();
+    private static CartService service;
     private static Cart cart;
 
     //create a new cart
     @Test
     public void a_create()
     {
-        cartItems.add(SaleProductFactory.createSaleProduct( 152,3));
+        cartItems.add(SaleProductFactory.createSaleProduct( 152,553,5));
         cart = CartFactory.createCart(cartItems, 2, 6000);
         Cart createCart = service.create(cart);
         Assert.assertEquals(cart.getCartNum(),createCart.getCartNum());

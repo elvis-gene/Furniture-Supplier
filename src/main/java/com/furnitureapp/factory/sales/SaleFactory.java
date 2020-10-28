@@ -9,7 +9,7 @@ package com.furnitureapp.factory.sales;
 import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.entity.sales.SaleProduct;
 import com.furnitureapp.repository.stockcontrol.ProductRepository;
-import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
+//import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
 import com.furnitureapp.utility.Helper;
 
 import java.time.LocalDateTime;

@@ -6,6 +6,7 @@ import com.furnitureapp.service.stockcontrol.StockService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -13,7 +14,9 @@ import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StockServiceImplTest {
-    private static StockService service = StockServiceImpl.getService();
+
+    @Autowired
+    private static StockService service;
     // TODO: With database, input product category code.
     private static Stock stock = StockFactory.createStock(89);
 

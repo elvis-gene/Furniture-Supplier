@@ -8,43 +8,25 @@ Desc:This is the CartServiceImpl class, it implements the CartService Interface.
 package com.furnitureapp.service.sales.impl;
 
 import com.furnitureapp.entity.sales.Cart;
-import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.factory.sales.CartFactory;
 import com.furnitureapp.repository.sales.CartRepository;
-import com.furnitureapp.repository.sales.impl.CartRepositoryImpl;
 import com.furnitureapp.service.sales.CartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class CartServiceImpl implements CartService {
 
-    //Instantiation of a CartService object and a CartRepository object.
-        private static CartService service = null;
+    //Instantiation ofa CartRepository object.
+    @Autowired
         private CartRepository repository;
-
-   //Initialisation of the repository object with values coming from the CartRepositoryImpl
-        private CartServiceImpl()
-        {
-            this.repository = CartRepositoryImpl.getCartRepository();
-        }
-
-   //Constructor checking if there is an existing service
-        public static CartService getService()
-        {
-            if (service == null)
-            {
-                service = new CartServiceImpl();
-            }
-            return service;
-        }
 
     @Override
         public Set<Cart> list()
         {
-            return this.repository.list();
+            return this.repository.findAll().stream().collect(Collectors.toSet());
         }
 
     @Override
@@ -68,24 +50,29 @@ public class CartServiceImpl implements CartService {
     @Override
         public Cart create(Cart cart)
         {
-            return this.repository.create(cart);
+            return this.repository.save(cart);
         }
 
     @Override
         public Cart read(Integer cartID)
         {
-            return this.repository.read(cartID);
+            return this.repository.findById(cartID).orElse(null);
         }
 
     @Override
         public Cart update(Cart cart)
         {
-            return this.repository.update(cart);
+            if (this.repository.existsById(cart.getCartNum())){
+                return this.repository.save(cart);
+            }
+            return null;
         }
 
     @Override
         public boolean delete(Integer cartID)
         {
-             return this.repository.delete(cartID);
+            this.repository.deleteById(cartID);
+            if (this.repository.existsById(cartID)) return false;
+            else return true;
         }
 }

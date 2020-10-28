@@ -6,6 +6,7 @@ import com.furnitureapp.service.staff.JobService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -14,7 +15,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class JobServiceImplTest {
 
-    private static JobService service = JobServiceImpl.getJobService();
+    @Autowired
+    private static JobService service;
     private static Job job = JobFactory.createJob("Software Engineer", "Develops and maintains software infrastructure");
 
 
