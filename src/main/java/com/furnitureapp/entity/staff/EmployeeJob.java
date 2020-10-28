@@ -1,10 +1,21 @@
 package com.furnitureapp.entity.staff;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class EmployeeJob {
 
-    private Integer employeeCode, jobCode;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer employeeCode;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer jobCode;
 
-    private EmployeeJob(){}
+    protected EmployeeJob(){}
 
     private EmployeeJob(Builder builder){
         this.employeeCode = builder.employeeCode;
@@ -22,7 +33,7 @@ public class EmployeeJob {
     public static class Builder{
         private Integer employeeCode, jobCode;
 
-        public Builder employeeCode(Integer employeeCode){
+        /*public Builder employeeCode(Integer employeeCode){
             this.employeeCode = employeeCode;
             return this;
         }
@@ -30,7 +41,7 @@ public class EmployeeJob {
         public Builder jobCode(Integer jobCode){
             this.jobCode = jobCode;
             return this;
-        }
+        }*/
 
         public Builder copy(EmployeeJob employeeJob){
             this.employeeCode = employeeJob.employeeCode;
@@ -49,5 +60,19 @@ public class EmployeeJob {
                     ", jobCode=" + jobCode +
                     '}';
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeJob that = (EmployeeJob) o;
+        return employeeCode.equals(that.employeeCode) &&
+                jobCode.equals(that.jobCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeCode, jobCode);
     }
 }

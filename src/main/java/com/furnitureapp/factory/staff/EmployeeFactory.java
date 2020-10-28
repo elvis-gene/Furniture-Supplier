@@ -6,7 +6,6 @@ package com.furnitureapp.factory.staff;
  */
 
 import com.furnitureapp.entity.staff.Employee;
-import com.furnitureapp.entity.staff.Job;
 import com.furnitureapp.utility.Helper;
 
 public class EmployeeFactory {

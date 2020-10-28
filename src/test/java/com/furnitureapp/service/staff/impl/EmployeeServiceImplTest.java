@@ -2,7 +2,6 @@ package com.furnitureapp.service.staff.impl;
 
 import com.furnitureapp.entity.staff.Employee;
 import com.furnitureapp.factory.staff.EmployeeFactory;
-import com.furnitureapp.factory.staff.JobFactory;
 import com.furnitureapp.service.staff.EmployeeService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
