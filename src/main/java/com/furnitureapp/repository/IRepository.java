@@ -6,7 +6,7 @@
 
 package com.furnitureapp.repository;
 
- @Deprecated
+@Deprecated
 public interface IRepository<T, ID> {
 
     T create(T t);

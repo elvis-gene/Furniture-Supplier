@@ -6,31 +6,37 @@ This is the Cart class, it keep tracks of all the items the customer wan to buy.
  */
 package com.furnitureapp.entity.sales;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 
-public class Cart implements Serializable{
+@Entity(name = "cart")
+public class Cart {
     //All attributes
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartNum;
-    private List <SaleProduct> cartItems;
+    //private List <SaleProduct> cartItems;
     private int numbItems;
     private double total;
 
     //Constructor
 
-    private Cart() {   }
+    protected Cart() {   }
 
     private Cart(CartBuilder builder) {
         this.cartNum = builder.cartNum;
-        this.cartItems =  builder.cartItems;
+       // this.cartItems =  builder.cartItems;
         this.numbItems = builder.numbItems;
         this.total = builder.total;
     }
 
     //Getters
-    public List<SaleProduct> getCartItems() {
-        return cartItems;
-    }
+    //public List<SaleProduct> getCartItems() {
+     //   return cartItems;
+  //  }
 
     public int getNumbItems() {
         return numbItems;
@@ -48,7 +54,7 @@ public class Cart implements Serializable{
     public String toString() {
         return "Cart{" +
                 "cartNum=" + cartNum +
-                ", cartItems=" + cartItems +
+                ", cartItems=" +
                 ", numbItems=" + numbItems +
                 ", total=" + total +
                 '}';
@@ -90,7 +96,7 @@ public class Cart implements Serializable{
         //Copy of the class Cart
         public CartBuilder copy(Cart cart){
             this.cartNum = cart.cartNum;
-            this.cartItems = cart.cartItems;
+            //this.cartItems = cart.cartItems;
             this.numbItems = cart.numbItems;
             this.total = cart.total;
             return this;

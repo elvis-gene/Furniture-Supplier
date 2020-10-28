@@ -8,6 +8,7 @@ import com.furnitureapp.service.distribution.DeliveryService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -17,7 +18,8 @@ import java.util.Set;
 
 public class DeliveryServiceImplTest {
 
-    private static DeliveryService service = DeliveryServiceImpl.getDeliveryService();
+    @Autowired
+    private  DeliveryService service ;
     private static Delivery delivery = DeliveryFactory.createDelivery(123,002,"15 Mas Street",1545,"Shipped");
 
 

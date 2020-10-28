@@ -1,10 +1,17 @@
 package com.furnitureapp.entity.distribution;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Entity (name = "delivery")
+@IdClass(EmployeeDelivery.class)
 public class Delivery implements Serializable {
+
+    @Id
     private Integer deliveryCode;
     private Integer saleCode;
     private Integer employeeCode;
@@ -14,7 +21,7 @@ public class Delivery implements Serializable {
     private int trackingNum;
     private String deliveryStatus;
 
-    private Delivery(){}
+    protected Delivery(){}
 
     private Delivery(DeliveryBuilder deliveryBuilder){
         this.deliveryCode = deliveryBuilder.deliveryCode;

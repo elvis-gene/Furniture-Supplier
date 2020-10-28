@@ -6,10 +6,14 @@ Desc: This is the Promotion class, it keeps track of all discounts the system ca
  */
 package com.furnitureapp.entity.sales;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity(name = "promotion")
 public class Promotion {
     //All attributes
+    @Id
     private String promoTitle;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -18,7 +22,7 @@ public class Promotion {
     private int year;
 
     //Constructor
-    private Promotion(){ }
+    protected Promotion(){ }
     private Promotion(PromotionBuilder builder) {
         this.promoTitle = builder.promoTitle;
         this.startDate = builder.startDate;
