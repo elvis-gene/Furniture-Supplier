@@ -5,10 +5,15 @@ package com.furnitureapp.entity.clientele;
  * Description: Appointment Entity
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Appointment {
+@Entity
+public class Appointment{
+
+    @Id
     private String customerName;
     private LocalDate date;
     private LocalTime time;
@@ -21,7 +26,7 @@ public class Appointment {
         this.customerName = appointmentBuilder.customerName;
     }
 
-    public Appointment(){
+    protected Appointment(){
 
     }
 

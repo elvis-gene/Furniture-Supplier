@@ -1,4 +1,4 @@
-package com.furnitureapp.repository.staff.impl;
+/*package com.furnitureapp.repository.staff.impl;
 
 import com.furnitureapp.entity.staff.Job;
 import com.furnitureapp.factory.staff.JobFactory;
@@ -50,4 +50,4 @@ public class JobRepositoryImplTest {
         Set<Job> jobs = repo.list();
         assertEquals(0, jobs.size());
     }
-}
+}*/

@@ -1,10 +1,11 @@
 package com.furnitureapp.repository.stockcontrol;
 
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Set;
 
-public interface ProductRepository extends IRepository<Product, Integer> {
-    Set<Product> list();
-}
+@Repository
+
+public interface ProductRepository extends JpaRepository <Product, Integer>{}
+

@@ -1,12 +1,18 @@
 package com.furnitureapp.entity.stockcontrol;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
 /**
  * @author @Siba182
  * Description: Entity for product
  */
 
-
+@Entity
 public class Product {
+
+    @Id
     private Integer productCode;
     private String name;
     private double price;
@@ -16,7 +22,7 @@ public class Product {
     private String description;
     private ProductCategory category;
 
-    public Product(){}
+    protected Product(){}
 
     private Product(ProductBuilder builder) {
         this.productCode = builder.productCode;
@@ -149,6 +155,19 @@ public class Product {
             return new Product(this);
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return productCode.equals(product.productCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productCode);
     }
 }
 
