@@ -22,7 +22,7 @@ public class SaleFactoryTest {
     @Test
     public void createSale(){
         Set<SaleProduct> saleProducts = new HashSet<>();
-        saleProducts.add(SaleProductFactory.createSaleProduct(12,5));
+        saleProducts.add(SaleProductFactory.createSaleProduct(1,12,5));
         Sale sale = SaleFactory.createSale(saleProducts);
 
         // Creating another sale using the copy method

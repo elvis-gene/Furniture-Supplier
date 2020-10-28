@@ -5,7 +5,7 @@
  */
 
 package com.furnitureapp.repository;
-
+@Deprecated
 public interface IRepository<T, ID> {
 
     T create(T t);
