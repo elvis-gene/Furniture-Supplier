@@ -6,11 +6,9 @@ Desc:This is the PromotionControllerTest class, tests the implementation of the 
  */
 package com.furnitureapp.controller.sales;
 
-import com.furnitureapp.entity.sales.Cart;
 import com.furnitureapp.entity.sales.Promotion;
 import com.furnitureapp.factory.sales.PromotionFactory;
 import com.furnitureapp.service.sales.PromotionService;
-import com.furnitureapp.service.sales.impl.PromotionServiceImpl;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +22,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
@@ -36,7 +35,7 @@ public class PromotionControllerTest {
     @Autowired
     private TestRestTemplate testTemplate;
     @Autowired
-    private static PromotionService service = PromotionServiceImpl.getService();
+    private static PromotionService service;
     private String baseUrl = "http://localhost:8080/promotion/";
 
     @Test
