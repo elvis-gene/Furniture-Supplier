@@ -6,34 +6,29 @@
 package com.furnitureapp.entity.sales;
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.Objects;
 
 @Entity(name = "sales")
 public class Sale{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "sale_code")
     private Integer saleCode;
+    @Column(name = "total_amount")
     private double totalAmount;
+    @Column(name = "sale_time")
     private LocalDateTime saleTime;
-
-//    @OneToMany(mappedBy = "sales")
-//    Set<SaleProduct> products;
 
     public Sale(){}
 
     protected Sale(SaleBuilder builder){
         this.totalAmount = builder.totalAmount;
         this.saleTime = builder.saleTime;
-//        this.products = builder.products;
     }
 
     public Integer getSaleCode() { return saleCode; }
 
     public double getTotalAmount() { return totalAmount;  }
-
-//    public Set<SaleProduct> getProducts() {
-//        return products;
-//    }
 
     public LocalDateTime getSaleTime() {
         return LocalDateTime.now();
@@ -52,9 +47,6 @@ public class Sale{
         private double totalAmount;
         private LocalDateTime saleTime;
 
-//        @OneToMany(mappedBy = "sales")
-//        private Set<SaleProduct> products;
-
         public SaleBuilder(){}
 
         public SaleBuilder setTotalAmount(double totalAmount) {
@@ -67,15 +59,9 @@ public class Sale{
             return this;
         }
 
-//        public SaleBuilder setProducts(Set<SaleProduct> products) {
-//            this.products = products;
-//            return this;
-//        }
-
         public SaleBuilder copy(Sale sale){
             this.totalAmount = sale.totalAmount;
             this.saleTime= sale.saleTime;
-//            this.products = sale.products;
             return this;
         }
 
@@ -84,4 +70,16 @@ public class Sale{
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sale sale = (Sale) o;
+        return saleCode.equals(sale.saleCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(saleCode);
+    }
 }

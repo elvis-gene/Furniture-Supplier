@@ -7,6 +7,7 @@ import com.furnitureapp.service.sales.SaleService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -17,11 +18,12 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleServiceImplTest {
 
-    private static SaleService service = SaleServiceImpl.getSaleService();
+    @Autowired
+    private SaleService service;
 
     private static Sale sale = SaleFactory.createSale(
             new HashSet<>(Collections.singletonList(SaleProductFactory.
-                    createSaleProduct(435, 2))
+                    createSaleProduct(1,2, 2))
             ));
 
     @Test
