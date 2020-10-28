@@ -49,7 +49,7 @@ public class CartControllerTest {
     public void a_create(){
 
         String url = baseUrl + "create";
-        cartItems.add(SaleProductFactory.createSaleProduct( 152,3));
+        cartItems.add(SaleProductFactory.createSaleProduct( 152,378,9));
         cart = CartFactory.createCart(cartItems, 2, 6000);
         System.out.println(cart);
         System.out.println(url);
