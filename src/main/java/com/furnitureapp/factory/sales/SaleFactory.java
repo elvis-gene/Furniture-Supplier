@@ -17,7 +17,7 @@ import java.util.Set;
 
 
 public class SaleFactory {
-    private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
+//     private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
 
     public static Sale createSale(Set<SaleProduct> saleProducts){
 
