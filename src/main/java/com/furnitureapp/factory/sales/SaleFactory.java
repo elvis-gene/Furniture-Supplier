@@ -17,7 +17,7 @@ import java.util.Set;
 
 
 public class SaleFactory {
-    private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
+//     private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
 
     public static Sale createSale(Set<SaleProduct> saleProducts){
 
@@ -28,9 +28,8 @@ public class SaleFactory {
 //        }
 
         return new Sale.SaleBuilder()
-                .setSaleCode(Helper.generateCode())
                 .setSaleTime(LocalDateTime.now())
-                .setSaleProducts(saleProducts)
+//                .setProducts(saleProducts)
                 .setTotalAmount(totalAmount).build();
     }
 }
