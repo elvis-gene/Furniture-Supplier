@@ -2,7 +2,7 @@
     Coder: Elvis Gene
     Description: CRUD methods for the Sale entity
     Date: 29-Aug-2020
- */
+
 
 package com.furnitureapp.repository.sales.impl;
 
@@ -12,9 +12,9 @@ import com.furnitureapp.repository.sales.SaleRepository;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
-
 import static java.util.stream.Collectors.toSet;
 
+@Deprecated
 public class SaleRepositoryImpl implements SaleRepository {
 
     // Using 'Set' as each sale is unique
@@ -87,3 +87,5 @@ public class SaleRepositoryImpl implements SaleRepository {
         return monthlySales().stream().mapToDouble(Sale::getTotalAmount).sum();
     }
 }
+
+*/

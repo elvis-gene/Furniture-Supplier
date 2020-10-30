@@ -10,18 +10,20 @@ package com.furnitureapp.service.sales.impl;
 import com.furnitureapp.entity.sales.Promotion;
 import com.furnitureapp.factory.sales.PromotionFactory;
 import com.furnitureapp.service.sales.PromotionService;
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
+
+import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PromotionServiceImplTest {
 
-    private static PromotionService service = PromotionServiceImpl.getService();
+    @Autowired
+    private static PromotionService service;
     private static Promotion promotion = PromotionFactory.createPromotion("Summer Sale","Buy one get the other one half price","Summer",2018);
 
     @Test
@@ -63,5 +65,10 @@ public class PromotionServiceImplTest {
         boolean deleted = service.delete(promotion.getPromoTitle());
         assertTrue(deleted);
         System.out.println("Promotion deleted!");
+    }
+
+    @Test
+    public void selectBySeason() {
+
     }
 }

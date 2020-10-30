@@ -1,10 +1,9 @@
 package com.furnitureapp.repository.clientele;
 
 import com.furnitureapp.entity.clientele.Appointment;
-import com.furnitureapp.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Set;
-
-public interface AppointmentRepository extends IRepository<Appointment, String> {
-    Set<Appointment> list();
+@Repository
+public interface AppointmentRepository extends JpaRepository<Appointment, String> {
 }

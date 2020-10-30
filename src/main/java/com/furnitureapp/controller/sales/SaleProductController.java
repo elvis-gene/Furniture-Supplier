@@ -1,12 +1,8 @@
 package com.furnitureapp.controller.sales;
 
-import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.entity.sales.SaleProduct;
-import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.factory.sales.SaleProductFactory;
+import com.furnitureapp.entity.sales.SaleProductCode;
 import com.furnitureapp.service.sales.impl.SaleProductServiceImpl;
-import com.furnitureapp.service.sales.impl.SaleServiceImpl;
-import com.furnitureapp.service.stockcontrol.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,26 +14,15 @@ public class SaleProductController {
 
     @Autowired
     private SaleProductServiceImpl saleProductService;
-    @Autowired
-    private SaleServiceImpl saleService;
-    @Autowired
-    private ProductServiceImpl productService;
 
     @PostMapping("/create")
     public SaleProduct create(@RequestBody SaleProduct saleProduct){
-
-        Sale sale = saleService.read(saleProduct.getSaleCode());
-        Product product = productService.read(saleProduct.getProdCode());
-
-        if (sale != null && product != null)
-            return saleProductService.create(saleProduct);
-        else
-            return SaleProductFactory.createSaleProduct(null, 0);
+        return saleProductService.create(saleProduct);
     }
 
-    @GetMapping("/read/{sId}/{pId}")
-    public SaleProduct read(@PathVariable Integer sId, @PathVariable Integer pId){
-        return saleProductService.read(sId, pId);
+    @GetMapping("/read/{id}")
+    public SaleProduct read(@PathVariable SaleProductCode id){
+        return saleProductService.read(id);
     }
 
     @PostMapping("/update")
@@ -45,9 +30,9 @@ public class SaleProductController {
         return saleProductService.update(saleProduct);
     }
 
-    @DeleteMapping("/delete/{sId}/{pId}")
-    public boolean delete(@PathVariable Integer sId, @PathVariable Integer pId){
-        return saleProductService.delete(sId, pId);
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable SaleProductCode id){
+        return saleProductService.delete(id);
     }
 
     @GetMapping("/all")

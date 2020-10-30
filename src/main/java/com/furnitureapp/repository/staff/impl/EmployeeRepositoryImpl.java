@@ -1,9 +1,9 @@
-package com.furnitureapp.repository.staff.impl;
+//package com.furnitureapp.repository.staff.impl;
 /*
  * @author: @yaseenjohnston
  * Description: Repository for Employee
  */
-
+/*
 import com.furnitureapp.entity.staff.Employee;
 import com.furnitureapp.repository.staff.EmployeeRepository;
 
@@ -72,4 +72,4 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         return employees;
     }
 
-}
+}*/

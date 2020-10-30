@@ -15,7 +15,7 @@ public class SaleProductFactoryTest {
 
     @Test
     public void createSaleProduct(){
-        SaleProduct saleProduct = SaleProductFactory.createSaleProduct(Helper.generateCode(), 3);
+        SaleProduct saleProduct = SaleProductFactory.createSaleProduct(1, 2, 3);
         Assert.assertNotNull(saleProduct);
     }
 }

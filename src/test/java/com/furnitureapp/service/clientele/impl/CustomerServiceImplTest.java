@@ -9,12 +9,16 @@ import com.furnitureapp.service.clientele.CustomerService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Set;
 import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CustomerServiceImplTest {
-    private static CustomerService service = CustomerServiceImpl.getCustomerService();
+
+    @Autowired
+    private static CustomerService service;
     private static Customer customer = CustomerFactory.createCustomer("Nkosinathi Sola",
             "nkosinathisola@gmail.com",
             "0825173224",
