@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import java.util.List;
 
 @Entity(name = "cart")
+
 public class Cart {
     //All attributes
     @Id
