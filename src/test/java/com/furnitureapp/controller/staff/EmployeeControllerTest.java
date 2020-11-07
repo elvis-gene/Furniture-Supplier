@@ -24,7 +24,7 @@ public class EmployeeControllerTest {
 
     private static Employee employee = EmployeeFactory.createEmployee("Yaseen Johnston", "1 ABC Street",
             "Yaseen@XYZ.com", "0123987456",
-            "9am - 5pm", 240000.00, "0125", null);
+            "9am - 5pm", 240000.00, "0125");
 
     @Autowired
     private TestRestTemplate restTemplate = null;
