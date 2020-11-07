@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 // Identified by the promotion title, Second type to be a String.
 public interface PromotionRepository extends JpaRepository<Promotion, String> {
-    
+
 }
