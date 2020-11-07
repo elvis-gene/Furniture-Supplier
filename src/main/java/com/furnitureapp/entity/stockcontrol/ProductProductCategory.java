@@ -1,8 +1,6 @@
 package com.furnitureapp.entity.stockcontrol;
 
 
-import sun.security.provider.certpath.Builder;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
