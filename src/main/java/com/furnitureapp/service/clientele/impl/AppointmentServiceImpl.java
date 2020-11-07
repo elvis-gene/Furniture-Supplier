@@ -5,55 +5,48 @@ package com.furnitureapp.service.clientele.impl;
  */
 import com.furnitureapp.entity.clientele.Appointment;
 import com.furnitureapp.repository.clientele.AppointmentRepository;
-import com.furnitureapp.repository.clientele.impl.AppointmentRepositoryImpl;
 import com.furnitureapp.service.clientele.AppointmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
 
+    @Autowired
     private AppointmentRepository repository;
-    private static AppointmentService appointmentService = null;
-
-    private AppointmentServiceImpl() {
-        this.repository = AppointmentRepositoryImpl.getAppointmentRepository();
-    }
-
-    public static AppointmentService getAppointmentService(){
-        if(appointmentService == null){
-            appointmentService = new AppointmentServiceImpl();
-        }
-        return appointmentService;
-    }
 
     @Override
     public Appointment create(Appointment appointment)
     {
-        return this.repository.create(appointment);
+        return this.repository.save(appointment);
     }
 
     @Override
     public Appointment read(String customerName)
     {
-        return this.repository.read(customerName);
+        return this.repository.findById(customerName).orElse(null);
     }
 
     @Override
     public Appointment update(Appointment appointment)
     {
-        return this.repository.update(appointment);
+        return create(appointment);
     }
 
     @Override
     public boolean delete(String customerName)
     {
-        return this.repository.delete(customerName);
+        this.repository.deleteById(customerName);
+        if(this.repository.existsById(customerName)) return false;
+        return true;
     }
 
     @Override
     public Set<Appointment> list()
     {
-        return this.repository.list();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }

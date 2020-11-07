@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleProductControllerTest {
 
-    private static SaleProduct saleProduct = SaleProductFactory.createSaleProduct(435, 4);
+    private static final SaleProduct saleProduct = SaleProductFactory.createSaleProduct(1,435, 4);
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -38,9 +38,9 @@ public class SaleProductControllerTest {
 
     @Test
     public void b_read() {
-        String url = baseUrl + "/read/" + saleProduct.getSaleCode() + "/" + saleProduct.getProdCode();
+        String url = baseUrl + "/read/" + saleProduct.getId();
         ResponseEntity<SaleProduct> response = restTemplate.getForEntity(url, SaleProduct.class);
-        assertEquals(saleProduct.getSaleCode(), response.getBody().getSaleCode());
+        assertEquals(saleProduct.getId(), response.getBody().getId());
         System.out.println(response.getBody());
     }
 
@@ -63,7 +63,7 @@ public class SaleProductControllerTest {
 
     @Test
     public void e_delete() {
-        restTemplate.delete(baseUrl + "/" + saleProduct.getSaleCode()+ "/" + saleProduct.getProdCode());
+        restTemplate.delete(baseUrl + "/" + saleProduct.getId());
         d_getAll();
     }
 }

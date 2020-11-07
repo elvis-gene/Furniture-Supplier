@@ -9,7 +9,7 @@ package com.furnitureapp.factory.sales;
 import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.entity.sales.SaleProduct;
 import com.furnitureapp.repository.stockcontrol.ProductRepository;
-import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
+//import com.furnitureapp.repository.stockcontrol.impl.ProductRepositoryImpl;
 import com.furnitureapp.utility.Helper;
 
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ import java.util.Set;
 
 
 public class SaleFactory {
-    private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
+//     private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
 
     public static Sale createSale(Set<SaleProduct> saleProducts){
 

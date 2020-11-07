@@ -1,11 +1,16 @@
 package com.furnitureapp.entity.stockcontrol;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Stock {
+    @Id
     private Integer prodCatCode;
     private int quantity;
 
-    public Stock(){}
-    private Stock(StockBuilder stockBuilder){
+    protected Stock(){}
+    protected Stock(StockBuilder stockBuilder){
         this.prodCatCode = stockBuilder.prodCatCode;
         this.quantity = stockBuilder.quantity;
     }

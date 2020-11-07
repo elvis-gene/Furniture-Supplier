@@ -8,16 +8,18 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 
 public class ProductServiceImplTest {
 
-    private static ProductService productService = ProductServiceImpl.getProductService();
+    @Autowired
+
+    private ProductService productService = null;
     private static Product product = ProductFactory.createProduct("Mattress", 2250.00, 137,
             183, 85, "This is a double bed",
             ProductCategoryFactory.createProductCategory("Beds and Mattresses"));

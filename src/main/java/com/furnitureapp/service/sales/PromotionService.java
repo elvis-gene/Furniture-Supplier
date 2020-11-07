@@ -17,4 +17,7 @@ public interface PromotionService extends IService<Promotion, String> {
     //Creation of the set that will contain the Promotion services
     Set<Promotion> list();
 
+    //getAll promotion per seasons
+    public Set<Promotion> selectBySeason();
+
 }

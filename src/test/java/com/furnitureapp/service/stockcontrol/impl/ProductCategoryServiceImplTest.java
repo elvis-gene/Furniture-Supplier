@@ -7,15 +7,17 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
+
  @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class ProductCategoryServiceImplTest {
 
-     private static ProductCategoryService categoryService = ProductCategoryServiceImpl.getCategoryService();
+     @Autowired
+     private ProductCategoryService categoryService;
      private static ProductCategory category = ProductCategoryFactory.createProductCategory
              ("Beds and Mattresses");
 

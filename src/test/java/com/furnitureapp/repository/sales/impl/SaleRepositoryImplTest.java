@@ -1,3 +1,4 @@
+/*
 package com.furnitureapp.repository.sales.impl;
 
 import com.furnitureapp.entity.sales.Sale;
@@ -77,3 +78,5 @@ public class SaleRepositoryImplTest {
     }
 
 }
+
+ */

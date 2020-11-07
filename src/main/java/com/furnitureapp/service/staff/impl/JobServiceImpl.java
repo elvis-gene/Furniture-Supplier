@@ -7,51 +7,46 @@ package com.furnitureapp.service.staff.impl;
 
 import com.furnitureapp.entity.staff.Job;
 import com.furnitureapp.repository.staff.JobRepository;
-import com.furnitureapp.repository.staff.impl.JobRepositoryImpl;
 import com.furnitureapp.service.staff.JobService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class JobServiceImpl implements JobService {
 
+    @Autowired
     private JobRepository repository;
-    private static JobService jobService = null;
-
-    private JobServiceImpl() {
-        this.repository = JobRepositoryImpl.getJobRepository();
-    }
-
-    public static JobService getJobService(){
-        if(jobService == null){
-            jobService = new JobServiceImpl();
-        }
-        return jobService;
-    }
 
     @Override
     public Set<Job> list() {
-        return this.repository.list();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Job create(Job job) {
-        return this.repository.create(job);
+        return this.repository.save(job);
     }
 
     @Override
     public Job read(Integer jobCode) {
-        return this.repository.read(jobCode);
+        return this.repository.findById(jobCode).orElseGet(null);
     }
 
     @Override
     public Job update(Job job) {
-        return this.repository.update(job);
+        return create(job);
     }
 
     @Override
     public boolean delete(Integer jobCode) {
-        return this.repository.delete(jobCode);
+        this.repository.deleteById(jobCode);
+        if(this.repository.existsById(jobCode)){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
