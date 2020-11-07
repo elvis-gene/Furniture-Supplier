@@ -9,8 +9,4 @@ import java.util.Set;
 
 
 @Repository
-public interface DeliveryRepository extends JpaRepository<Delivery, Integer> {
-
-
-
-}
+public interface DeliveryRepository extends JpaRepository<Delivery, Integer> {}

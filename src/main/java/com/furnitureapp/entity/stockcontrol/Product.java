@@ -21,7 +21,6 @@ public class Product {
     private float weight;
     private String description;
 
-
     protected Product(){}
 
     private Product(ProductBuilder builder) {
@@ -32,8 +31,6 @@ public class Product {
         this.width = builder.width;
         this.weight = builder.weight;
         this.description = builder.description;
-
-
     }
 
     public Integer getProductCode() {
@@ -85,6 +82,7 @@ public class Product {
         private float width;
         private float weight;
         private String description;
+        private Category category;
 
         public ProductBuilder() {
 
@@ -128,6 +126,10 @@ public class Product {
             return this;
         }
 
+        public ProductBuilder setCategory(Category category) {
+            this.category = category;
+            return this;
+        }
 
         public ProductBuilder copy(Product product) {
             this.productCode = product.productCode;

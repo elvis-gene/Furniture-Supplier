@@ -6,7 +6,7 @@ import com.furnitureapp.utility.Helper;
 public class StockFactory {
 
     public static Stock createStock(int quantity){
-        // Will come from the class ProductCategory latter
+        // Will come from the class Category latter
         Integer prodCatCode = Helper.generateCode();
 
         return new Stock.StockBuilder().
