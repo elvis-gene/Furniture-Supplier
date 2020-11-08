@@ -37,12 +37,13 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public Sale read(Integer saleId) {
-        return saleRepository.getOne(saleId);
+        return saleRepository.findById(saleId).orElse(null);
     }
 
     @Override
     public Sale update(Sale sale) {
-        Sale existingSale = saleRepository.getOne(sale.getSaleCode());
+        Sale existingSale = saleRepository.findById(sale.getSaleCode()).orElse(null);
+        assert existingSale != null;
         BeanUtils.copyProperties(sale, existingSale, "sale_code");
         return saleRepository.saveAndFlush(existingSale);
     }
@@ -50,7 +51,7 @@ public class SaleServiceImpl implements SaleService {
     @Override
     public boolean delete(Integer saleId) {
         saleRepository.deleteById(saleId);
-        return saleRepository.existsById(saleId);
+        return !saleRepository.existsById(saleId);
     }
 
     @Override

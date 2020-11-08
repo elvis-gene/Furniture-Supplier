@@ -21,10 +21,7 @@ public class SaleServiceImplTest {
     @Autowired
     private SaleService service;
 
-    private static Sale sale = SaleFactory.createSale(
-            new HashSet<>(Collections.singletonList(SaleProductFactory.
-                    createSaleProduct(1,2, 2))
-            ));
+    private static Sale sale = SaleFactory.createSale();
 
     @Test
     public void a_create() {
