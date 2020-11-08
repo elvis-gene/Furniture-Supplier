@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleProductControllerTest {
 
-    private static final SaleProduct saleProduct = SaleProductFactory.createSaleProduct(1,435, 4);
+    private static final SaleProduct saleProduct = SaleProductFactory.createSaleProduct(1, 435, 4);
 
     @Autowired
     private TestRestTemplate restTemplate;

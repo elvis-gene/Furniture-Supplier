@@ -2,7 +2,6 @@ package com.furnitureapp.controller.sales;
 
 import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.factory.sales.SaleFactory;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 
 
 import org.junit.FixMethodOrder;
@@ -14,8 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-import java.util.Collections;
-import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -25,11 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleControllerTest {
+    private static final String ADMIN_ROLE = "ADMIN";
+    private static final String USER_ROLE = "USER";
 
-    private static Sale sale = SaleFactory.createSale(
-            new HashSet<>(Collections.singletonList(SaleProductFactory.
-                    createSaleProduct(1, 435, 2))
-            ));
+    private static Sale sale = SaleFactory.createSale();
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -37,7 +33,9 @@ public class SaleControllerTest {
 
     @Test
     public void a_create() {
-        ResponseEntity<Sale> postResponse = restTemplate.postForEntity(baseUrl + "/create", sale, Sale.class);
+        ResponseEntity<Sale> postResponse = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .postForEntity(baseUrl + "/create", sale, Sale.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println(postResponse.getBody());
