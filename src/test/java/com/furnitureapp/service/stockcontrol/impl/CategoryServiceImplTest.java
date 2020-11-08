@@ -44,7 +44,7 @@ public class CategoryServiceImplTest {
 
      @Test
      public void c_update() {
-         Category updated = new Category.ProductCategoryBuilder().copy(category).setCategoryName("Tables").build();
+         Category updated = new Category.CategoryBuilder().copy(category).setCategoryName("Tables").build();
          updated = categoryService.update(updated);
          Assert.assertNotEquals(updated, category);
          System.out.println("Updated: " + updated);

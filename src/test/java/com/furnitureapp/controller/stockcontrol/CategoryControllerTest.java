@@ -4,7 +4,7 @@ import com.furnitureapp.entity.stockcontrol.Category;
 import com.furnitureapp.factory.stockcontrol.CategoryFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class CategoryControllerTest {
+
+public class CategoryControllerTest {
 
     private static Category category =
             CategoryFactory.createCategory("Bed");
 
     @Autowired
-    private TestRestTemplate restTemplate = null;
+    private TestRestTemplate restTemplate;
     private String baseURL = "http://localhost:8080/category/";
 
     @Test
@@ -37,8 +38,8 @@ class CategoryControllerTest {
         ResponseEntity<Category> postResponse = restTemplate
                 .withBasicAuth("manager","admin-password")
                 .postForEntity(url, category, Category.class);
-        Assert.assertNotNull(postResponse);
-        Assert.assertNotNull(postResponse.getBody());
+       Assert.assertNotNull(postResponse);
+       Assert.assertNotNull(postResponse.getBody());
         category = postResponse.getBody();
         System.out.println("Saved data: " + category);
         assertEquals(category.getCategoryCode(), postResponse.getBody().getCategoryCode());
@@ -51,7 +52,9 @@ class CategoryControllerTest {
         ResponseEntity<Category> response = restTemplate
                 .withBasicAuth("manager","admin-password")
                 .getForEntity(url, Category.class);
-        Assert.assertEquals(category.getCategoryCode(), response.getBody().getCategoryCode());
+       Assert.assertEquals(category.getCategoryCode(), response.getBody().getCategoryCode());
+        System.out.println(response.getBody());
+
     }
 
     @Test
@@ -63,7 +66,7 @@ class CategoryControllerTest {
         ResponseEntity<Category> response = restTemplate
                 .withBasicAuth("manager","admin-password")
                 .postForEntity(url, update, Category.class);
-        Assert.assertNotEquals(category.getCategoryName(), response.getBody().getCategoryName());
+      Assert.assertNotEquals(category.getCategoryName(), response.getBody().getCategoryName());
     }
 
     @Test
