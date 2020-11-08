@@ -20,7 +20,6 @@ public class Product {
     private float width;
     private float weight;
     private String description;
-    private ProductCategory category;
 
     protected Product(){}
 
@@ -32,8 +31,6 @@ public class Product {
         this.width = builder.width;
         this.weight = builder.weight;
         this.description = builder.description;
-        this.category = builder.category;
-
     }
 
     public Integer getProductCode() {
@@ -64,10 +61,6 @@ public class Product {
         return description;
     }
 
-    public ProductCategory getCategory() {
-        return category;
-    }
-
     @Override
     public String toString() {
         return "Product{" +
@@ -78,7 +71,6 @@ public class Product {
                 ", width=" + width +
                 ", weight=" + weight +
                 ", description='" + description + '\'' +
-                ", category=" + category +
                 '}';
     }
 
@@ -90,7 +82,7 @@ public class Product {
         private float width;
         private float weight;
         private String description;
-        private ProductCategory category;
+        private Category category;
 
         public ProductBuilder() {
 
@@ -134,7 +126,7 @@ public class Product {
             return this;
         }
 
-        public ProductBuilder setCategory(ProductCategory category) {
+        public ProductBuilder setCategory(Category category) {
             this.category = category;
             return this;
         }
@@ -147,7 +139,6 @@ public class Product {
             this.width = product.width;
             this.weight = product.weight;
             this.description = product.description;
-            this.category = product.category;
             return this;
         }
 

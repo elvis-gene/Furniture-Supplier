@@ -5,7 +5,7 @@
 // * Description: Test implementing product category
 // */
 //
-//import com.furnitureapp.entity.stockcontrol.ProductCategory;
+//import com.furnitureapp.entity.stockcontrol.Category;
 //import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
 //import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
 //import org.junit.Assert;
@@ -23,26 +23,26 @@
 //
 //    @Autowired
 //    private static ProductCategoryRepository productCategoryRepository;
-//    private static ProductCategory category = ProductCategoryFactory.createProductCategory("Beds and Mattresses");
+//    private static Category category = ProductCategoryFactory.createProductCategory("Beds and Mattresses");
 //
 //
 //    @Test
 //    public void a_create() {
-//        ProductCategory created = productCategoryRepository.create(category);
+//        Category created = productCategoryRepository.create(category);
 //        Assert.assertEquals(created, category);
 //        System.out.println("Created: " + created);
 //    }
 //
 //    @Test
 //    public void b_read() {
-//        ProductCategory read = productCategoryRepository.read(category.getCategoryCode());
+//        Category read = productCategoryRepository.read(category.getCategoryCode());
 //        Assert.assertEquals(category.getCategoryCode(), read.getCategoryCode());
 //        System.out.println("Read: " + read);
 //    }
 //
 //    @Test
 //    public void c_update() {
-//        ProductCategory updated = new ProductCategory.ProductCategoryBuilder().copy(category).setCategoryCode(2654).build();
+//        Category updated = new Category.ProductCategoryBuilder().copy(category).setCategoryCode(2654).build();
 //        updated = productCategoryRepository.update(updated);
 //        Assert.assertNotEquals(updated, category);
 //        System.out.println("Updated: " + updated);
@@ -56,7 +56,7 @@
 //
 //    @Test
 //    public void d_list() {
-//        Set<ProductCategory> productCategories = productCategoryRepository.list();
+//        Set<Category> productCategories = productCategoryRepository.list();
 //        Assert.assertNotEquals(1, productCategories.size());
 //
 //    }

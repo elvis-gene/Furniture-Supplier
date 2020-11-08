@@ -4,58 +4,56 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-/**
- * @author @Siba182
- * Description: Entity for ProductCatergory
- */
-
 @Entity
 public class ProductCategory {
 
     @Id
+    private Integer productCode;
     private Integer categoryCode;
-    private String categoryName;
 
-    protected ProductCategory (){}
+    protected ProductCategory(){}
 
-    private ProductCategory(ProductCategoryBuilder builder) {
+    private ProductCategory(Builder builder){
+        this.productCode = builder.productCode;
         this.categoryCode = builder.categoryCode;
-        this.categoryName = builder.categoryName;
+
+    }
+
+    public Integer getProductCode() {
+        return productCode;
     }
 
     public Integer getCategoryCode() {
         return categoryCode;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
     @Override
     public String toString() {
         return "ProductCategory{" +
-                "categoryCode=" + categoryCode +
-                ", categoryName='" + categoryName + '\'' +
+                "productCode=" + productCode +
+                ", categoryCode=" + categoryCode +
                 '}';
     }
 
-    public static class ProductCategoryBuilder {
-        private Integer categoryCode;
-        private String categoryName;
+    public class Builder {
 
-        public ProductCategoryBuilder setCategoryCode(Integer categoryCode) {
+        private Integer productCode, categoryCode;
+
+        public Builder setProductCode (Integer productCode ){
+            this.productCode = productCode;
+            return this;
+
+        }
+
+        public Builder setCategoryCode (Integer categoryCode ){
             this.categoryCode = categoryCode;
             return this;
+
         }
 
-        public ProductCategoryBuilder setCategoryName(String categoryName) {
-            this.categoryName = categoryName;
-            return this;
-        }
-
-        public ProductCategoryBuilder copy(ProductCategory productCategory){
+        public Builder copy (ProductCategory productCategory){
+            this.productCode = productCategory.productCode;
             this.categoryCode = productCategory.categoryCode;
-            this.categoryName = productCategory.categoryName;
             return this;
         }
 
@@ -63,19 +61,14 @@ public class ProductCategory {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            ProductCategoryBuilder that = (ProductCategoryBuilder) o;
-            return categoryCode.equals(that.categoryCode);
+            Builder builder = (Builder) o;
+            return productCode.equals(builder.productCode) &&
+                    categoryCode.equals(builder.categoryCode);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(categoryCode);
+            return Objects.hash(productCode, categoryCode);
         }
-
-        public ProductCategory build(){
-
-            return new ProductCategory(this);
-        }
-
     }
 }
