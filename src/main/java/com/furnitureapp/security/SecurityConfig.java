@@ -25,12 +25,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/sale/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/sale/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/sale/read/**", "/sale/all/").hasRole(USER_ROLE)
+<<<<<<< HEAD
                 .antMatchers(HttpMethod.POST, "/customer/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/customer/delete/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.GET, "/customer/read/**", "/customer/all/").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.POST, "/appointment/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/appointment/delete/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.GET, "/appointment/read/**", "/appointment/all/").hasRole(USER_ROLE)
+=======
+                .antMatchers(HttpMethod.POST, "/promotion/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/promotion/read/**", "/promotion/list").hasRole(USER_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/promotion/delete/**").hasRole(ADMIN_ROLE)
+>>>>>>> 132878294114b1f8a93920e681e235b6401218bd
                 .and()
                 .formLogin().disable()
                 .httpBasic();

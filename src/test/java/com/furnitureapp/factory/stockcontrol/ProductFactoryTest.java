@@ -1,8 +1,6 @@
 package com.furnitureapp.factory.stockcontrol;
 
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
-import com.furnitureapp.factory.stockcontrol.ProductFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

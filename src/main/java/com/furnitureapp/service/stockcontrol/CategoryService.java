@@ -5,7 +5,7 @@ import com.furnitureapp.service.IService;
 
 import java.util.Set;
 
-public interface ProductCategoryService extends IService <Category, Integer> {
+public interface CategoryService extends IService <Category, Integer> {
     Set<Category> list();
 
 }

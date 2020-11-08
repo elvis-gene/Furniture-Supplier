@@ -1,8 +1,8 @@
 package com.furnitureapp.service.stockcontrol.impl;
 
 import com.furnitureapp.entity.stockcontrol.Category;
-import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
-import com.furnitureapp.service.stockcontrol.ProductCategoryService;
+import com.furnitureapp.repository.stockcontrol.CategoryRepository;
+import com.furnitureapp.service.stockcontrol.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Set;
@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
 
 @Service
 
-public class ProductCategoryServiceImpl implements ProductCategoryService {
+public class CategoryServiceImpl implements CategoryService {
 
-    private static ProductCategoryService categoryService = null;
+    private static CategoryService categoryService = null;
 
     @Autowired
-    private ProductCategoryRepository repository;
+    private CategoryRepository repository;
 
     @Override
     public Set<Category> list() {
