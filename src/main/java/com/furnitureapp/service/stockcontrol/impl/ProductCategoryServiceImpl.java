@@ -1,6 +1,6 @@
 package com.furnitureapp.service.stockcontrol.impl;
 
-import com.furnitureapp.entity.stockcontrol.ProductCategory;
+import com.furnitureapp.entity.stockcontrol.Category;
 import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
 import com.furnitureapp.service.stockcontrol.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,23 +18,23 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     private ProductCategoryRepository repository;
 
     @Override
-    public Set<ProductCategory> list() {
+    public Set<Category> list() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
-    public ProductCategory create(ProductCategory productCategory) {
-        return this.repository.save(productCategory);
+    public Category create(Category category) {
+        return this.repository.save(category);
     }
 
     @Override
-    public ProductCategory read(Integer integer) {
+    public Category read(Integer integer) {
         return this.repository.findById(integer).orElseGet(null);
     }
 
     @Override
-    public ProductCategory update(ProductCategory productCategory) {
-        return this.repository.save(productCategory);
+    public Category update(Category category) {
+        return this.repository.save(category);
     }
 
     @Override
