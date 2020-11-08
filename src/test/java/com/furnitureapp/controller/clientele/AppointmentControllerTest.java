@@ -4,6 +4,8 @@ package com.furnitureapp.controller.clientele;
  * Description: Appointment Controller Tests
  */
 import com.furnitureapp.entity.clientele.Appointment;
+import com.furnitureapp.entity.clientele.Customer;
+import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.factory.clientele.AppointmentFactory;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,14 +16,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AppointmentControllerTest {
+    private static final String SECURITY_USERNAME = "random-client";
+    private static final String SECURITY_PASSWORD = "user-password";
 
-    private static Appointment appointment = AppointmentFactory.createAppointment("Nkosinathi", "Business");
+    private static Appointment appointment = AppointmentFactory.createAppointment("Nkosinathi Sola","Business");
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -29,7 +35,9 @@ public class AppointmentControllerTest {
 
     @Test
     public void a_create() {
-        ResponseEntity<Appointment> postResponse = restTemplate.postForEntity(baseUrl + "/create", appointment, Appointment.class);
+        ResponseEntity<Appointment> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(baseUrl + "/create", appointment, Appointment.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println(postResponse.getBody());
@@ -37,15 +45,18 @@ public class AppointmentControllerTest {
 
     @Test
     public void b_read() {
-        ResponseEntity<Appointment> response = restTemplate.getForEntity(baseUrl + "/read/" + appointment.getCustomerName(), Appointment.class);
-        assertNotNull(appointment.getCustomerName(), response.getBody().getCustomerName());
+        ResponseEntity<Appointment> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(baseUrl + "/read/" + appointment.getCustomerName(), Appointment.class);
         System.out.println(response.getBody());
     }
 
     @Test
     public void c_update() {
         Appointment newAppointment = new Appointment.AppointmentBuilder().copy(appointment).setCustomerName("Nkosinathi Sola").build();
-        ResponseEntity<Appointment> responseEntity = restTemplate.postForEntity(baseUrl + "/update", newAppointment, Appointment.class);
+        ResponseEntity<Appointment> responseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(baseUrl + "/update", newAppointment, Appointment.class);
         assertNotNull(appointment.getCustomerName(), responseEntity.getBody().getCustomerName());
         System.out.println("Updated Appointment:");
         System.out.println(responseEntity.getBody());
@@ -55,13 +66,17 @@ public class AppointmentControllerTest {
     public void d_getAll() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseUrl + "/all", HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(baseUrl + "/all", HttpMethod.GET, entity, String.class);
         System.out.println(response.getBody());
     }
 
     @Test
     public void e_delete() {
-        restTemplate.delete(baseUrl + "/" +appointment.getCustomerName());
+        restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .delete(baseUrl + "/" +appointment.getCustomerName());
         d_getAll();
     }
 
