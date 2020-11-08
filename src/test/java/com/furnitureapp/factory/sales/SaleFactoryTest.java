@@ -21,9 +21,7 @@ public class SaleFactoryTest {
 
     @Test
     public void createSale(){
-        Set<SaleProduct> saleProducts = new HashSet<>();
-        saleProducts.add(SaleProductFactory.createSaleProduct(1,12,5));
-        Sale sale = SaleFactory.createSale(saleProducts);
+        Sale sale = SaleFactory.createSale();
 
         // Creating another sale using the copy method
         Sale anotherSale = new Sale.SaleBuilder().copy(sale).build();

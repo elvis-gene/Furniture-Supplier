@@ -6,7 +6,7 @@
 // */
 //
 //import com.furnitureapp.entity.stockcontrol.Product;
-//import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
+//import com.furnitureapp.factory.stockcontrol.CategoryFactory;
 //import com.furnitureapp.factory.stockcontrol.ProductFactory;
 //import com.furnitureapp.repository.stockcontrol.ProductRepository;
 //import org.junit.Assert;
@@ -25,7 +25,7 @@
 //    private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
 //    private static Product product = ProductFactory.createProduct("Mattress", 2250.00, 137,
 //            183, 85, "This is a double bed",
-//            ProductCategoryFactory.createProductCategory("Beds and Mattresses"));
+//            CategoryFactory.createProductCategory("Beds and Mattresses"));
 //
 //
 //

@@ -5,14 +5,13 @@ package com.furnitureapp.factory.stockcontrol;
  * Description: Factory for Product entity
  */
 
+import com.furnitureapp.entity.stockcontrol.Category;
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.entity.stockcontrol.ProductCategory;
-import com.furnitureapp.utility.Helper;
 
 
 public class ProductFactory {
 
-    public static Product createProduct(String name, double price, float length, float width, float weight, String description, ProductCategory category){
+    public static Product createProduct(String name, double price, float length, float width, float weight, String description){
 
         return new Product.ProductBuilder()
                 .setProductCode(435)
@@ -22,8 +21,6 @@ public class ProductFactory {
                 .setWidth(width)
                 .setWeight(weight)
                 .setDescription(description)
-                .setCategory(category)
                 .build();
-
     }
 }

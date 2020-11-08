@@ -5,35 +5,35 @@
 // * Description: Implement of product category repository
 // */
 //
-//import com.furnitureapp.entity.stockcontrol.ProductCategory;
-//import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
+//import com.furnitureapp.entity.stockcontrol.Category;
+//import com.furnitureapp.repository.stockcontrol.CategoryRepository;
 //
 //import java.util.HashSet;
 //import java.util.Set;
 //
-//public class ProductCategoryRepositoryImpl implements ProductCategoryRepository {
-//    private static ProductCategoryRepository productCategoryRepository = null;
-//    private Set<ProductCategory> productCategories;
+//public class ProductCategoryRepositoryImpl implements CategoryRepository {
+//    private static CategoryRepository productCategoryRepository = null;
+//    private Set<Category> productCategories;
 //
 //    public ProductCategoryRepositoryImpl() {
 //        productCategories = new HashSet<>();
 //    }
 //
-//    public static ProductCategoryRepository getProductCategoryRepository() {
+//    public static CategoryRepository getProductCategoryRepository() {
 //        if (productCategoryRepository == null)
 //            productCategoryRepository = new ProductCategoryRepositoryImpl();
 //        return productCategoryRepository;
 //    }
 //
 //    @Override
-//    public ProductCategory create(ProductCategory productCategory) {
+//    public Category create(Category productCategory) {
 //        this.productCategories.add(productCategory);
 //        return productCategory;
 //    }
 //
 //    @Override
-//    public ProductCategory read(Integer categoryCode) {
-//        for (ProductCategory productCategory : this.productCategories) {
+//    public Category read(Integer categoryCode) {
+//        for (Category productCategory : this.productCategories) {
 //            if (productCategory.getCategoryCode().equals(categoryCode))
 //                return productCategory;
 //        }
@@ -41,8 +41,8 @@
 //    }
 //
 //    @Override
-//    public ProductCategory update(ProductCategory productCategory) {
-//        ProductCategory category = read(productCategory.getCategoryCode());
+//    public Category update(Category productCategory) {
+//        Category category = read(productCategory.getCategoryCode());
 //        if (category != null) {
 //            productCategories.remove(category);
 //            productCategories.add(productCategory);
@@ -54,7 +54,7 @@
 //    public boolean delete(Integer categoryCode) {
 //        boolean deleted = false;
 //
-//        ProductCategory category = read(categoryCode);
+//        Category category = read(categoryCode);
 //        if (category != null) {
 //            productCategories.remove(category);
 //            deleted = true;
@@ -63,7 +63,7 @@
 //    }
 //
 //    @Override
-//    public Set<ProductCategory> list() {
+//    public Set<Category> list() {
 //        return this.productCategories;
 //    }
 //}

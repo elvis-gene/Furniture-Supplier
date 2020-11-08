@@ -17,19 +17,11 @@ import java.util.Set;
 
 
 public class SaleFactory {
-//     private static ProductRepository productRepository = ProductRepositoryImpl.getProductRepository();
-
-    public static Sale createSale(Set<SaleProduct> saleProducts){
-
-        // Calculate total sale amount
+    public static Sale createSale(){
         double totalAmount = 2700;
-//        for (SaleProduct saleProduct : saleProducts){
-//            totalAmount += productRepository.read(saleProduct.getProdCode()).getPrice();
-//        }
 
         return new Sale.SaleBuilder()
                 .setSaleTime(LocalDateTime.now())
-//                .setProducts(saleProducts)
                 .setTotalAmount(totalAmount).build();
     }
 }

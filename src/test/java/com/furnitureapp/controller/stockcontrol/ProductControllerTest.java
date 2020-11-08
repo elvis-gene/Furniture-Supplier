@@ -2,7 +2,6 @@ package com.furnitureapp.controller.stockcontrol;
 
 
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
 import com.furnitureapp.factory.stockcontrol.ProductFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -26,8 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProductControllerTest {
 
     private static Product product = ProductFactory.createProduct("Bed", 50000, 200,
-            175, 160, "This is a double bed", ProductCategoryFactory.createProductCategory
-                    ("Bedroom"));
+            175, 160, "This is a double bed");
 
     @Autowired
     private TestRestTemplate restTemplate = null;

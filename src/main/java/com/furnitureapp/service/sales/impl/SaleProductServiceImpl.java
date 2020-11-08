@@ -25,7 +25,7 @@ public class SaleProductServiceImpl implements SaleProductService {
 
     @Override
     public SaleProduct read(SaleProductCode id) {
-        return repository.getOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -36,9 +36,11 @@ public class SaleProductServiceImpl implements SaleProductService {
     // TODO: Alternative ─ Use embedded id for SaleProduct to implement this method just like in SaleServiceImpl
     @Override
     public SaleProduct update(SaleProduct saleProduct) {
-        SaleProduct existingSaleProduct = repository.getOne(saleProduct.getId());
-        BeanUtils.copyProperties(saleProduct, existingSaleProduct, "sale_code");
-        return repository.saveAndFlush(existingSaleProduct);
+//        SaleProduct existingSaleProduct = repository.findById(saleProduct.getId()).orElse(null);
+//        assert existingSaleProduct != null;
+//        BeanUtils.copyProperties(saleProduct, existingSaleProduct, "sale_code");
+//        return repository.saveAndFlush(existingSaleProduct);
+        return repository.save(saleProduct);
     }
 
     @Override

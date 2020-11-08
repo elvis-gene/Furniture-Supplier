@@ -2,7 +2,6 @@ package com.furnitureapp.controller.sales;
 
 import com.furnitureapp.entity.sales.Sale;
 import com.furnitureapp.factory.sales.SaleFactory;
-import com.furnitureapp.factory.sales.SaleProductFactory;
 
 
 import org.junit.FixMethodOrder;
@@ -14,8 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-import java.util.Collections;
-import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -25,11 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleControllerTest {
+//    private static final String ADMIN_ROLE = "ADMIN";
+//    private static final String USER_ROLE = "USER";
 
-    private static Sale sale = SaleFactory.createSale(
-            new HashSet<>(Collections.singletonList(SaleProductFactory.
-                    createSaleProduct(1, 435, 2))
-            ));
+    private static Sale sale = SaleFactory.createSale();
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -37,7 +33,9 @@ public class SaleControllerTest {
 
     @Test
     public void a_create() {
-        ResponseEntity<Sale> postResponse = restTemplate.postForEntity(baseUrl + "/create", sale, Sale.class);
+        ResponseEntity<Sale> postResponse = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .postForEntity(baseUrl + "/create", sale, Sale.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println(postResponse.getBody());
@@ -45,7 +43,9 @@ public class SaleControllerTest {
 
     @Test
     public void b_read() {
-        ResponseEntity<Sale> response = restTemplate.getForEntity(baseUrl + "/read/" + sale.getSaleCode(), Sale.class);
+        ResponseEntity<Sale> response = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .getForEntity(baseUrl + "/read/" + sale.getSaleCode(), Sale.class);
         assertEquals(sale.getSaleCode(), response.getBody().getSaleCode());
         System.out.println(response.getBody());
     }
@@ -53,17 +53,21 @@ public class SaleControllerTest {
     @Test
     public void c_update() {
         Sale newSale = new Sale.SaleBuilder().copy(sale).setTotalAmount(2000).build();
-        ResponseEntity<Sale> responseEntity = restTemplate.postForEntity(baseUrl + "/update", newSale, Sale.class);
+        ResponseEntity<Sale> responseEntity = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .postForEntity(baseUrl + "/update", newSale, Sale.class);
         assertEquals(sale.getSaleCode(), responseEntity.getBody().getSaleCode());
         System.out.println("Updated price:");
-        System.out.println(responseEntity.getBody());
+        System.out.println(responseEntity.getBody().getTotalAmount());
     }
 
     @Test
     public void d_getAll() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseUrl + "/all", HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .exchange(baseUrl + "/all", HttpMethod.GET, entity, String.class);
         System.out.println(response.getBody());
     }
 
@@ -85,7 +89,9 @@ public class SaleControllerTest {
 
     @Test
     public void g_delete() {
-        restTemplate.delete(baseUrl + "/" +sale.getSaleCode());
+        restTemplate
+        .withBasicAuth("manager","admin-password")
+        .delete(baseUrl + "/" +sale.getSaleCode());
         d_getAll();
     }
 
