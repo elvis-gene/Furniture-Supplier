@@ -1,7 +1,7 @@
 package com.furnitureapp.controller.stockcontrol;
 
 import com.furnitureapp.entity.stockcontrol.Category;
-import com.furnitureapp.service.stockcontrol.impl.ProductCategoryServiceImpl;
+import com.furnitureapp.service.stockcontrol.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +10,10 @@ import java.util.Set;
 @RestController
 @RequestMapping("/ProductCategory")
 
-public class ProductCategoryController {
+public class CategoryController {
 
     @Autowired
-    private ProductCategoryServiceImpl productCategoryService;
+    private CategoryServiceImpl productCategoryService;
 
     @PostMapping("/create")
    public Category create(@RequestBody Category category){

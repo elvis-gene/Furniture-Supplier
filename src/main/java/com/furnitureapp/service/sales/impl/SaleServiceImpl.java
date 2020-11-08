@@ -42,10 +42,11 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public Sale update(Sale sale) {
-        Sale existingSale = saleRepository.findById(sale.getSaleCode()).orElse(null);
-        assert existingSale != null;
-        BeanUtils.copyProperties(sale, existingSale, "sale_code");
-        return saleRepository.saveAndFlush(existingSale);
+//        Sale existingSale = saleRepository.findById(sale.getSaleCode()).orElse(null);
+//        assert existingSale != null;
+//        BeanUtils.copyProperties(sale, existingSale, "sale_code");
+//        return saleRepository.saveAndFlush(existingSale);
+        return saleRepository.save(sale);
     }
 
     @Override

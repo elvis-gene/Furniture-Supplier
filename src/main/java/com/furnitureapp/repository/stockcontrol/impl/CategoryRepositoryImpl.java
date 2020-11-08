@@ -6,20 +6,20 @@
 // */
 //
 //import com.furnitureapp.entity.stockcontrol.Category;
-//import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
+//import com.furnitureapp.repository.stockcontrol.CategoryRepository;
 //
 //import java.util.HashSet;
 //import java.util.Set;
 //
-//public class ProductCategoryRepositoryImpl implements ProductCategoryRepository {
-//    private static ProductCategoryRepository productCategoryRepository = null;
+//public class ProductCategoryRepositoryImpl implements CategoryRepository {
+//    private static CategoryRepository productCategoryRepository = null;
 //    private Set<Category> productCategories;
 //
 //    public ProductCategoryRepositoryImpl() {
 //        productCategories = new HashSet<>();
 //    }
 //
-//    public static ProductCategoryRepository getProductCategoryRepository() {
+//    public static CategoryRepository getProductCategoryRepository() {
 //        if (productCategoryRepository == null)
 //            productCategoryRepository = new ProductCategoryRepositoryImpl();
 //        return productCategoryRepository;

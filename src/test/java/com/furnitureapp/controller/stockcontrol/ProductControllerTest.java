@@ -2,7 +2,6 @@ package com.furnitureapp.controller.stockcontrol;
 
 
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
 import com.furnitureapp.factory.stockcontrol.ProductFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
