@@ -10,7 +10,7 @@ import com.furnitureapp.utility.Helper;
 
 public class CategoryFactory {
 
-    public static Category createProductCategory(String categoryName){
+    public static Category createCategory(String categoryName){
 
         return new Category.ProductCategoryBuilder()
                 .setCategoryCode(Helper.generateCode())

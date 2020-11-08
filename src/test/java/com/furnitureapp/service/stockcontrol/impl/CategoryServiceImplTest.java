@@ -18,7 +18,7 @@ public class CategoryServiceImplTest {
 
      @Autowired
      private CategoryService categoryService;
-     private static Category category = CategoryFactory.createProductCategory
+     private static Category category = CategoryFactory.createCategory
              ("Beds and Mattresses");
 
      @Test
