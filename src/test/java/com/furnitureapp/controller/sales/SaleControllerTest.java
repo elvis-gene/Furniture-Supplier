@@ -22,8 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleControllerTest {
-    private static final String ADMIN_ROLE = "ADMIN";
-    private static final String USER_ROLE = "USER";
+//    private static final String ADMIN_ROLE = "ADMIN";
+//    private static final String USER_ROLE = "USER";
 
     private static Sale sale = SaleFactory.createSale();
 
@@ -43,7 +43,9 @@ public class SaleControllerTest {
 
     @Test
     public void b_read() {
-        ResponseEntity<Sale> response = restTemplate.getForEntity(baseUrl + "/read/" + sale.getSaleCode(), Sale.class);
+        ResponseEntity<Sale> response = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .getForEntity(baseUrl + "/read/" + sale.getSaleCode(), Sale.class);
         assertEquals(sale.getSaleCode(), response.getBody().getSaleCode());
         System.out.println(response.getBody());
     }
@@ -51,17 +53,21 @@ public class SaleControllerTest {
     @Test
     public void c_update() {
         Sale newSale = new Sale.SaleBuilder().copy(sale).setTotalAmount(2000).build();
-        ResponseEntity<Sale> responseEntity = restTemplate.postForEntity(baseUrl + "/update", newSale, Sale.class);
+        ResponseEntity<Sale> responseEntity = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .postForEntity(baseUrl + "/update", newSale, Sale.class);
         assertEquals(sale.getSaleCode(), responseEntity.getBody().getSaleCode());
         System.out.println("Updated price:");
-        System.out.println(responseEntity.getBody());
+        System.out.println(responseEntity.getBody().getTotalAmount());
     }
 
     @Test
     public void d_getAll() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseUrl + "/all", HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .exchange(baseUrl + "/all", HttpMethod.GET, entity, String.class);
         System.out.println(response.getBody());
     }
 
@@ -83,7 +89,9 @@ public class SaleControllerTest {
 
     @Test
     public void g_delete() {
-        restTemplate.delete(baseUrl + "/" +sale.getSaleCode());
+        restTemplate
+        .withBasicAuth("manager","admin-password")
+        .delete(baseUrl + "/" +sale.getSaleCode());
         d_getAll();
     }
 

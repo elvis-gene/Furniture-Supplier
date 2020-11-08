@@ -7,7 +7,7 @@
 //
 //import com.furnitureapp.entity.stockcontrol.Product;
 //import com.furnitureapp.entity.stockcontrol.Category;
-//import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
+//import com.furnitureapp.factory.stockcontrol.CategoryFactory;
 //import com.furnitureapp.factory.stockcontrol.ProductFactory;
 //import com.furnitureapp.repository.stockcontrol.ProductRepository;
 //

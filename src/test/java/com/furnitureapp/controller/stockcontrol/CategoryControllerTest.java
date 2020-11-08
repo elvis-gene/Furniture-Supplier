@@ -1,7 +1,7 @@
 package com.furnitureapp.controller.stockcontrol;
 
 import com.furnitureapp.entity.stockcontrol.Category;
-import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
+import com.furnitureapp.factory.stockcontrol.CategoryFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CategoryControllerTest {
 
     private static Category category =
-            ProductCategoryFactory.createProductCategory("Bed");
+            CategoryFactory.createProductCategory("Bed");
 
     @Autowired
     private TestRestTemplate restTemplate = null;

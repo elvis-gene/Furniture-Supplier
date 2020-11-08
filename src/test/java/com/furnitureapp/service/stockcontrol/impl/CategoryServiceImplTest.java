@@ -1,8 +1,8 @@
 package com.furnitureapp.service.stockcontrol.impl;
 
 import com.furnitureapp.entity.stockcontrol.Category;
-import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
-import com.furnitureapp.service.stockcontrol.ProductCategoryService;
+import com.furnitureapp.factory.stockcontrol.CategoryFactory;
+import com.furnitureapp.service.stockcontrol.CategoryService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -17,8 +17,8 @@ import java.util.Set;
 public class CategoryServiceImplTest {
 
      @Autowired
-     private ProductCategoryService categoryService;
-     private static Category category = ProductCategoryFactory.createProductCategory
+     private CategoryService categoryService;
+     private static Category category = CategoryFactory.createProductCategory
              ("Beds and Mattresses");
 
      @Test

@@ -6,8 +6,8 @@
 // */
 //
 //import com.furnitureapp.entity.stockcontrol.Category;
-//import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
-//import com.furnitureapp.repository.stockcontrol.ProductCategoryRepository;
+//import com.furnitureapp.factory.stockcontrol.CategoryFactory;
+//import com.furnitureapp.repository.stockcontrol.CategoryRepository;
 //import org.junit.Assert;
 //import org.junit.FixMethodOrder;
 //import org.junit.Test;
@@ -22,8 +22,8 @@
 //public class ProductCategoryRepositoryImplTest {
 //
 //    @Autowired
-//    private static ProductCategoryRepository productCategoryRepository;
-//    private static Category category = ProductCategoryFactory.createProductCategory("Beds and Mattresses");
+//    private static CategoryRepository productCategoryRepository;
+//    private static Category category = CategoryFactory.createProductCategory("Beds and Mattresses");
 //
 //
 //    @Test
