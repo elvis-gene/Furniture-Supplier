@@ -1,7 +1,6 @@
 package com.furnitureapp.service.stockcontrol.impl;
 
 import com.furnitureapp.entity.stockcontrol.Product;
-import com.furnitureapp.factory.stockcontrol.ProductCategoryFactory;
 import com.furnitureapp.factory.stockcontrol.ProductFactory;
 import com.furnitureapp.service.stockcontrol.ProductService;
 import org.junit.Assert;
@@ -21,8 +20,7 @@ public class ProductServiceImplTest {
 
     private ProductService productService = null;
     private static Product product = ProductFactory.createProduct("Mattress", 2250.00, 137,
-            183, 85, "This is a double bed",
-            ProductCategoryFactory.createProductCategory("Beds and Mattresses"));
+            183, 85, "This is a double bed");
 
     @Test
     public void a_created() {

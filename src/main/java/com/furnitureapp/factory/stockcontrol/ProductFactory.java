@@ -11,7 +11,7 @@ import com.furnitureapp.entity.stockcontrol.Product;
 
 public class ProductFactory {
 
-    public static Product createProduct(String name, double price, float length, float width, float weight, String description, Category category){
+    public static Product createProduct(String name, double price, float length, float width, float weight, String description){
 
         return new Product.ProductBuilder()
                 .setProductCode(435)
@@ -21,7 +21,6 @@ public class ProductFactory {
                 .setWidth(width)
                 .setWeight(weight)
                 .setDescription(description)
-                .setCategory(category)
                 .build();
     }
 }
