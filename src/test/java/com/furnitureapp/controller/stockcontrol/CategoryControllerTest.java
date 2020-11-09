@@ -28,7 +28,7 @@ public class CategoryControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/category/";
+    private String baseURL = "http://localhost:8080/Category/";
 
     @Test
     public void a_create() {
