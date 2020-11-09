@@ -9,8 +9,8 @@ public class CategoryFactoryTest {
 
     @Test
     public void createProductCategory() {
-        Category pc1 = CategoryFactory.createProductCategory("Beds and Mattresses");
-        Category pc2 = CategoryFactory.createProductCategory("Beds and Mattresses");
+        Category pc1 = CategoryFactory.createCategory("Beds and Mattresses");
+        Category pc2 = CategoryFactory.createCategory("Beds and Mattresses");
 
         assertNotEquals(pc1, pc2);
 

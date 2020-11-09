@@ -25,6 +25,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/sale/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/sale/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/sale/read/**", "/sale/all/").hasRole(USER_ROLE)
+
+
+                .antMatchers(HttpMethod.POST, "/category/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/category/delete/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/category/read/**", "/category/list").hasRole(USER_ROLE)
+
+
                 .antMatchers(HttpMethod.POST, "/promotion/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/promotion/read/**", "/promotion/list").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE,"/promotion/delete/**").hasRole(ADMIN_ROLE)
@@ -41,9 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, "/stock/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/stock/read/**", "/stock/all/").hasRole(USER_ROLE)
 
+
                 .and()
                 .formLogin().disable()
                 .httpBasic();
+
+
     }
 
     @Override

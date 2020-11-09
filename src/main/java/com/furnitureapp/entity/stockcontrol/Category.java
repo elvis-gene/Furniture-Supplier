@@ -18,7 +18,7 @@ public class Category {
 
     protected Category(){}
 
-    private Category(ProductCategoryBuilder builder) {
+    private Category(CategoryBuilder builder) {
         this.categoryCode = builder.categoryCode;
         this.categoryName = builder.categoryName;
     }
@@ -39,21 +39,21 @@ public class Category {
                 '}';
     }
 
-    public static class ProductCategoryBuilder {
+    public static class CategoryBuilder {
         private Integer categoryCode;
         private String categoryName;
 
-        public ProductCategoryBuilder setCategoryCode(Integer categoryCode) {
+        public CategoryBuilder setCategoryCode(Integer categoryCode) {
             this.categoryCode = categoryCode;
             return this;
         }
 
-        public ProductCategoryBuilder setCategoryName(String categoryName) {
+        public CategoryBuilder setCategoryName(String categoryName) {
             this.categoryName = categoryName;
             return this;
         }
 
-        public ProductCategoryBuilder copy(Category category){
+        public CategoryBuilder copy(Category category){
             this.categoryCode = category.categoryCode;
             this.categoryName = category.categoryName;
             return this;
@@ -63,7 +63,7 @@ public class Category {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            ProductCategoryBuilder that = (ProductCategoryBuilder) o;
+            CategoryBuilder that = (CategoryBuilder) o;
             return categoryCode.equals(that.categoryCode);
         }
 

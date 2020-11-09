@@ -5,7 +5,6 @@ package com.furnitureapp.factory.stockcontrol;
  * Description: Factory for Product entity
  */
 
-import com.furnitureapp.entity.stockcontrol.Category;
 import com.furnitureapp.entity.stockcontrol.Product;
 
 
