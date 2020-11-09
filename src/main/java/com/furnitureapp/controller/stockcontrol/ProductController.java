@@ -9,7 +9,6 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/Product")
-
 public class ProductController {
 
     @Autowired
@@ -20,10 +19,9 @@ public class ProductController {
         return productService.create(product);
     }
 
-    @GetMapping("/read {prodCode}")
+    @GetMapping("/read/{prodCode}")
     public Product read(@PathVariable Integer prodCode) {
         return productService.read(prodCode);
-
     }
 
     @PostMapping ("/update")
@@ -32,10 +30,9 @@ public class ProductController {
 
     }
 
-    @DeleteMapping ("/delete {prodCode}")
+    @DeleteMapping ("/delete/{prodCode}")
     public boolean delete(@PathVariable Integer prodCode) {
         return productService.delete(prodCode);
-
     }
 
     @GetMapping ("/list")

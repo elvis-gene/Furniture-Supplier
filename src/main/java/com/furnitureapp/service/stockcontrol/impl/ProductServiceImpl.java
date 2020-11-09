@@ -5,6 +5,8 @@ import com.furnitureapp.repository.stockcontrol.ProductRepository;
 import com.furnitureapp.service.stockcontrol.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,8 +18,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Set<Product> list() {
-
-        return this.productRepository.findAll().stream().collect(Collectors.toSet());
+        return new HashSet<>(this.productRepository.findAll());
     }
 
     @Override
@@ -37,9 +38,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean delete(Integer integer) {
-
         this.productRepository.deleteById(integer);
-        if (this.productRepository.existsById(integer)) return false;
-        return true;
+        return !this.productRepository.existsById(integer);
     }
 }

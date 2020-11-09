@@ -34,7 +34,7 @@ public class JobControllerTest {
         String url = baseUrl + "create";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + job);
-        ResponseEntity<Job> postResponse = restTemplate.postForEntity(url, job, Job.class);
+        ResponseEntity<Job> postResponse = restTemplate.withBasicAuth("manager", "admin-password").postForEntity(url, job, Job.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         job = postResponse.getBody();
@@ -48,7 +48,8 @@ public class JobControllerTest {
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.withBasicAuth("manager", "admin-password")
+                .exchange(url, HttpMethod.GET, entity, String.class);
 
         System.out.println(response);
         System.out.println(response.getBody());
@@ -58,7 +59,8 @@ public class JobControllerTest {
     public void b_read() {
         String url = baseUrl + "read/" + job.getJobCode();
         System.out.println("URL: " + url);
-        ResponseEntity<Job> response = restTemplate.getForEntity(url, Job.class);
+        ResponseEntity<Job> response = restTemplate.withBasicAuth("manager", "admin-password")
+                .getForEntity(url, Job.class);
         assertEquals(job.getJobTitle(), response.getBody().getJobTitle());
     }
 
@@ -68,7 +70,8 @@ public class JobControllerTest {
         String url = baseUrl + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + update);
-        ResponseEntity<Job> response = restTemplate.postForEntity(url, update, Job.class);
+        ResponseEntity<Job> response = restTemplate.withBasicAuth("manager", "admin-password")
+                .postForEntity(url, update, Job.class);
         assertNotEquals(job.getJobTitle(), response.getBody().getJobTitle());
 
     }
@@ -77,6 +80,7 @@ public class JobControllerTest {
     public void e_delete() {
         String url = baseUrl + "delete/" + job.getJobCode();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth("manager", "admin-password")
+                .delete(url);
     }
 }

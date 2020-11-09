@@ -6,6 +6,7 @@ import com.furnitureapp.service.stockcontrol.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public Set<Stock> list() {
-        return repository.findAll().stream().collect(Collectors.toSet());
+        return new HashSet<>(repository.findAll());
     }
 
     @Override
@@ -27,7 +28,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public Stock read(Integer stockId) {
-        return repository.getOne(stockId);
+        return repository.findById(stockId).orElse(null);
     }
 
     @Override
@@ -38,6 +39,6 @@ public class StockServiceImpl implements StockService {
     @Override
     public boolean delete(Integer stockId) {
         repository.deleteById(stockId);
-        return repository.existsById(stockId);
+        return !repository.existsById(stockId);
     }
 }

@@ -35,7 +35,7 @@ public class EmployeeControllerTest {
         String url = baseURL + "create";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + employee);
-        ResponseEntity<Employee> postResponse1 = restTemplate.postForEntity(url, employee, Employee.class);
+        ResponseEntity<Employee> postResponse1 = restTemplate.withBasicAuth("manager", "admin-password").postForEntity(url, employee, Employee.class);
         assertNotNull(postResponse1);
         assertNotNull(postResponse1.getBody());
         employee = postResponse1.getBody();
@@ -49,7 +49,8 @@ public class EmployeeControllerTest {
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.withBasicAuth("manager", "admin-password")
+                .exchange(url, HttpMethod.GET, entity, String.class);
 
         System.out.println(response);
         System.out.println(response.getBody());
@@ -59,7 +60,8 @@ public class EmployeeControllerTest {
     public void b_read() {
         String url = baseURL + "read/" + employee.getEmployeeCode();
         System.out.println("URL: " + url);
-        ResponseEntity<Employee> response = restTemplate.getForEntity(url, Employee.class);
+        ResponseEntity<Employee> response = restTemplate.withBasicAuth("manager", "admin-password")
+                .getForEntity(url, Employee.class);
         assertEquals(employee.getFullName(), response.getBody().getFullName());
     }
 
@@ -69,7 +71,8 @@ public class EmployeeControllerTest {
         String url = baseURL + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + update);
-        ResponseEntity<Employee> response = restTemplate.postForEntity(url, update, Employee.class);
+        ResponseEntity<Employee> response = restTemplate.withBasicAuth("manager", "admin-password")
+                .postForEntity(url, update, Employee.class);
         assertNotEquals(employee.getEmailAddress(), response.getBody().getEmailAddress());
     }
 
@@ -77,6 +80,7 @@ public class EmployeeControllerTest {
     public void e_delete() {
         String url = baseURL + "delete/" + employee.getEmployeeCode();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth("manager", "admin-password")
+                .delete(url);
     }
 }
