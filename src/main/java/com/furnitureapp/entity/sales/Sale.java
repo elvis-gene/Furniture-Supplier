@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity(name = "sales")
 public class Sale{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "sale_code")
     private Integer saleCode;
     @Column(name = "total_amount")

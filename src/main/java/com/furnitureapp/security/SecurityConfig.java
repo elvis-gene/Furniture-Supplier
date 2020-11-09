@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/Job/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/Job/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/Job/read/**", "/Job/list/").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.POST, "/Product/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/Product/delete/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/Product/read/**", "/Product/list/").hasRole(USER_ROLE)
                 .and()
                 .formLogin().disable()
                 .httpBasic();
