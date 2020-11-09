@@ -47,7 +47,7 @@ public class CategoryControllerTest {
 
     @Test
     public void b_read() {
-        String url = baseURL + "read" + category.getCategoryCode();
+        String url = baseURL + "read/" + category.getCategoryCode();
         System.out.println("URL: " + url);
         ResponseEntity<Category> response = restTemplate
                 .withBasicAuth("manager","admin-password")
@@ -71,7 +71,7 @@ public class CategoryControllerTest {
 
     @Test
     public void e_delete() {
-        String url = baseURL + "delete" + category.getCategoryCode();
+        String url = baseURL + "delete/" + category.getCategoryCode();
         System.out.println("URL: " + url);
         restTemplate
                 .withBasicAuth("manager","admin-password")

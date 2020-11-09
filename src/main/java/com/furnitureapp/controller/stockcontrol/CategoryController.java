@@ -20,7 +20,7 @@ public class CategoryController {
        return categoryService.create(category);
     }
 
-    @GetMapping("/read {catCode}")
+    @GetMapping("/read/{catCode}")
     public Category read (@PathVariable Integer catCode ){
         return categoryService.read(catCode);
     }
@@ -30,9 +30,9 @@ public class CategoryController {
         return categoryService.update(category);
     }
 
-    @DeleteMapping ("/delete {catCode}")
-    public boolean delete(@PathVariable Integer catcode) {
-        return categoryService.delete(catcode);
+    @DeleteMapping ("/delete/{catCode}")
+    public boolean delete(@PathVariable Integer catCode) {
+        return categoryService.delete(catCode);
 
     }
 
