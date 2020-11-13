@@ -38,7 +38,10 @@ public class DeliveryControllerTest {
     public void a_create() {
         Delivery delivery = DeliveryFactory.createDelivery(123,002,"32 Ty Street", 57489,"Shipped");
         String url = baseUrl + "create";
-        ResponseEntity<Delivery> postResponse = restTemplate.postForEntity(url, delivery, Delivery.class);
+        //ResponseEntity<Delivery> postResponse = restTemplate.postForEntity(url, delivery, Delivery.class);
+        ResponseEntity<Delivery> postResponse = restTemplate
+                .withBasicAuth("manager","admin-passsword")
+                .postForEntity(url, delivery, Delivery.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         assertNotNull(postResponse.getStatusCode()); // check if 200 ??? figure out implementation here ASAP
@@ -51,7 +54,9 @@ public class DeliveryControllerTest {
     public void b_read() {
         String url = baseUrl + "read/";
         System.out.println("URL" + url);
-        ResponseEntity <Delivery> response = restTemplate.getForEntity(url, Delivery.class);
+        ResponseEntity<Delivery> response = restTemplate
+                .withBasicAuth("manager","admin-passsword")
+                .getForEntity(url, Delivery.class);
         assertEquals(delivery.getDeliveryCode(), response.getBody().getDeliveryCode());
 
 
@@ -62,7 +67,9 @@ public class DeliveryControllerTest {
     public void c_update() {
         Delivery updated = new Delivery.DeliveryBuilder().copy(delivery).setDeliveryCode(55245).build();
         String url = baseUrl + "update/";
-        ResponseEntity<Delivery> response = restTemplate.postForEntity(url, updated, Delivery.class);
+        ResponseEntity<Delivery> response = restTemplate
+                .withBasicAuth("manager","admin-passsword")
+                .postForEntity(url,updated, Delivery.class);
         assertEquals(delivery.getDeliveryCode(), response.getBody().getDeliveryCode());
 
     }
@@ -72,7 +79,9 @@ public class DeliveryControllerTest {
 
         String url = baseUrl + "delete/" + delivery.getDeliveryCode();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.
+                withBasicAuth("manager","admin-password")
+                .delete(url);
 
 
     }
@@ -82,7 +91,9 @@ public class DeliveryControllerTest {
         String url = baseUrl + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth("manager","admin-password")
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
 
