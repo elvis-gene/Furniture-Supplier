@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/ProductCategory")
+@RequestMapping("/Category")
 
 public class CategoryController {
 
     @Autowired
-    private CategoryServiceImpl productCategoryService;
+    private CategoryServiceImpl categoryService;
 
     @PostMapping("/create")
    public Category create(@RequestBody Category category){
-       return productCategoryService.create(category);
+       return categoryService.create(category);
     }
 
-    @GetMapping("/read {catCode}")
+    @GetMapping("/read/{catCode}")
     public Category read (@PathVariable Integer catCode ){
-        return productCategoryService.read(catCode);
+        return categoryService.read(catCode);
     }
 
     @PostMapping ("/update")
     public Category update (@RequestBody Category category) {
-        return productCategoryService.update(category);
+        return categoryService.update(category);
     }
 
-    @DeleteMapping ("/delete {catCode}")
-    public boolean delete(@PathVariable Integer catcode) {
-        return productCategoryService.delete(catcode);
+    @DeleteMapping ("/delete/{catCode}")
+    public boolean delete(@PathVariable Integer catCode) {
+        return categoryService.delete(catCode);
 
     }
 
     @GetMapping ("/list")
     public Set<Category> list() {
-        return productCategoryService.list();
+        return categoryService.list();
     }
 
 }

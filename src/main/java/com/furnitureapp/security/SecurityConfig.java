@@ -25,24 +25,42 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/sale/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/sale/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/sale/read/**", "/sale/all/").hasRole(USER_ROLE)
+          
                 .antMatchers(HttpMethod.POST, "/customer/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/customer/delete/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.GET, "/customer/read/**", "/customer/all/").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.POST, "/appointment/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/appointment/delete/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.GET, "/appointment/read/**", "/appointment/all/").hasRole(USER_ROLE)
+
+                .antMatchers(HttpMethod.POST, "/category/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/category/delete/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/category/read/**", "/category/list").hasRole(USER_ROLE)
+
+
                 .antMatchers(HttpMethod.POST, "/promotion/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/promotion/read/**", "/promotion/list").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE,"/promotion/delete/**").hasRole(ADMIN_ROLE)
+
                 .antMatchers(HttpMethod.POST, "/Employee/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/Employee/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/Employee/read/**", "/Employee/list/").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.POST, "/Job/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/Job/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/Job/read/**", "/Job/list/").hasRole(ADMIN_ROLE)
+
                 .antMatchers(HttpMethod.POST, "/Product/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/Product/delete/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/Product/read/**", "/Product/list/").hasRole(USER_ROLE)
+
+                .antMatchers(HttpMethod.POST, "/stock/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/stock/delete/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/stock/read/**", "/stock/all/").hasRole(USER_ROLE)
+
+                .antMatchers(HttpMethod.POST, "/delivery/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/delivery/delete/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/delivery/read/**", "/delivery/list/").hasRole(USER_ROLE)
+
                 .and()
                 .formLogin().disable()
                 .httpBasic();
